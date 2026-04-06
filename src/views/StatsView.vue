@@ -5,6 +5,14 @@
       <p class="page-subtitle">My Learning Stats</p>
     </div>
 
+    <!-- Daily Quote -->
+    <section class="quote-section">
+      <div class="quote-card" :style="{ background: `linear-gradient(135deg, ${quoteColors.from}, ${quoteColors.to})` }">
+        <p class="quote-zh text-chinese">「{{ quote.zh }}」</p>
+        <p class="quote-en">{{ quote.en }}</p>
+      </div>
+    </section>
+
     <!-- Today's Summary -->
     <section class="today-section">
       <h2 class="section-title">Today</h2>
@@ -149,6 +157,7 @@ import {
   getAllTimeStats, getStreak, getTodayStr, formatTime
 } from '../data/statsStore'
 import { generateShareCard, downloadShareCard } from '../composables/useShareCard'
+import { getTodayQuote, themeColors } from '../data/dailyQuotes'
 
 const todayStr = getTodayStr()
 const today = ref({ totalTime: 0, wordsLearned: 0, wordsInProgress: 0, gamesPlayed: 0 })
@@ -158,6 +167,8 @@ const allTime = ref({ totalDays: 0, totalTime: 0, totalWords: 0, longestStreak: 
 const streak = ref({ current: 0, longest: 0 })
 const shareImageUrl = ref(null)
 const generating = ref(false)
+const quote = getTodayQuote()
+const quoteColors = themeColors[quote.theme] || themeColors.sunrise
 
 function formatTimeShort(s) {
   if (s < 60) return `${s}s`
@@ -209,6 +220,27 @@ onMounted(() => {
 .page-header { text-align: center; margin-bottom: 28px; }
 .page-title { font-size: 1.8rem; font-weight: 700; }
 .page-subtitle { color: var(--color-text-secondary); font-size: 0.95rem; }
+
+/* Quote */
+.quote-section { margin-bottom: 24px; }
+.quote-card {
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.quote-zh {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.quote-en {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
 
 .section-title {
   font-size: 1rem;
