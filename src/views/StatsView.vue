@@ -14,10 +14,17 @@
           <span class="stat-value">{{ formatTime(today.totalTime) }}</span>
           <span class="stat-label">Learning Time</span>
         </div>
-        <div class="stat-card">
-          <span class="stat-icon">📚</span>
+        <div class="stat-card highlight">
+          <span class="stat-icon">✅</span>
           <span class="stat-value">{{ today.wordsLearned }}</span>
-          <span class="stat-label">Words Practiced</span>
+          <span class="stat-label">Words Learned</span>
+          <span class="stat-hint">answered correctly 4+ times</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">📝</span>
+          <span class="stat-value">{{ today.wordsInProgress }}</span>
+          <span class="stat-label">In Progress</span>
+          <span class="stat-hint">1-3 times, keep practicing!</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">🎮</span>
@@ -144,7 +151,7 @@ import {
 import { generateShareCard, downloadShareCard } from '../composables/useShareCard'
 
 const todayStr = getTodayStr()
-const today = ref({ totalTime: 0, wordsLearned: 0, gamesPlayed: 0 })
+const today = ref({ totalTime: 0, wordsLearned: 0, wordsInProgress: 0, gamesPlayed: 0 })
 const weekly = ref([])
 const monthly = ref([])
 const allTime = ref({ totalDays: 0, totalTime: 0, totalWords: 0, longestStreak: 0 })
@@ -235,6 +242,8 @@ onMounted(() => {
 .stat-icon { font-size: 1.6rem; }
 .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--color-text); }
 .stat-label { font-size: 0.75rem; color: var(--color-text-secondary); font-weight: 500; }
+.stat-hint { font-size: 0.65rem; color: var(--color-text-light); margin-top: 2px; }
+.stat-card.highlight { border: 2px solid var(--color-success); background: rgba(0, 184, 148, 0.03); }
 
 /* Chart */
 .chart-section { margin-bottom: 28px; }

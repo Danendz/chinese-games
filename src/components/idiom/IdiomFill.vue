@@ -145,7 +145,7 @@ function selectOption(option) {
   selectedCorrect.value = option === correctCharacter.value
 
   if (selectedCorrect.value) {
-    emit('correct')
+    emit('correct', { word: currentIdiom.value.idiom })
   } else {
     emit('incorrect')
   }

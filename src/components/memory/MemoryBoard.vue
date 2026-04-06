@@ -126,7 +126,8 @@ function flipCard(card) {
     if (a.pairId === b.pairId) {
       a.isMatched = true
       b.isMatched = true
-      emit('matchFound')
+      const matchedWord = a.type === 'character' ? a.content : b.content
+      emit('matchFound', { word: matchedWord })
       flippedCards.value = []
       isLocked.value = false
 

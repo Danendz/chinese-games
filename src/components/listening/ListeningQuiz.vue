@@ -133,7 +133,7 @@ function selectAnswer(index) {
   const selected = currentOptions.value[index]
 
   if (selected.id === currentQuestion.value.id) {
-    emit('correct')
+    emit('correct', { word: currentQuestion.value.character })
   } else {
     emit('incorrect')
   }

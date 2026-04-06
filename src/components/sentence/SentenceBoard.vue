@@ -195,7 +195,7 @@ function checkCompletion() {
 
   if (assembled.length === correct.length && assembled.every((w, i) => w === correct[i])) {
     isCorrect.value = true
-    emit('correct')
+    emit('correct', { word: currentSentence.value.words.join('') })
     if (currentIndex.value >= sentenceList.value.length - 1) {
       if (props.infinite) {
         setTimeout(() => startNextRound(), 1500)

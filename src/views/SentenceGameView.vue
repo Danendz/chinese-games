@@ -31,7 +31,7 @@ import SentenceBoard from '../components/sentence/SentenceBoard.vue'
 import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
-import { addGameSession } from '../data/statsStore'
+import { addGameSession, recordWordCorrect } from '../data/statsStore'
 
 const timer = useTimer()
 const score = useScore()
@@ -41,7 +41,7 @@ const gameKey = ref(0)
 const infiniteMode = ref(false)
 
 function onGameStart() { gameState.start(); timer.start() }
-function onCorrect() { score.addCorrect(15) }
+function onCorrect(payload) { score.addCorrect(15); if (payload?.word) recordWordCorrect(payload.word) }
 function onIncorrect() { score.addIncorrect() }
 function onGameComplete() {
   if (infiniteMode.value) return

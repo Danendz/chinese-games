@@ -195,7 +195,7 @@ function tryPlace(position, radical, pieceId) {
     const allFilled = currentPuzzle.value.components.every(c => placedRadicals[c.position] === c.radical)
     if (allFilled) {
       puzzleComplete.value = true
-      emit('correct')
+      emit('correct', { word: currentPuzzle.value.character })
       if (currentIndex.value >= puzzles.value.length - 1) {
         if (props.infinite) {
           setTimeout(() => startNextRound(), 1200)

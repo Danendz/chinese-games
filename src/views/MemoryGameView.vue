@@ -38,7 +38,7 @@ import MemoryBoard from '../components/memory/MemoryBoard.vue'
 import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
-import { addGameSession } from '../data/statsStore'
+import { addGameSession, recordWordCorrect } from '../data/statsStore'
 
 const timer = useTimer()
 const score = useScore()
@@ -56,7 +56,7 @@ const difficulties = [
 ]
 
 function onGameStart() { gameState.start(); timer.start() }
-function onMatchFound() { score.addCorrect(10) }
+function onMatchFound(payload) { score.addCorrect(10); if (payload?.word) recordWordCorrect(payload.word) }
 function onMismatch() { score.addIncorrect() }
 function onGameComplete() {
   if (infiniteMode.value) return
