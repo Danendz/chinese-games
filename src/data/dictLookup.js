@@ -5,6 +5,7 @@
 import { vocabulary } from './vocabulary'
 import { radicalPuzzles } from './radicals'
 import { sentences } from './sentences'
+import { extraDict } from './extraDict'
 
 // Build flat arrays from all levels
 function flattenData(dataObj) {
@@ -15,7 +16,7 @@ function flattenData(dataObj) {
   return result
 }
 
-const allVocab = flattenData(vocabulary)
+const allVocab = [...flattenData(vocabulary), ...extraDict]
 const allRadicals = flattenData(radicalPuzzles)
 const allSentences = flattenData(sentences)
 

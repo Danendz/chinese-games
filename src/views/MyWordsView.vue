@@ -42,7 +42,7 @@
         </div>
         <div class="form-actions">
           <button type="button" class="btn-auto" @click="autoFillVocab" :disabled="!canAutoFillVocab">⚡ Auto Fill</button>
-          <button type="submit" class="btn-add" :disabled="!vocabForm.character || !vocabForm.pinyin || !vocabForm.english">+ Add Word</button>
+          <button type="submit" class="btn-add" :disabled="!vocabForm.character && !vocabForm.english">+ Add Word</button>
         </div>
       </form>
 
@@ -269,8 +269,12 @@ function applyVocabSuggestion(s) {
 }
 
 function addVocab() {
-  if (!vocabForm.character || !vocabForm.pinyin || !vocabForm.english) return
-  addMyVocabulary({ ...vocabForm })
+  if (!vocabForm.character && !vocabForm.english) return
+  addMyVocabulary({
+    character: vocabForm.character || vocabForm.english,
+    pinyin: vocabForm.pinyin || '—',
+    english: vocabForm.english || vocabForm.character
+  })
   myVocabulary.value = getMyVocabulary()
   vocabForm.character = ''; vocabForm.pinyin = ''; vocabForm.english = ''
 }
