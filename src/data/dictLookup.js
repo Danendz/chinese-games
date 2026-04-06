@@ -6,6 +6,8 @@ import { vocabulary } from './vocabulary'
 import { radicalPuzzles } from './radicals'
 import { sentences } from './sentences'
 import { extraDict } from './extraDict'
+import { extraSentences } from './extraSentences'
+import { extraRadicals } from './extraRadicals'
 
 // Build flat arrays from all levels
 function flattenData(dataObj) {
@@ -17,8 +19,8 @@ function flattenData(dataObj) {
 }
 
 const allVocab = [...flattenData(vocabulary), ...extraDict]
-const allRadicals = flattenData(radicalPuzzles)
-const allSentences = flattenData(sentences)
+const allRadicals = [...flattenData(radicalPuzzles), ...extraRadicals]
+const allSentences = [...flattenData(sentences), ...extraSentences]
 
 // === Vocabulary Lookup ===
 

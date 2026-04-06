@@ -103,7 +103,7 @@
         </div>
         <div class="form-actions">
           <button type="button" class="btn-auto" @click="autoFillSent" :disabled="!canAutoFillSent">⚡ Auto Fill</button>
-          <button type="submit" class="btn-add" :disabled="!sentForm.wordsRaw || !sentForm.pinyin || !sentForm.english">+ Add Sentence</button>
+          <button type="submit" class="btn-add" :disabled="!sentForm.wordsRaw && !sentForm.english">+ Add Sentence</button>
         </div>
       </form>
 
@@ -187,7 +187,7 @@
           </div>
         </div>
         <div class="form-actions">
-          <button type="submit" class="btn-add" :disabled="!radForm.character || !radForm.pinyin || !radForm.english || !radForm.comp1 || !radForm.comp2">+ Add Radical Puzzle</button>
+          <button type="submit" class="btn-add" :disabled="!radForm.character">+ Add Radical Puzzle</button>
         </div>
       </form>
 
@@ -318,10 +318,12 @@ function applySentSuggestion(s) {
 }
 
 function addSent() {
-  if (!sentForm.wordsRaw || !sentForm.pinyin || !sentForm.english) return
+  if (!sentForm.wordsRaw && !sentForm.english) return
+  const wordsRaw = sentForm.wordsRaw || sentForm.english
   addMySentence({
-    words: sentForm.wordsRaw.trim().split(/\s+/),
-    pinyin: sentForm.pinyin, english: sentForm.english,
+    words: wordsRaw.trim().split(/\s+/),
+    pinyin: sentForm.pinyin || '—',
+    english: sentForm.english || sentForm.wordsRaw,
     grammarPattern: sentForm.grammarPattern, grammarNote: sentForm.grammarNote
   })
   mySentences.value = getMySentences()
@@ -380,15 +382,22 @@ function applyRadSuggestion(s) {
 }
 
 function addRad() {
-  if (!radForm.character || !radForm.pinyin || !radForm.english || !radForm.comp1 || !radForm.comp2) return
+  if (!radForm.character) return
+  // Auto-fill from dictionary if components are missing
+  if (!radForm.comp1 || !radForm.comp2) {
+    const r = lookupRadicalByCharacter(radForm.character)
+    if (r) { applyRadData(r) }
+  }
   const posMap = { 'left-right': ['left', 'right'], 'top-bottom': ['top', 'bottom'], 'enclosed': ['outer', 'inner'] }
   const positions = posMap[radForm.structure]
+  const comp1 = radForm.comp1 || '?'
+  const comp2 = radForm.comp2 || '?'
   addMyRadical({
-    character: radForm.character, pinyin: radForm.pinyin, english: radForm.english,
+    character: radForm.character, pinyin: radForm.pinyin || '—', english: radForm.english || radForm.character,
     structure: radForm.structure,
     components: [
-      { radical: radForm.comp1, position: positions[0], label: radForm.comp1 },
-      { radical: radForm.comp2, position: positions[1], label: radForm.comp2 }
+      { radical: comp1, position: positions[0], label: comp1 },
+      { radical: comp2, position: positions[1], label: comp2 }
     ],
     distractors: radForm.distractorsRaw ? radForm.distractorsRaw.split(/[,，]/).map(s => s.trim()).filter(Boolean) : ['口', '日', '木'],
     hint: radForm.hint
