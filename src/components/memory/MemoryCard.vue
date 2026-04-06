@@ -113,6 +113,7 @@ defineEmits(['flip'])
 
 .card-pinyin {
   font-size: 1rem;
+  font-family: var(--font-pinyin);
   color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 4px;

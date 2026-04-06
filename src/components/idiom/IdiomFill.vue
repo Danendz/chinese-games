@@ -305,6 +305,7 @@ onMounted(() => {
 }
 
 .hint-pinyin {
+  font-family: var(--font-pinyin);
   font-size: 0.95rem;
   color: var(--color-text-light);
   margin-bottom: 4px;

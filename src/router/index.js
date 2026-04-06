@@ -45,6 +45,12 @@ const routes = [
     meta: { title: '看图猜词 | Picture Quiz' }
   },
   {
+    path: '/stats',
+    name: 'stats',
+    component: () => import('../views/StatsView.vue'),
+    meta: { title: '学习统计 | My Stats' }
+  },
+  {
     path: '/my-words',
     name: 'myWords',
     component: () => import('../views/MyWordsView.vue'),

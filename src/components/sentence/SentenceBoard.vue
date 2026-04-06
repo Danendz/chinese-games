@@ -419,6 +419,7 @@ onMounted(() => {
 }
 
 .result-pinyin {
+  font-family: var(--font-pinyin);
   font-size: 1.05rem;
   color: var(--color-primary);
   font-weight: 500;

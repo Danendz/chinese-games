@@ -272,6 +272,6 @@ onUnmounted(() => {
 }
 
 .answer-word { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
-.answer-pinyin { font-size: 1rem; color: var(--color-primary); font-weight: 500; margin-bottom: 2px; }
+.answer-pinyin { font-size: 1rem; font-family: var(--font-pinyin); color: var(--color-primary); font-weight: 500; margin-bottom: 2px; }
 .answer-english { font-size: 0.9rem; color: var(--color-text-secondary); }
 </style>

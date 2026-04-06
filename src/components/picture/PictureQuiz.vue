@@ -265,6 +265,7 @@ onMounted(() => {
 
 .answer-pinyin {
   font-size: 1rem;
+  font-family: var(--font-pinyin);
   color: var(--color-primary);
   font-weight: 500;
   margin-bottom: 2px;

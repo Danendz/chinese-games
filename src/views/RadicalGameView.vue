@@ -31,6 +31,7 @@ import RadicalPuzzle from '../components/radical/RadicalPuzzle.vue'
 import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
+import { addGameSession } from '../data/statsStore'
 
 const timer = useTimer()
 const score = useScore()
@@ -42,8 +43,14 @@ const infiniteMode = ref(false)
 function onGameStart() { gameState.start(); timer.start() }
 function onCorrect() { score.addCorrect(20) }
 function onIncorrect() { score.addIncorrect() }
-function onGameComplete() { if (infiniteMode.value) return; timer.pause(); gameState.complete() }
-function onRoundComplete() {}
+function onGameComplete() {
+  if (infiniteMode.value) return
+  timer.pause(); gameState.complete()
+  addGameSession('radicals', timer.elapsed.value, score.correct.value)
+}
+function onRoundComplete() {
+  if (infiniteMode.value) addGameSession('radicals', timer.elapsed.value, score.correct.value)
+}
 function toggleInfinite() { infiniteMode.value = !infiniteMode.value; resetGame() }
 function resetGame() { timer.reset(); score.reset(); gameState.reset(); gameKey.value++ }
 </script>

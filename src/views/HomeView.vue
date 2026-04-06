@@ -7,6 +7,8 @@
       </p>
     </section>
 
+    <StreakBanner />
+
     <section class="games-grid">
       <router-link
         v-for="(game, index) in games"
@@ -32,6 +34,8 @@
 </template>
 
 <script setup>
+import StreakBanner from '../components/shared/StreakBanner.vue'
+
 const games = [
   {
     route: '/memory',
@@ -86,6 +90,15 @@ const games = [
     description: 'See an emoji or image and guess the Chinese word it represents. A fun visual learning experience!',
     gradient: 'linear-gradient(135deg, #55efc4, #00b894)',
     tags: ['Beginner - HSK9', 'Visual', 'Vocabulary']
+  },
+  {
+    route: '/stats',
+    icon: '📊',
+    title: '学习统计',
+    subtitle: 'My Stats',
+    description: 'View your learning streak, daily stats, words practiced, and share your progress with friends!',
+    gradient: 'linear-gradient(135deg, #fd79a8, #fdcb6e)',
+    tags: ['Progress', 'Streak', 'Share']
   },
   {
     route: '/my-words',

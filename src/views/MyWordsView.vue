@@ -474,6 +474,7 @@ function deleteRad(id) {
 }
 
 .word-pinyin {
+  font-family: var(--font-pinyin);
   font-size: 0.9rem;
   color: var(--color-primary);
   font-weight: 500;
@@ -499,6 +500,7 @@ function deleteRad(id) {
 }
 
 .sentence-py {
+  font-family: var(--font-pinyin);
   font-size: 0.85rem;
   color: var(--color-primary);
 }

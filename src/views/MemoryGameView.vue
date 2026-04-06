@@ -38,6 +38,7 @@ import MemoryBoard from '../components/memory/MemoryBoard.vue'
 import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
+import { addGameSession } from '../data/statsStore'
 
 const timer = useTimer()
 const score = useScore()
@@ -57,8 +58,14 @@ const difficulties = [
 function onGameStart() { gameState.start(); timer.start() }
 function onMatchFound() { score.addCorrect(10) }
 function onMismatch() { score.addIncorrect() }
-function onGameComplete() { if (infiniteMode.value) return; timer.pause(); gameState.complete() }
-function onRoundComplete() {}
+function onGameComplete() {
+  if (infiniteMode.value) return
+  timer.pause(); gameState.complete()
+  addGameSession('memory', timer.elapsed.value, score.correct.value)
+}
+function onRoundComplete() {
+  if (infiniteMode.value) addGameSession('memory', timer.elapsed.value, score.correct.value)
+}
 function toggleInfinite() { infiniteMode.value = !infiniteMode.value; resetGame() }
 function resetGame() { timer.reset(); score.reset(); gameState.reset(); gameKey.value++ }
 </script>
