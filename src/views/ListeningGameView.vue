@@ -1,0 +1,87 @@
+<template>
+  <div class="game-view">
+    <div class="game-header">
+      <h1 class="game-title text-chinese">听力挑战</h1>
+      <p class="game-subtitle">Listening Quiz</p>
+    </div>
+    <GameToolbar
+      :score="score.score.value"
+      :timer="timer.formatted.value"
+      :is-playing="gameState.isPlaying.value"
+    />
+    <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
+    <div class="mode-bar">
+      <button class="mode-btn" :class="{ active: mode === 'english' }" @click="mode = 'english'; resetGame()">
+        Hear → Select English
+      </button>
+      <button class="mode-btn" :class="{ active: mode === 'character' }" @click="mode = 'character'; resetGame()">
+        Hear → Select Chinese
+      </button>
+      <button class="mode-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
+        ∞ Infinite
+      </button>
+    </div>
+    <ListeningQuiz
+      :hsk-level="hskLevel"
+      :mode="mode"
+      :infinite="infiniteMode"
+      :key="gameKey"
+      @correct="onCorrect"
+      @incorrect="onIncorrect"
+      @game-start="onGameStart"
+      @game-complete="onGameComplete"
+      @round-complete="onRoundComplete"
+    />
+    <GameOverModal
+      v-if="gameState.isComplete.value && !infiniteMode"
+      title="Great Listening!"
+      :score="score.score.value"
+      :time="timer.formatted.value"
+      :accuracy="score.accuracy.value"
+      @play-again="resetGame"
+      @go-home="$router.push('/')"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import GameToolbar from '../components/shared/GameToolbar.vue'
+import GameOverModal from '../components/shared/GameOverModal.vue'
+import HskLevelPicker from '../components/shared/HskLevelPicker.vue'
+import ListeningQuiz from '../components/listening/ListeningQuiz.vue'
+import { useTimer } from '../composables/useTimer'
+import { useScore } from '../composables/useScore'
+import { useGameState } from '../composables/useGameState'
+
+const timer = useTimer()
+const score = useScore()
+const gameState = useGameState()
+const hskLevel = ref('Beginner')
+const mode = ref('english')
+const gameKey = ref(0)
+const infiniteMode = ref(false)
+
+function onGameStart() { gameState.start(); timer.start() }
+function onCorrect() { score.addCorrect(15) }
+function onIncorrect() { score.addIncorrect() }
+function onGameComplete() { if (infiniteMode.value) return; timer.pause(); gameState.complete() }
+function onRoundComplete() { /* score & timer keep accumulating */ }
+function toggleInfinite() { infiniteMode.value = !infiniteMode.value; resetGame() }
+function resetGame() { timer.reset(); score.reset(); gameState.reset(); gameKey.value++ }
+</script>
+
+<style scoped>
+.game-view { max-width: 800px; margin: 0 auto; }
+.game-header { text-align: center; margin-bottom: 20px; }
+.game-title { font-size: 1.8rem; font-weight: 700; }
+.game-subtitle { color: var(--color-text-secondary); font-size: 0.95rem; }
+.mode-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.mode-btn {
+  padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+  background: var(--color-bg-secondary); color: var(--color-text-secondary); transition: all var(--transition-fast);
+}
+.mode-btn.active { background: var(--color-primary); color: white; }
+.mode-btn:hover:not(.active) { background: var(--color-border); }
+.infinite-btn.active { background: #e17055; border-color: #e17055; }
+</style>
