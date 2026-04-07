@@ -121,8 +121,8 @@ function loadSentence() {
   dragOverIndex.value = null
   wrongSlots.clear()
 
+  // Keep punctuation in their original positions, shuffle only content words
   const contentWords = sentence.words.filter(w => !isPunctuation(w))
-  const punctuationWords = sentence.words.filter(w => isPunctuation(w))
 
   wordBank.value = shuffleArray(contentWords).map((w, i) => ({
     id: i,
@@ -130,10 +130,13 @@ function loadSentence() {
     isPlaced: false
   }))
 
-  answerSlots.value = [
-    ...contentWords.map(() => ({ word: null, locked: false })),
-    ...punctuationWords.map(p => ({ word: p, locked: true }))
-  ]
+  // Build slots preserving punctuation at their correct indices
+  answerSlots.value = sentence.words.map(w => {
+    if (isPunctuation(w)) {
+      return { word: w, locked: true }
+    }
+    return { word: null, locked: false }
+  })
 }
 
 function handleDragStart(item, event) {
