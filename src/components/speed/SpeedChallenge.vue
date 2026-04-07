@@ -1,85 +1,91 @@
 <template>
-  <div class="speed-challenge" v-if="currentQuestion">
-    <div class="progress-bar">
-      <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
-      <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
-        {{ currentIndex + 1 }} / {{ questions.length }}
-      </span>
+  <div class="speed-challenge">
+    <!-- Pre-game: ready screen -->
+    <div v-if="phase === 'ready'" class="ready-screen">
+      <div class="ready-icon">⚡</div>
+      <h2 class="ready-title text-chinese">准备好了吗？</h2>
+      <p class="ready-desc">You have <strong>60 seconds</strong> to recognize as many words as possible!</p>
+      <button class="start-btn" @click="startGame">Start! 开始!</button>
     </div>
 
-    <transition name="toast">
-      <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All words completed! Starting over with fresh shuffle...
+    <!-- Playing -->
+    <div v-if="phase === 'playing' && currentQuestion">
+      <!-- Global timer bar -->
+      <div class="global-timer">
+        <div class="global-timer-fill" :style="{ width: globalTimePercent + '%' }" :class="{ urgent: globalTimeLeft <= 10, warning: globalTimeLeft <= 20 && globalTimeLeft > 10 }"></div>
+        <span class="global-timer-text">{{ globalTimeLeft }}s</span>
       </div>
-    </transition>
 
-    <div class="stats-row">
-      <div class="stat-box score-box">
-        <span class="stat-label">Score</span>
-        <span class="stat-value">{{ totalScore }}</span>
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="stat-label">Score</span>
+          <span class="stat-value">{{ totalScore }}</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Correct</span>
+          <span class="stat-value correct-text">{{ correctCount }}</span>
+        </div>
+        <div class="stat-box" :class="{ 'on-fire': streak >= 3 }">
+          <span class="stat-label">Streak</span>
+          <span class="stat-value">{{ streak }}{{ streak >= 3 ? ' 🔥' : '' }}</span>
+        </div>
       </div>
-      <div class="stat-box streak-box" :class="{ 'on-fire': streak >= 3 }">
-        <span class="stat-label">Streak</span>
-        <span class="stat-value">{{ streak }}{{ streak >= 3 ? ' &#x1F525;' : '' }}</span>
+
+      <!-- Word display -->
+      <div class="word-display" :class="{ 'flash-correct': flashState === 'correct', 'flash-wrong': flashState === 'wrong' }">
+        <span class="chinese-word text-chinese">{{ currentQuestion.character }}</span>
+        <span class="pinyin-hint text-pinyin">{{ currentQuestion.pinyin }}</span>
+      </div>
+
+      <!-- Options -->
+      <div class="options-grid">
+        <button
+          v-for="(opt, i) in currentOptions"
+          :key="i"
+          class="option-btn"
+          :class="{
+            correct: answered && opt.id === currentQuestion.id,
+            wrong: answered && selectedIndex === i && opt.id !== currentQuestion.id
+          }"
+          :disabled="answered"
+          @click="selectAnswer(i)"
+        >
+          {{ opt.english }}
+        </button>
       </div>
     </div>
 
-    <div class="timer-bar-container">
-      <div
-        class="timer-bar-fill"
-        :class="{ urgent: timeRatio < 0.3, warning: timeRatio < 0.5 && timeRatio >= 0.3 }"
-        :style="{ width: (timeRatio * 100) + '%' }"
-      ></div>
-    </div>
-
-    <div
-      class="word-display"
-      :class="{ 'flash-correct': flashState === 'correct', 'flash-wrong': flashState === 'wrong' }"
-    >
-      <span class="chinese-word text-chinese">{{ currentQuestion.character }}</span>
-      <span class="pinyin-hint">{{ currentQuestion.pinyin }}</span>
-    </div>
-
-    <p class="quiz-prompt">Select the correct meaning:</p>
-
-    <div class="options-grid">
-      <button
-        v-for="(opt, i) in currentOptions"
-        :key="i"
-        class="option-btn"
-        :class="{
-          correct: answered && opt.id === currentQuestion.id,
-          wrong: answered && selectedIndex === i && opt.id !== currentQuestion.id
-        }"
-        :disabled="answered"
-        @click="selectAnswer(i)"
-      >
-        {{ opt.english }}
-      </button>
-    </div>
-
-    <div v-if="answered && selectedIndex !== -1" class="answer-info animate-pop-in">
-      <div class="answer-word text-chinese">{{ currentQuestion.character }}</div>
-      <div class="answer-pinyin">{{ currentQuestion.pinyin }}</div>
-      <div class="answer-english">{{ currentQuestion.english }}</div>
-      <div v-if="lastBonus > 0" class="speed-bonus">+{{ lastBonus }} speed bonus!</div>
-    </div>
-
-    <div v-if="answered && selectedIndex === -1" class="timeout-info animate-pop-in">
-      <div class="timeout-label">Time's up!</div>
-      <div class="answer-word text-chinese">{{ currentQuestion.character }}</div>
-      <div class="answer-pinyin">{{ currentQuestion.pinyin }}</div>
-      <div class="answer-english">{{ currentQuestion.english }}</div>
+    <!-- Game over -->
+    <div v-if="phase === 'finished'" class="result-screen animate-pop-in">
+      <div class="result-icon">🏆</div>
+      <h2 class="result-title">Time's Up!</h2>
+      <div class="result-stats">
+        <div class="result-stat">
+          <span class="result-value">{{ totalScore }}</span>
+          <span class="result-label">Score</span>
+        </div>
+        <div class="result-stat">
+          <span class="result-value correct-text">{{ correctCount }}</span>
+          <span class="result-label">Correct</span>
+        </div>
+        <div class="result-stat">
+          <span class="result-value">{{ wrongCount }}</span>
+          <span class="result-label">Wrong</span>
+        </div>
+        <div class="result-stat">
+          <span class="result-value">{{ bestStreak }}</span>
+          <span class="result-label">Best Streak</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import { vocabulary } from '../../data/vocabulary'
 import { getMyVocabulary } from '../../data/myWordsStore'
-import { useInfinitePool } from '../../composables/useInfinitePool'
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },
@@ -88,29 +94,27 @@ const props = defineProps({
 
 const emit = defineEmits(['correct', 'incorrect', 'gameStart', 'gameComplete', 'roundComplete'])
 
+const GAME_DURATION = 60 // seconds
+
+const phase = ref('ready') // ready | playing | finished
 const fullPool = ref([])
-const questions = ref([])
-const currentIndex = ref(0)
+const usedIds = ref(new Set())
+const currentQuestion = ref(null)
 const currentOptions = ref([])
 const answered = ref(false)
 const selectedIndex = ref(-1)
-const gameStarted = ref(false)
+const flashState = ref('')
 
 const totalScore = ref(0)
+const correctCount = ref(0)
+const wrongCount = ref(0)
 const streak = ref(0)
-const lastBonus = ref(0)
-const flashState = ref('')   // 'correct', 'wrong', or ''
+const bestStreak = ref(0)
 
-// Timer state
-const timeLimit = ref(3000)   // ms, starts at 3s
-const timeRemaining = ref(3000)
-const timerInterval = ref(null)
+const globalTimeLeft = ref(GAME_DURATION)
+const globalTimerInterval = ref(null)
 
-const pool = useInfinitePool(fullPool, 15, computed(() => props.infinite))
-
-const currentQuestion = computed(() => questions.value[currentIndex.value])
-const progressPercent = computed(() => (currentIndex.value / questions.value.length) * 100)
-const timeRatio = computed(() => timeRemaining.value / timeLimit.value)
+const globalTimePercent = computed(() => (globalTimeLeft.value / GAME_DURATION) * 100)
 
 function shuffleArray(arr) {
   const a = [...arr]
@@ -121,133 +125,101 @@ function shuffleArray(arr) {
   return a
 }
 
-function calcTimeLimit() {
-  // 3s -> 2.5s -> 2s -> 1.5s (min)
-  const idx = currentIndex.value
-  const limit = Math.max(1500, 3000 - idx * 500)
-  return limit
-}
+function startGame() {
+  const source = props.hskLevel === 'MyWords'
+    ? getMyVocabulary()
+    : (vocabulary[props.hskLevel] || vocabulary.Beginner)
+  fullPool.value = source
+  usedIds.value = new Set()
 
-function startTimer() {
-  stopTimer()
-  timeLimit.value = calcTimeLimit()
-  timeRemaining.value = timeLimit.value
-  const tickMs = 50
-  timerInterval.value = setInterval(() => {
-    timeRemaining.value = Math.max(0, timeRemaining.value - tickMs)
-    if (timeRemaining.value <= 0) {
-      onTimeout()
-    }
-  }, tickMs)
-}
-
-function stopTimer() {
-  if (timerInterval.value) {
-    clearInterval(timerInterval.value)
-    timerInterval.value = null
-  }
-}
-
-function onTimeout() {
-  stopTimer()
-  answered.value = true
-  selectedIndex.value = -1
-  flashState.value = 'wrong'
+  phase.value = 'playing'
+  totalScore.value = 0
+  correctCount.value = 0
+  wrongCount.value = 0
   streak.value = 0
-  emit('incorrect')
-  setTimeout(() => {
-    flashState.value = ''
-    advanceQuestion()
-  }, 1800)
+  bestStreak.value = 0
+  globalTimeLeft.value = GAME_DURATION
+
+  emit('gameStart')
+  loadNextQuestion()
+  startGlobalTimer()
 }
 
-function loadQuestion() {
+function startGlobalTimer() {
+  globalTimerInterval.value = setInterval(() => {
+    globalTimeLeft.value--
+    if (globalTimeLeft.value <= 0) {
+      endGame()
+    }
+  }, 1000)
+}
+
+function endGame() {
+  clearInterval(globalTimerInterval.value)
+  globalTimerInterval.value = null
+  phase.value = 'finished'
+  emit('gameComplete')
+}
+
+function pickUnusedQuestion() {
+  let available = fullPool.value.filter(w => !usedIds.value.has(w.id))
+  if (available.length === 0) {
+    // All used — reset pool
+    usedIds.value = new Set()
+    available = [...fullPool.value]
+  }
+  const picked = available[Math.floor(Math.random() * available.length)]
+  usedIds.value.add(picked.id)
+  return picked
+}
+
+function loadNextQuestion() {
   answered.value = false
   selectedIndex.value = -1
   flashState.value = ''
-  lastBonus.value = 0
-  const q = currentQuestion.value
-  if (!q) return
 
-  const distractorSource = questions.value.length >= 4 ? questions.value : fullPool.value
-  const others = distractorSource.filter(w => w.id !== q.id)
+  const q = pickUnusedQuestion()
+  currentQuestion.value = q
+
+  const others = fullPool.value.filter(w => w.id !== q.id)
   const distractors = shuffleArray(others).slice(0, 3)
   currentOptions.value = shuffleArray([q, ...distractors])
-
-  startTimer()
 }
 
 function selectAnswer(index) {
-  if (answered.value) return
-  stopTimer()
-
-  if (!gameStarted.value) {
-    gameStarted.value = true
-    emit('gameStart')
-  }
+  if (answered.value || phase.value !== 'playing') return
 
   answered.value = true
   selectedIndex.value = index
   const selected = currentOptions.value[index]
 
   if (selected.id === currentQuestion.value.id) {
-    // Correct - calculate speed bonus
-    const ratio = timeRemaining.value / timeLimit.value
-    const bonus = Math.round(ratio * 20)  // up to 20 bonus points
-    const basePoints = 10
-    lastBonus.value = bonus
-    totalScore.value += basePoints + bonus
+    // Correct
+    const timeBonus = Math.round((globalTimeLeft.value / GAME_DURATION) * 5)
+    const streakBonus = Math.min(streak.value * 2, 10)
+    totalScore.value += 10 + timeBonus + streakBonus
+    correctCount.value++
     streak.value++
+    bestStreak.value = Math.max(bestStreak.value, streak.value)
     flashState.value = 'correct'
     emit('correct', { word: currentQuestion.value.character })
   } else {
+    wrongCount.value++
     streak.value = 0
     flashState.value = 'wrong'
     emit('incorrect')
   }
 
+  // Quick advance — speed game should be fast!
   setTimeout(() => {
-    flashState.value = ''
-    advanceQuestion()
-  }, 1500)
+    if (phase.value === 'playing') {
+      loadNextQuestion()
+    }
+  }, 600)
 }
-
-function advanceQuestion() {
-  if (currentIndex.value < questions.value.length - 1) {
-    currentIndex.value++
-    loadQuestion()
-  } else if (props.infinite) {
-    startNextRound()
-  } else {
-    emit('gameComplete')
-  }
-}
-
-function startNextRound() {
-  const batch = pool.nextBatch()
-  if (batch.length === 0) return
-  questions.value = batch
-  currentIndex.value = 0
-  loadQuestion()
-  emit('roundComplete', { round: pool.round.value })
-}
-
-onMounted(() => {
-  const source = props.hskLevel === 'MyWords'
-    ? getMyVocabulary()
-    : (vocabulary[props.hskLevel] || vocabulary.Beginner)
-  fullPool.value = source
-
-  if (props.infinite) {
-    questions.value = pool.nextBatch()
-  } else {
-    questions.value = shuffleArray(source).slice(0, Math.min(15, source.length))
-  }
-  loadQuestion()
-})
 
 onUnmounted(() => {
-  stopTimer()
+  if (globalTimerInterval.value) clearInterval(globalTimerInterval.value)
 })
 </script>
 
@@ -258,255 +230,246 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.progress-bar {
-  position: relative;
-  height: 6px;
-  background: var(--color-bg-secondary);
-  border-radius: 3px;
+/* Ready screen */
+.ready-screen {
+  padding: 40px 20px;
+}
+
+.ready-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.ready-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ready-desc {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
   margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.start-btn {
+  padding: 14px 40px;
+  background: linear-gradient(135deg, var(--color-primary), #e17055);
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Global timer */
+.global-timer {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  background: var(--color-bg-secondary);
+  border-radius: 6px;
+  margin-bottom: 16px;
   overflow: hidden;
 }
 
-.progress-fill {
+.global-timer-fill {
   height: 100%;
-  background: var(--color-primary);
-  border-radius: 3px;
-  transition: width var(--transition-medium);
+  background: linear-gradient(90deg, #00b894, #00cec9);
+  border-radius: 6px;
+  transition: width 1s linear;
 }
 
-.progress-text {
+.global-timer-fill.warning {
+  background: linear-gradient(90deg, #fdcb6e, #e17055);
+}
+
+.global-timer-fill.urgent {
+  background: linear-gradient(90deg, #e17055, #d63031);
+  animation: pulse-bar 0.5s ease infinite;
+}
+
+.global-timer-text {
   position: absolute;
-  right: 0;
-  top: 12px;
-  font-size: 0.8rem;
+  right: 8px;
+  top: -20px;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
 }
 
-.pool-toast {
-  position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, #fdcb6e, #e17055); color: white;
-  padding: 12px 24px; border-radius: var(--radius-md); font-size: 0.9rem;
-  font-weight: 600; box-shadow: var(--shadow-lg); z-index: 500;
+@keyframes pulse-bar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
-.toast-enter-active { animation: slideDown 0.3s ease; }
-.toast-leave-active { animation: slideDown 0.3s ease reverse; }
 
 /* Stats row */
 .stats-row {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
 .stat-box {
-  padding: 8px 20px;
+  padding: 6px 16px;
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  min-width: 80px;
+  gap: 1px;
+  min-width: 70px;
 }
 
 .stat-label {
-  font-size: 0.7rem;
-  color: var(--color-text-secondary);
+  font-size: 0.65rem;
+  color: var(--color-text-light);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .stat-value {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: var(--color-text);
 }
 
-.streak-box.on-fire {
+.correct-text { color: var(--color-success); }
+
+.stat-box.on-fire {
   border-color: #e17055;
   background: rgba(225, 112, 85, 0.08);
 }
 
-.streak-box.on-fire .stat-value {
-  color: #e17055;
-}
-
-/* Timer bar */
-.timer-bar-container {
-  width: 100%;
-  height: 8px;
-  background: var(--color-bg-secondary);
-  border-radius: 4px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
-.timer-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #00b894, #00cec9);
-  border-radius: 4px;
-  transition: width 0.05s linear;
-}
-
-.timer-bar-fill.warning {
-  background: linear-gradient(90deg, #fdcb6e, #e17055);
-}
-
-.timer-bar-fill.urgent {
-  background: linear-gradient(90deg, #e17055, #d63031);
-  animation: pulse-bar 0.4s ease infinite;
-}
-
-@keyframes pulse-bar {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
 /* Word display */
 .word-display {
-  margin: 12px 0 20px;
-  padding: 24px 16px;
+  margin: 8px 0 16px;
+  padding: 20px 16px;
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .word-display.flash-correct {
   border-color: var(--color-success);
-  background: rgba(0, 184, 148, 0.1);
+  background: rgba(0, 184, 148, 0.08);
 }
 
 .word-display.flash-wrong {
   border-color: var(--color-error);
   background: rgba(214, 48, 49, 0.05);
-  animation: shake 0.5s ease;
+  animation: shake 0.4s ease;
 }
 
 .chinese-word {
   display: block;
   font-size: 2.8rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .pinyin-hint {
   display: block;
   font-size: 1rem;
-  font-family: var(--font-pinyin);
   color: var(--color-primary);
   font-weight: 500;
   margin-top: 4px;
-}
-
-.quiz-prompt {
-  font-size: 0.95rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 16px;
 }
 
 /* Options */
 .options-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .option-btn {
-  padding: 16px 12px;
+  padding: 14px 10px;
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.1s ease;
 }
 
 .option-btn:hover:not(:disabled) {
   border-color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .option-btn:disabled { cursor: default; }
+.option-btn.correct { border-color: var(--color-success); background: rgba(0, 184, 148, 0.1); }
+.option-btn.wrong { border-color: var(--color-error); background: rgba(214, 48, 49, 0.05); }
 
-.option-btn.correct {
-  border-color: var(--color-success);
-  background: rgba(0, 184, 148, 0.1);
-  animation: glow 1s ease infinite;
+/* Result screen */
+.result-screen {
+  padding: 40px 20px;
 }
 
-.option-btn.wrong {
-  border-color: var(--color-error);
-  background: rgba(214, 48, 49, 0.05);
-  animation: shake 0.5s ease;
-}
+.result-icon { font-size: 4rem; margin-bottom: 12px; }
 
-/* Answer info */
-.answer-info {
-  padding: 16px;
-  background: linear-gradient(135deg, #f0fff4, #e6fffa);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-success-light);
-}
-
-.timeout-info {
-  padding: 16px;
-  background: linear-gradient(135deg, #fff5f5, #ffe0e0);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-error);
-}
-
-.timeout-label {
-  font-size: 0.85rem;
+.result-title {
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-error);
-  margin-bottom: 6px;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.result-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.result-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.answer-word { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
-.answer-pinyin { font-size: 1rem; font-family: var(--font-pinyin); color: var(--color-primary); font-weight: 500; margin-bottom: 2px; }
-.answer-english { font-size: 0.9rem; color: var(--color-text-secondary); }
-
-.speed-bonus {
-  margin-top: 6px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #e17055;
 }
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-6px); }
-  40% { transform: translateX(6px); }
-  60% { transform: translateX(-4px); }
-  80% { transform: translateX(4px); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
 }
 
 @media (max-width: 480px) {
-  .chinese-word {
-    font-size: 2.2rem;
-  }
-
-  .option-btn {
-    padding: 12px 8px;
-    font-size: 0.9rem;
-  }
-
-  .stats-row {
-    gap: 10px;
-  }
-
-  .stat-box {
-    padding: 6px 14px;
-    min-width: 60px;
-  }
+  .chinese-word { font-size: 2.2rem; }
+  .option-btn { padding: 10px 8px; font-size: 0.85rem; }
 }
 </style>
