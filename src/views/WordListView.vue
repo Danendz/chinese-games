@@ -59,6 +59,15 @@
         <button class="detail-play" @click="speak(selectedWord.character)">🔊 {{ t('wordlist.play') }}</button>
         <div class="detail-translation">{{ tr(selectedWord) }}</div>
 
+        <!-- Definitions -->
+        <div class="detail-section" v-if="selectedWordDetail && selectedWordDetail.definitions">
+          <h3>{{ t('wordlist.definitions') }}</h3>
+          <div v-for="(def, i) in selectedWordDetail.definitions" :key="i" class="definition-item">
+            {{ locale === 'ru' && def.ru ? def.ru : def.en }}
+          </div>
+        </div>
+
+        <!-- Progress -->
         <div class="detail-section" v-if="wordProgress">
           <h3>{{ t('wordlist.progress') }}</h3>
           <div class="progress-info">
@@ -71,13 +80,18 @@
           <span class="progress-hint">{{ wordProgress.total }}/4 {{ t('wordlist.toMaster') }}</span>
         </div>
 
+        <!-- Example Sentences -->
         <div class="detail-section" v-if="selectedWordExamples.length > 0">
           <h3>{{ t('wordlist.examples') }}</h3>
           <div v-for="(ex, i) in selectedWordExamples" :key="i" class="example-item">
-            <div class="example-zh text-chinese">{{ ex.words.join('') }}</div>
-            <div class="example-py text-pinyin">{{ ex.pinyin }}</div>
-            <div class="example-tr">{{ tr(ex) }}</div>
+            <div class="example-zh text-chinese">{{ ex.zh || ex.words?.join('') }}</div>
+            <div class="example-py text-pinyin">{{ ex.py || ex.pinyin }}</div>
+            <div class="example-tr">{{ locale === 'ru' && ex.ru ? ex.ru : (ex.en || tr(ex)) }}</div>
           </div>
+        </div>
+
+        <div class="detail-section" v-if="!selectedWordDetail && selectedWordExamples.length === 0">
+          <p class="no-detail-hint">{{ t('wordlist.noDetail') }}</p>
         </div>
       </div>
     </div>
@@ -88,10 +102,11 @@
 import { ref, computed } from 'vue'
 import { vocabulary } from '../data/vocabulary'
 import { sentences } from '../data/sentences'
+import { wordDetails } from '../data/wordDetails'
 import { useI18n } from '../composables/useI18n'
 import HskLevelPicker from '../components/shared/HskLevelPicker.vue'
 
-const { t, tr } = useI18n()
+const { t, tr, locale } = useI18n()
 
 const hskLevel = ref('Beginner')
 const activeTab = ref('all')
@@ -179,18 +194,32 @@ const wordProgress = computed(() => {
   return { total: getWordTotalCorrect(selectedWord.value.character) }
 })
 
+// Word detail data
+const selectedWordDetail = computed(() => {
+  if (!selectedWord.value) return null
+  return wordDetails[selectedWord.value.character] || null
+})
+
 const selectedWordExamples = computed(() => {
   if (!selectedWord.value) return []
   const char = selectedWord.value.character
-  const allSentences = []
+
+  // First: use wordDetails examples if available
+  const detail = wordDetails[char]
+  if (detail && detail.examples && detail.examples.length > 0) {
+    return detail.examples
+  }
+
+  // Fallback: search sentence database
+  const found = []
   for (const level of Object.values(sentences)) {
     for (const s of level) {
       if (s.words.join('').includes(char)) {
-        allSentences.push(s)
+        found.push({ zh: s.words.join(''), py: s.pinyin, en: s.english, ru: s.russian })
       }
     }
   }
-  return allSentences.slice(0, 3)
+  return found.slice(0, 3)
 })
 
 function goToDetail(word) {
@@ -306,6 +335,12 @@ function toggleExpand(id) {
 .progress-bar-mini { height: 6px; background: var(--color-bg-secondary); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
 .progress-fill-mini { height: 100%; background: var(--color-success); border-radius: 3px; transition: width 0.3s; }
 .progress-hint { font-size: 0.75rem; color: var(--color-text-light); }
+
+.definition-item {
+  padding: 8px 12px; background: var(--color-bg-secondary); border-radius: var(--radius-sm);
+  margin-bottom: 6px; font-size: 0.9rem; color: var(--color-text); line-height: 1.5;
+}
+.no-detail-hint { text-align: center; color: var(--color-text-light); font-size: 0.85rem; padding: 16px 0; }
 
 .example-item {
   padding: 10px; background: var(--color-bg-secondary); border-radius: var(--radius-sm);

@@ -243,6 +243,8 @@ export const messages = {
     'wordlist.inProgress': 'In progress',
     'wordlist.toMaster': 'to master',
     'wordlist.examples': 'Example Sentences',
+    'wordlist.definitions': 'Definitions',
+    'wordlist.noDetail': 'No detailed info available yet. Play games with this word to see your progress!',
     'card.wordlist.subtitle': 'Word List',
     'card.wordlist.desc': 'Browse all vocabulary by level. Track which words you\'ve mastered, which you\'re learning, and which are new!',
   },
@@ -491,6 +493,8 @@ export const messages = {
     'wordlist.inProgress': 'В процессе',
     'wordlist.toMaster': 'для освоения',
     'wordlist.examples': 'Примеры предложений',
+    'wordlist.definitions': 'Определения',
+    'wordlist.noDetail': 'Подробности пока недоступны. Играйте с этим словом, чтобы увидеть прогресс!',
     'card.wordlist.subtitle': 'Список слов',
     'card.wordlist.desc': 'Просматривайте словарь по уровням. Отслеживайте выученные, изучаемые и новые слова!',
   }
