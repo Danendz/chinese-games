@@ -1,17 +1,20 @@
 <template>
   <div class="toolbar">
     <div class="toolbar-item">
-      <span class="toolbar-label">Score</span>
+      <span class="toolbar-label">{{ t('game.score') }}</span>
       <span class="toolbar-value">{{ score }}</span>
     </div>
     <div class="toolbar-item">
-      <span class="toolbar-label">Time</span>
+      <span class="toolbar-label">{{ t('game.time') }}</span>
       <span class="toolbar-value timer" :class="{ active: isPlaying }">{{ timer }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from '../../composables/useI18n'
+const { t } = useI18n()
+
 defineProps({
   score: { type: Number, default: 0 },
   timer: { type: String, default: '00:00' },

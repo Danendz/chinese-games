@@ -5,26 +5,29 @@
       <div class="modal-stats">
         <div class="stat">
           <span class="stat-value">{{ score }}</span>
-          <span class="stat-label">Score</span>
+          <span class="stat-label">{{ t('game.score') }}</span>
         </div>
         <div class="stat">
           <span class="stat-value">{{ time }}</span>
-          <span class="stat-label">Time</span>
+          <span class="stat-label">{{ t('game.time') }}</span>
         </div>
         <div class="stat">
           <span class="stat-value">{{ accuracy }}%</span>
-          <span class="stat-label">Accuracy</span>
+          <span class="stat-label">{{ t('game.accuracy') }}</span>
         </div>
       </div>
       <div class="modal-actions">
-        <button class="btn btn-primary" @click="$emit('playAgain')">Play Again</button>
-        <button class="btn btn-secondary" @click="$emit('goHome')">Back to Games</button>
+        <button class="btn btn-primary" @click="$emit('playAgain')">{{ t('game.playAgain') }}</button>
+        <button class="btn btn-secondary" @click="$emit('goHome')">{{ t('game.backToGames') }}</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from '../../composables/useI18n'
+const { t } = useI18n()
+
 defineProps({
   title: { type: String, default: 'Game Over!' },
   score: { type: Number, default: 0 },

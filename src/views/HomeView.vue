@@ -1,10 +1,8 @@
 <template>
   <div class="home">
     <section class="hero">
-      <h1 class="hero-title text-chinese">Learn Chinese Through Games</h1>
-      <p class="hero-subtitle">
-        Master Chinese characters, radicals, and sentence structures with fun interactive games.
-      </p>
+      <h1 class="hero-title text-chinese">{{ t('home.title') }}</h1>
+      <p class="hero-subtitle">{{ t('home.subtitle') }}</p>
     </section>
 
     <StreakBanner />
@@ -34,118 +32,26 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import StreakBanner from '../components/shared/StreakBanner.vue'
+import { useI18n } from '../composables/useI18n'
 
-const games = [
-  {
-    route: '/memory',
-    icon: '牌',
-    title: '汉字配对翻牌',
-    subtitle: 'Character Matching',
-    description: 'Flip cards to match Chinese characters with their pinyin and meaning. Train your memory while learning new words!',
-    gradient: 'linear-gradient(135deg, #e17055, #d63031)',
-    tags: ['Beginner - HSK9', 'Vocabulary', 'Memory']
-  },
-  {
-    route: '/radicals',
-    icon: '拼',
-    title: '偏旁组字',
-    subtitle: 'Radical Puzzle',
-    description: 'Drag and combine radicals to build Chinese characters. Understand how characters are constructed!',
-    gradient: 'linear-gradient(135deg, #0984e3, #6c5ce7)',
-    tags: ['Beginner - HSK9', 'Radicals', 'Structure']
-  },
-  {
-    route: '/sentences',
-    icon: '句',
-    title: '句子排序',
-    subtitle: 'Sentence Ordering',
-    description: 'Arrange jumbled words into correct Chinese sentences. Master grammar patterns and word order!',
-    gradient: 'linear-gradient(135deg, #00b894, #00cec9)',
-    tags: ['Beginner - HSK9', 'Grammar', 'Sentences']
-  },
-  {
-    route: '/listening',
-    icon: '听',
-    title: '听力挑战',
-    subtitle: 'Listening Quiz',
-    description: 'Listen to Chinese words spoken aloud and select the correct meaning. Train your listening comprehension!',
-    gradient: 'linear-gradient(135deg, #a29bfe, #6c5ce7)',
-    tags: ['Beginner - HSK9', 'Listening', 'Pronunciation']
-  },
-  {
-    route: '/idioms',
-    icon: '成',
-    title: '成语填空',
-    subtitle: 'Idiom Fill',
-    description: 'Complete Chinese idioms by filling in the missing character. Master common expressions and proverbs!',
-    gradient: 'linear-gradient(135deg, #fd79a8, #e84393)',
-    tags: ['HSK1-3 - HSK9', 'Idioms', 'Vocabulary']
-  },
-  {
-    route: '/pictures',
-    icon: '图',
-    title: '看图猜词',
-    subtitle: 'Picture Quiz',
-    description: 'See an emoji or image and guess the Chinese word it represents. A fun visual learning experience!',
-    gradient: 'linear-gradient(135deg, #55efc4, #00b894)',
-    tags: ['Beginner - HSK9', 'Visual', 'Vocabulary']
-  },
-  {
-    route: '/tones',
-    icon: '调',
-    title: '声调大师',
-    subtitle: 'Tone Master',
-    description: 'See a character and identify the correct tone (1st-4th). Master the most challenging part of Chinese pronunciation!',
-    gradient: 'linear-gradient(135deg, #e17055, #fdcb6e)',
-    tags: ['Beginner - HSK9', 'Tones', 'Pronunciation']
-  },
-  {
-    route: '/antonyms',
-    icon: '反',
-    title: '反义词配对',
-    subtitle: 'Antonym Match',
-    description: 'Match words with their opposites! Learn two words at once — big↔small, fast↔slow, happy↔sad.',
-    gradient: 'linear-gradient(135deg, #6c5ce7, #a29bfe)',
-    tags: ['Beginner - HSK9', 'Antonyms', 'Vocabulary']
-  },
-  {
-    route: '/sorting',
-    icon: '类',
-    title: '分类游戏',
-    subtitle: 'Word Sorting',
-    description: 'Sort words into the correct categories — food, animals, colors, emotions and more!',
-    gradient: 'linear-gradient(135deg, #00cec9, #0984e3)',
-    tags: ['Beginner - HSK9', 'Categories', 'Vocabulary']
-  },
-  {
-    route: '/speed',
-    icon: '⚡',
-    title: '快速反应',
-    subtitle: 'Speed Challenge',
-    description: 'A word flashes on screen — select the meaning before time runs out! How fast can you read Chinese?',
-    gradient: 'linear-gradient(135deg, #d63031, #e17055)',
-    tags: ['Beginner - HSK9', 'Speed', 'Reading']
-  },
-  {
-    route: '/stats',
-    icon: '📊',
-    title: '学习统计',
-    subtitle: 'My Stats',
-    description: 'View your learning streak, daily stats, words practiced, and share your progress with friends!',
-    gradient: 'linear-gradient(135deg, #fd79a8, #fdcb6e)',
-    tags: ['Progress', 'Streak', 'Share']
-  },
-  {
-    route: '/my-words',
-    icon: '词',
-    title: '我的词库',
-    subtitle: 'My Words',
-    description: 'Add your own vocabulary, sentences and radical puzzles. Review them in any game with custom content!',
-    gradient: 'linear-gradient(135deg, #fdcb6e, #e17055)',
-    tags: ['Custom', 'Review', 'Personal']
-  }
-]
+const { t } = useI18n()
+
+const games = computed(() => [
+  { route: '/memory', icon: '牌', title: '汉字配对翻牌', subtitle: t('card.memory.subtitle'), description: t('card.memory.desc'), gradient: 'linear-gradient(135deg, #e17055, #d63031)', tags: ['Beginner - HSK9', t('tag.vocabulary'), t('tag.memory')] },
+  { route: '/radicals', icon: '拼', title: '偏旁组字', subtitle: t('card.radical.subtitle'), description: t('card.radical.desc'), gradient: 'linear-gradient(135deg, #0984e3, #6c5ce7)', tags: ['Beginner - HSK9', t('tag.radicals'), t('tag.structure')] },
+  { route: '/sentences', icon: '句', title: '句子排序', subtitle: t('card.sentence.subtitle'), description: t('card.sentence.desc'), gradient: 'linear-gradient(135deg, #00b894, #00cec9)', tags: ['Beginner - HSK9', t('tag.grammar'), t('tag.sentences')] },
+  { route: '/listening', icon: '听', title: '听力挑战', subtitle: t('card.listening.subtitle'), description: t('card.listening.desc'), gradient: 'linear-gradient(135deg, #a29bfe, #6c5ce7)', tags: ['Beginner - HSK9', t('tag.listening'), t('tag.pronunciation')] },
+  { route: '/idioms', icon: '成', title: '成语填空', subtitle: t('card.idiom.subtitle'), description: t('card.idiom.desc'), gradient: 'linear-gradient(135deg, #fd79a8, #e84393)', tags: ['HSK1-3 - HSK9', t('tag.idioms'), t('tag.vocabulary')] },
+  { route: '/pictures', icon: '图', title: '看图猜词', subtitle: t('card.picture.subtitle'), description: t('card.picture.desc'), gradient: 'linear-gradient(135deg, #55efc4, #00b894)', tags: ['Beginner - HSK9', t('tag.visual'), t('tag.vocabulary')] },
+  { route: '/tones', icon: '调', title: '声调大师', subtitle: t('card.tone.subtitle'), description: t('card.tone.desc'), gradient: 'linear-gradient(135deg, #e17055, #fdcb6e)', tags: ['Beginner - HSK9', t('tag.tones'), t('tag.pronunciation')] },
+  { route: '/antonyms', icon: '反', title: '反义词配对', subtitle: t('card.antonym.subtitle'), description: t('card.antonym.desc'), gradient: 'linear-gradient(135deg, #6c5ce7, #a29bfe)', tags: ['Beginner - HSK9', t('tag.antonyms'), t('tag.vocabulary')] },
+  { route: '/sorting', icon: '类', title: '分类游戏', subtitle: t('card.sorting.subtitle'), description: t('card.sorting.desc'), gradient: 'linear-gradient(135deg, #00cec9, #0984e3)', tags: ['Beginner - HSK9', t('tag.categories'), t('tag.vocabulary')] },
+  { route: '/speed', icon: '⚡', title: '快速反应', subtitle: t('card.speed.subtitle'), description: t('card.speed.desc'), gradient: 'linear-gradient(135deg, #d63031, #e17055)', tags: ['Beginner - HSK9', t('tag.speed'), t('tag.reading')] },
+  { route: '/stats', icon: '📊', title: '学习统计', subtitle: t('card.stats.subtitle'), description: t('card.stats.desc'), gradient: 'linear-gradient(135deg, #fd79a8, #fdcb6e)', tags: [t('tag.progress'), t('tag.streak'), t('tag.share')] },
+  { route: '/my-words', icon: '词', title: '我的词库', subtitle: t('card.mywords.subtitle'), description: t('card.mywords.desc'), gradient: 'linear-gradient(135deg, #fdcb6e, #e17055)', tags: [t('tag.custom'), t('tag.review'), t('tag.personal')] },
+])
 </script>
 
 <style scoped>

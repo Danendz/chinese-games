@@ -16,15 +16,17 @@
 <script setup>
 import { computed } from 'vue'
 import { getMyVocabulary, getMySentences } from '../../data/myWordsStore'
+import { useI18n } from '../../composables/useI18n'
 
+const { t } = useI18n()
 defineEmits(['update:modelValue'])
 
-const levels = [
-  { value: 'Beginner', label: 'Beginner', sub: '初学者' },
-  { value: 'HSK1-3', label: 'HSK 1-3', sub: '基础' },
-  { value: 'HSK4-6', label: 'HSK 4-6', sub: '进阶' },
-  { value: 'HSK7-9', label: 'HSK 7-9', sub: '高级' }
-]
+const levels = computed(() => [
+  { value: 'Beginner', label: t('hsk.beginner'), sub: t('hsk.beginnerSub') },
+  { value: 'HSK1-3', label: 'HSK 1-3', sub: t('hsk.hsk13Sub') },
+  { value: 'HSK4-6', label: 'HSK 4-6', sub: t('hsk.hsk46Sub') },
+  { value: 'HSK7-9', label: 'HSK 7-9', sub: t('hsk.hsk79Sub') }
+])
 
 const hasMyWords = computed(() => {
   try {
@@ -42,9 +44,9 @@ const props = defineProps({
 })
 
 const allLevels = computed(() => {
-  const base = [...levels]
+  const base = [...levels.value]
   if (props.showMyWords && hasMyWords.value) {
-    base.push({ value: 'MyWords', label: 'My Words', sub: '我的词库' })
+    base.push({ value: 'MyWords', label: t('hsk.myWords'), sub: t('hsk.myWordsSub') })
   }
   return base
 })

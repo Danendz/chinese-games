@@ -4,7 +4,7 @@
       <span class="streak-fire animate-flame">🔥</span>
       <div class="streak-info">
         <span class="streak-count text-chinese">连续 {{ streak.current }} 天</span>
-        <span class="streak-label">Day Streak</span>
+        <span class="streak-label">{{ t('streak.dayStreak') }}</span>
       </div>
       <div v-if="milestone" class="milestone-badge animate-pop-in">
         <span class="milestone-icon">{{ milestone.icon }}</span>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <router-link to="/stats" class="stats-link">
-      View Full Stats →
+      {{ t('streak.viewStats') }}
     </router-link>
   </section>
 </template>
@@ -32,6 +32,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { checkIn, getStreak, getMonthlyCheckins, getMilestone } from '../../data/statsStore'
+import { useI18n } from '../../composables/useI18n'
+
+const { t } = useI18n()
 
 const streak = ref({ current: 0, longest: 0 })
 const last7 = ref([])

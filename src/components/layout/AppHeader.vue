@@ -5,19 +5,28 @@
         <span class="logo-icon">字</span>
         <span class="logo-text">中文游戏</span>
       </router-link>
-      <nav class="nav" v-if="route.name !== 'home'">
-        <router-link to="/" class="nav-back">
-          <span class="nav-back-arrow">&larr;</span>
-          <span>Back to Games</span>
-        </router-link>
-      </nav>
+      <div class="header-right">
+        <nav class="nav" v-if="route.name !== 'home'">
+          <router-link to="/" class="nav-back">
+            <span class="nav-back-arrow">&larr;</span>
+            <span>{{ t('header.back') }}</span>
+          </router-link>
+        </nav>
+        <button class="lang-toggle" @click="toggleLocale" :title="locale === 'en' ? 'Переключить на русский' : 'Switch to English'">
+          <span class="lang-icon">🌏</span>
+          <span class="lang-label">{{ locale === 'en' ? 'EN' : 'RU' }}</span>
+        </button>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router'
+import { useI18n } from '../../composables/useI18n'
+
 const route = useRoute()
+const { t, locale, toggleLocale } = useI18n()
 </script>
 
 <style scoped>
@@ -50,7 +59,6 @@ const route = useRoute()
 .logo-icon {
   font-family: var(--font-chinese);
   font-size: 1.5rem;
-  color: var(--color-primary);
   width: 36px;
   height: 36px;
   display: flex;
@@ -64,6 +72,12 @@ const route = useRoute()
 .logo-text {
   font-family: var(--font-chinese);
   color: var(--color-text);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nav-back {
@@ -84,5 +98,33 @@ const route = useRoute()
 
 .nav-back-arrow {
   font-size: 1.1rem;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  border: 1.5px solid transparent;
+}
+
+.lang-toggle:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.lang-icon {
+  font-size: 1rem;
+}
+
+.lang-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 </style>
