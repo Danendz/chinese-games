@@ -35,7 +35,7 @@
         @click="selectTone(t)"
       >
         <span class="tone-number">{{ t }}</span>
-        <span class="tone-example">{{ toneNames[t].example }}</span>
+        <span class="tone-example text-pinyin">{{ currentToneExamples[t - 1] }}</span>
         <span class="tone-desc">{{ toneNames[t].desc }}</span>
       </button>
     </div>
@@ -46,6 +46,33 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { toneQuizData, toneNames } from '../../data/tones'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+
+// Generate 4 tone variants from a pinyin string
+// e.g. "yú" → ["yū", "yú", "yǔ", "yù"]
+const toneMap = {
+  'ā': ['ā','á','ǎ','à'], 'á': ['ā','á','ǎ','à'], 'ǎ': ['ā','á','ǎ','à'], 'à': ['ā','á','ǎ','à'],
+  'ē': ['ē','é','ě','è'], 'é': ['ē','é','ě','è'], 'ě': ['ē','é','ě','è'], 'è': ['ē','é','ě','è'],
+  'ī': ['ī','í','ǐ','ì'], 'í': ['ī','í','ǐ','ì'], 'ǐ': ['ī','í','ǐ','ì'], 'ì': ['ī','í','ǐ','ì'],
+  'ō': ['ō','ó','ǒ','ò'], 'ó': ['ō','ó','ǒ','ò'], 'ǒ': ['ō','ó','ǒ','ò'], 'ò': ['ō','ó','ǒ','ò'],
+  'ū': ['ū','ú','ǔ','ù'], 'ú': ['ū','ú','ǔ','ù'], 'ǔ': ['ū','ú','ǔ','ù'], 'ù': ['ū','ú','ǔ','ù'],
+  'ǖ': ['ǖ','ǘ','ǚ','ǜ'], 'ǘ': ['ǖ','ǘ','ǚ','ǜ'], 'ǚ': ['ǖ','ǘ','ǚ','ǜ'], 'ǜ': ['ǖ','ǘ','ǚ','ǜ'],
+  // plain vowels (no tone mark) — add marks
+  'a': ['ā','á','ǎ','à'], 'e': ['ē','é','ě','è'],
+  'i': ['ī','í','ǐ','ì'], 'o': ['ō','ó','ǒ','ò'],
+  'u': ['ū','ú','ǔ','ù'], 'ü': ['ǖ','ǘ','ǚ','ǜ'],
+}
+
+function getToneVariants(pinyinStr) {
+  // Find the vowel with tone mark and generate 4 variants
+  for (let ci = 0; ci < pinyinStr.length; ci++) {
+    const ch = pinyinStr[ci]
+    if (toneMap[ch]) {
+      return toneMap[ch].map(v => pinyinStr.slice(0, ci) + v + pinyinStr.slice(ci + 1))
+    }
+  }
+  // Fallback: just return the pinyin with generic tone marks
+  return ['ā', 'á', 'ǎ', 'à']
+}
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },
@@ -65,6 +92,12 @@ const pool = useInfinitePool(fullPool, 10, computed(() => props.infinite))
 
 const currentQuestion = computed(() => questions.value[currentIndex.value])
 const progressPercent = computed(() => (currentIndex.value / questions.value.length) * 100)
+
+// Dynamic tone examples based on current character's pinyin
+const currentToneExamples = computed(() => {
+  if (!currentQuestion.value) return ['ā', 'á', 'ǎ', 'à']
+  return getToneVariants(currentQuestion.value.pinyin)
+})
 
 function shuffleArray(arr) {
   const a = [...arr]
