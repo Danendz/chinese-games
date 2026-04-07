@@ -3,20 +3,20 @@
     <div class="progress-bar">
       <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
       <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
+        <template v-if="infinite">{{ t('game.round') }} {{ pool.round.value }} -- </template>
         {{ currentIndex + 1 }} / {{ puzzles.length }}
       </span>
     </div>
 
     <transition name="toast">
-      <div v-if="pool.poolExhausted.value" class="pool-toast">All radicals completed! Starting over...</div>
+      <div v-if="pool.poolExhausted.value" class="pool-toast">{{ t('game.poolExhausted') }}</div>
     </transition>
 
     <div class="target-section">
       <div class="target-char text-chinese">{{ currentPuzzle.character }}</div>
       <div class="target-info">
         <span class="target-pinyin">{{ currentPuzzle.pinyin }}</span>
-        <span class="target-english">{{ currentPuzzle.english }}</span>
+        <span class="target-english">{{ tr(currentPuzzle) }}</span>
       </div>
     </div>
 
@@ -46,7 +46,7 @@
       <p class="hint-text">{{ currentPuzzle.hint }}</p>
     </div>
     <button class="hint-btn" @click="showHint = !showHint">
-      {{ showHint ? 'Hide Hint' : 'Show Hint' }}
+      {{ showHint ? t('radical.hideHint') : t('radical.showHint') }}
     </button>
 
     <div class="pieces-area">
@@ -64,9 +64,9 @@
     </div>
 
     <div v-if="puzzleComplete" class="puzzle-success animate-pop-in">
-      <span class="success-text">Correct!</span>
+      <span class="success-text">{{ t('game.correct') }}</span>
       <button v-if="currentIndex < puzzles.length - 1" class="next-btn" @click="nextPuzzle">
-        Next Character &rarr;
+        {{ t('radical.nextChar') }}
       </button>
     </div>
   </div>
@@ -77,6 +77,8 @@ import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { radicalPuzzles } from '../../data/radicals'
 import { getMyRadicals } from '../../data/myWordsStore'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'HSK1' },

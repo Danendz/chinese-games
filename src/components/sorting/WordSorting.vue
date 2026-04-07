@@ -3,14 +3,14 @@
     <div class="progress-bar">
       <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
       <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
+        <template v-if="infinite">{{ t('game.round') }} {{ pool.round.value }} -- </template>
         {{ currentIndex + 1 }} / {{ puzzles.length }}
       </span>
     </div>
 
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All puzzles completed! Starting over...
+        {{ t('game.poolExhausted') }}
       </div>
     </transition>
 
@@ -55,7 +55,7 @@
 
     <transition name="fade">
       <div v-if="puzzleComplete" class="complete-banner animate-pop-in">
-        Complete!
+        {{ t('sorting.complete') }}
       </div>
     </transition>
   </div>
@@ -65,6 +65,8 @@
 import { ref, computed, onMounted } from 'vue'
 import { wordCategories } from '../../data/wordCategories'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

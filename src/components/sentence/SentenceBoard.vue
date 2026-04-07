@@ -3,18 +3,18 @@
     <div class="progress-bar">
       <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
       <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
+        <template v-if="infinite">{{ t('game.round') }} {{ pool.round.value }} -- </template>
         {{ currentIndex + 1 }} / {{ sentenceList.length }}
       </span>
     </div>
 
     <transition name="toast">
-      <div v-if="pool.poolExhausted.value" class="pool-toast">All sentences completed! Starting over...</div>
+      <div v-if="pool.poolExhausted.value" class="pool-toast">{{ t('game.poolExhausted') }}</div>
     </transition>
 
     <!-- Answer slots -->
     <div class="answer-area">
-      <div class="answer-label">Build the sentence:</div>
+      <div class="answer-label">{{ t('prompt.buildSentence') }}</div>
       <div class="answer-slots">
         <div
           v-for="(slot, i) in answerSlots"
@@ -39,21 +39,21 @@
 
     <!-- Result info -->
     <div v-if="isCorrect" class="result-section animate-pop-in">
-      <div class="result-correct">Correct!</div>
+      <div class="result-correct">{{ t('game.correct') }}</div>
       <div class="result-pinyin">{{ currentSentence.pinyin }}</div>
-      <div class="result-english">{{ currentSentence.english }}</div>
+      <div class="result-english">{{ tr(currentSentence) }}</div>
       <div class="grammar-box">
         <div class="grammar-pattern">{{ currentSentence.grammarPattern }}</div>
         <div class="grammar-note">{{ currentSentence.grammarNote }}</div>
       </div>
       <button v-if="currentIndex < sentenceList.length - 1" class="next-btn" @click="nextSentence">
-        Next Sentence &rarr;
+        {{ t('sentence.next') }}
       </button>
     </div>
 
     <!-- Word bank -->
     <div class="word-bank" v-if="!isCorrect">
-      <div class="bank-label">Available words:</div>
+      <div class="bank-label">{{ t('prompt.availableWords') }}</div>
       <div class="bank-words">
         <div
           v-for="item in wordBank"
@@ -76,6 +76,8 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import { sentences } from '../../data/sentences'
 import { getMySentences } from '../../data/myWordsStore'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'HSK1' },

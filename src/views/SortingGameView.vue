@@ -2,12 +2,12 @@
   <div class="game-view">
     <div class="game-header">
       <h1 class="game-title text-chinese">分类游戏</h1>
-      <p class="game-subtitle">Word Sorting - Sort Words by Category</p>
+      <p class="game-subtitle">{{ t('view.sorting') }}</p>
     </div>
     <GameToolbar :score="score.score.value" :timer="timer.formatted.value" :is-playing="gameState.isPlaying.value" />
     <HskLevelPicker v-model="hskLevel" :show-my-words="false" @update:model-value="resetGame" />
     <div class="infinite-bar">
-      <button class="infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">&#x221E; Infinite</button>
+      <button class="infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">{{ t('game.infinite') }}</button>
     </div>
     <WordSorting
       :hsk-level="hskLevel" :infinite="infiniteMode" :key="gameKey"
@@ -15,7 +15,7 @@
       @game-start="onGameStart" @game-complete="onGameComplete" @round-complete="onRoundComplete"
     />
     <GameOverModal
-      v-if="gameState.isComplete.value && !infiniteMode" title="Well Done!"
+      v-if="gameState.isComplete.value && !infiniteMode" :title="t('game.wellDone')"
       :score="score.score.value" :time="timer.formatted.value" :accuracy="score.accuracy.value"
       @play-again="resetGame" @go-home="$router.push('/')"
     />
@@ -32,7 +32,9 @@ import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
 import { addGameSession, recordWordCorrect } from '../data/statsStore'
+import { useI18n } from '../composables/useI18n'
 
+const { t } = useI18n()
 const timer = useTimer()
 const score = useScore()
 const gameState = useGameState()

@@ -20,7 +20,7 @@
         <div class="day-dot" :class="{ active: day.checkedIn, today: day.isToday }">
           <span v-if="day.checkedIn" class="dot-check">✓</span>
         </div>
-        <span class="day-label">{{ day.dayName }}</span>
+        <span class="day-label">{{ t('day.' + day.dayName.toLowerCase()) }}</span>
       </div>
     </div>
     <router-link to="/stats" class="stats-link">
@@ -44,7 +44,8 @@ onMounted(() => {
   checkIn()
   streak.value = getStreak()
   last7.value = getMonthlyCheckins().slice(-7)
-  milestone.value = getMilestone(streak.value.current)
+  const m = getMilestone(streak.value.current)
+  if (m) milestone.value = { icon: m.icon, label: t('milestone.' + m.days) }
 })
 </script>
 

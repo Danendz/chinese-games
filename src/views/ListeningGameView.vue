@@ -2,7 +2,7 @@
   <div class="game-view">
     <div class="game-header">
       <h1 class="game-title text-chinese">听力挑战</h1>
-      <p class="game-subtitle">Listening Quiz</p>
+      <p class="game-subtitle">{{ t('view.listening') }}</p>
     </div>
     <GameToolbar
       :score="score.score.value"
@@ -12,13 +12,13 @@
     <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
     <div class="mode-bar">
       <button class="mode-btn" :class="{ active: mode === 'english' }" @click="mode = 'english'; resetGame()">
-        Hear → Select English
+        {{ t('listen.modeEnglish') }}
       </button>
       <button class="mode-btn" :class="{ active: mode === 'character' }" @click="mode = 'character'; resetGame()">
-        Hear → Select Chinese
+        {{ t('listen.modeChinese') }}
       </button>
       <button class="mode-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
-        ∞ Infinite
+        {{ t('game.infinite') }}
       </button>
     </div>
     <ListeningQuiz
@@ -34,7 +34,7 @@
     />
     <GameOverModal
       v-if="gameState.isComplete.value && !infiniteMode"
-      title="Great Listening!"
+      :title="t('game.wellDone')"
       :score="score.score.value"
       :time="timer.formatted.value"
       :accuracy="score.accuracy.value"
@@ -54,7 +54,9 @@ import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
 import { addGameSession, recordWordCorrect } from '../data/statsStore'
+import { useI18n } from '../composables/useI18n'
 
+const { t } = useI18n()
 const timer = useTimer()
 const score = useScore()
 const gameState = useGameState()

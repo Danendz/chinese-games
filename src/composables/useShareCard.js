@@ -1,10 +1,12 @@
 import { getTodayStr, formatTime } from '../data/statsStore'
 import { getTodayQuote, themeColors } from '../data/dailyQuotes'
+import { useI18n } from './useI18n'
 
 /**
  * Generate a shareable stats card with daily quote and themed background.
  */
 export async function generateShareCard({ streak, todayTime, todayWords, date }) {
+  const { t, locale } = useI18n()
   const W = 1200, H = 900 // 2x retina
   const canvas = document.createElement('canvas')
   canvas.width = W
@@ -41,7 +43,7 @@ export async function generateShareCard({ streak, todayTime, todayWords, date })
   ctx.fillText('中文游戏', 140, 68)
   ctx.font = '18px "Noto Sans", Arial, sans-serif'
   ctx.fillStyle = 'rgba(255,255,255,0.6)'
-  ctx.fillText('Chinese Learning Games', 142, 95)
+  ctx.fillText(t('share.appName'), 142, 95)
 
   // Date (top right)
   ctx.textAlign = 'right'
@@ -63,7 +65,8 @@ export async function generateShareCard({ streak, todayTime, todayWords, date })
   // English quote
   ctx.font = 'italic 22px "Noto Sans", Arial, sans-serif'
   ctx.fillStyle = 'rgba(255,255,255,0.75)'
-  ctx.fillText(quote.en, W / 2, 260)
+  const quoteText = (locale.value === 'ru' && quote.ru) ? quote.ru : quote.en
+  ctx.fillText(quoteText, W / 2, 260)
 
   // Thin separator
   ctx.strokeStyle = 'rgba(255,255,255,0.2)'
@@ -76,9 +79,9 @@ export async function generateShareCard({ streak, todayTime, todayWords, date })
   // === Stats Section ===
   const statsY = 420
   const stats = [
-    { icon: '🔥', value: `${streak}`, label: '天连续', sub: 'Day Streak' },
-    { icon: '⏱️', value: formatTime(todayTime), label: '学习时间', sub: 'Study Time' },
-    { icon: '✅', value: `${todayWords}`, label: '学会的词', sub: 'Words Learned' }
+    { icon: '🔥', value: `${streak}`, label: '天连续', sub: t('share.dayStreak') },
+    { icon: '⏱️', value: formatTime(todayTime), label: '学习时间', sub: t('share.studyTime') },
+    { icon: '✅', value: `${todayWords}`, label: '学会的词', sub: t('share.wordsLearned') }
   ]
 
   const colW = W / 3
@@ -116,7 +119,7 @@ export async function generateShareCard({ streak, todayTime, todayWords, date })
   ctx.textAlign = 'center'
   ctx.font = '18px "Noto Sans SC", "Microsoft YaHei", sans-serif'
   ctx.fillStyle = 'rgba(255,255,255,0.5)'
-  ctx.fillText('I\'m learning Chinese! 我在学中文!', W / 2, H - 45)
+  ctx.fillText(t('share.footer'), W / 2, H - 45)
 
   return canvas.toDataURL('image/png')
 }

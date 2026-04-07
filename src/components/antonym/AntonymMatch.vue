@@ -3,18 +3,18 @@
     <div class="progress-bar">
       <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
       <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
+        <template v-if="infinite">{{ t('game.round') }} {{ pool.round.value }} -- </template>
         {{ matchedCount }} / {{ pairs.length }}
       </span>
     </div>
 
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All pairs completed! Starting over with fresh shuffle...
+        {{ t('game.poolExhausted') }}
       </div>
     </transition>
 
-    <p class="quiz-prompt">Match each word with its antonym</p>
+    <p class="quiz-prompt">{{ t('prompt.matchAntonym') }}</p>
 
     <div class="match-columns">
       <div class="column column-left">
@@ -68,6 +68,8 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { antonymPairs } from '../../data/antonyms'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, trA, trB } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

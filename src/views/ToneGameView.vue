@@ -2,7 +2,7 @@
   <div class="game-view">
     <div class="game-header">
       <h1 class="game-title text-chinese">声调大师</h1>
-      <p class="game-subtitle">Tone Master</p>
+      <p class="game-subtitle">{{ t('view.tone') }}</p>
     </div>
     <GameToolbar
       :score="score.score.value"
@@ -12,7 +12,7 @@
     <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
     <div class="mode-bar">
       <button class="mode-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
-        ∞ Infinite
+        {{ t('game.infinite') }}
       </button>
     </div>
     <ToneQuiz
@@ -27,7 +27,7 @@
     />
     <GameOverModal
       v-if="gameState.isComplete.value && !infiniteMode"
-      title="Tone Master!"
+      :title="t('game.wellDone')"
       :score="score.score.value"
       :time="timer.formatted.value"
       :accuracy="score.accuracy.value"
@@ -47,7 +47,9 @@ import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
 import { addGameSession, recordWordCorrect } from '../data/statsStore'
+import { useI18n } from '../composables/useI18n'
 
+const { t } = useI18n()
 const timer = useTimer()
 const score = useScore()
 const gameState = useGameState()

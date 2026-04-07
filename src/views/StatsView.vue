@@ -2,49 +2,49 @@
   <div class="stats-view">
     <div class="page-header">
       <h1 class="page-title text-chinese">学习统计</h1>
-      <p class="page-subtitle">My Learning Stats</p>
+      <p class="page-subtitle">{{ t('stats.title') }}</p>
     </div>
 
     <!-- Daily Quote -->
     <section class="quote-section">
       <div class="quote-card" :style="{ background: `linear-gradient(135deg, ${quoteColors.from}, ${quoteColors.to})` }">
         <p class="quote-zh text-chinese">「{{ quote.zh }}」</p>
-        <p class="quote-en">{{ quote.en }}</p>
+        <p class="quote-en">{{ locale === 'ru' && quote.ru ? quote.ru : quote.en }}</p>
       </div>
     </section>
 
     <!-- Today's Summary -->
     <section class="today-section">
-      <h2 class="section-title">Today</h2>
+      <h2 class="section-title">{{ t('stats.today') }}</h2>
       <div class="stat-cards">
         <div class="stat-card">
           <span class="stat-icon">⏱️</span>
           <span class="stat-value">{{ formatTime(today.totalTime) }}</span>
-          <span class="stat-label">Learning Time</span>
+          <span class="stat-label">{{ t('stats.learningTime') }}</span>
         </div>
         <div class="stat-card highlight">
           <span class="stat-icon">✅</span>
           <span class="stat-value">{{ today.wordsLearned }}</span>
-          <span class="stat-label">Words Learned</span>
-          <span class="stat-hint">answered correctly 4+ times</span>
+          <span class="stat-label">{{ t('stats.wordsLearned') }}</span>
+          <span class="stat-hint">{{ t('stats.wordsHint') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">📝</span>
           <span class="stat-value">{{ today.wordsInProgress }}</span>
-          <span class="stat-label">In Progress</span>
-          <span class="stat-hint">1-3 times, keep practicing!</span>
+          <span class="stat-label">{{ t('stats.inProgress') }}</span>
+          <span class="stat-hint">{{ t('stats.inProgressHint') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">🎮</span>
           <span class="stat-value">{{ today.gamesPlayed }}</span>
-          <span class="stat-label">Games Played</span>
+          <span class="stat-label">{{ t('stats.gamesPlayed') }}</span>
         </div>
       </div>
     </section>
 
     <!-- Weekly Chart -->
     <section class="chart-section">
-      <h2 class="section-title">This Week</h2>
+      <h2 class="section-title">{{ t('stats.thisWeek') }}</h2>
       <div class="chart-container">
         <svg viewBox="0 0 350 180" class="bar-chart">
           <g v-for="(day, i) in weekly" :key="day.date">
@@ -85,7 +85,7 @@
 
     <!-- 30-Day Calendar -->
     <section class="calendar-section">
-      <h2 class="section-title">30-Day Check-in Calendar</h2>
+      <h2 class="section-title">{{ t('stats.calendar') }}</h2>
       <div class="calendar-grid">
         <div
           v-for="day in monthly"
@@ -98,34 +98,34 @@
         </div>
       </div>
       <div class="calendar-legend">
-        <span class="legend-item"><span class="legend-dot active"></span> Checked in</span>
-        <span class="legend-item"><span class="legend-dot"></span> Missed</span>
+        <span class="legend-item"><span class="legend-dot active"></span> {{ t('stats.checkedIn') }}</span>
+        <span class="legend-item"><span class="legend-dot"></span> {{ t('stats.missed') }}</span>
       </div>
     </section>
 
     <!-- All-Time Stats -->
     <section class="alltime-section">
-      <h2 class="section-title">All Time</h2>
+      <h2 class="section-title">{{ t('stats.allTime') }}</h2>
       <div class="stat-cards">
         <div class="stat-card">
           <span class="stat-icon">📅</span>
           <span class="stat-value">{{ allTime.totalDays }}</span>
-          <span class="stat-label">Days Checked In</span>
+          <span class="stat-label">{{ t('stats.totalDays') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">⏳</span>
           <span class="stat-value">{{ formatTime(allTime.totalTime) }}</span>
-          <span class="stat-label">Total Learning Time</span>
+          <span class="stat-label">{{ t('stats.totalTime') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">📖</span>
           <span class="stat-value">{{ allTime.totalWords }}</span>
-          <span class="stat-label">Total Words</span>
+          <span class="stat-label">{{ t('stats.totalWords') }}</span>
         </div>
         <div class="stat-card">
           <span class="stat-icon">🔥</span>
           <span class="stat-value">{{ allTime.longestStreak }}</span>
-          <span class="stat-label">Longest Streak</span>
+          <span class="stat-label">{{ t('stats.longestStreak') }}</span>
         </div>
       </div>
     </section>
@@ -133,7 +133,7 @@
     <!-- Share Button -->
     <section class="share-section">
       <button class="share-btn" @click="handleShare" :disabled="generating">
-        {{ generating ? 'Generating...' : '📤 Share My Progress / 分享学习成绩' }}
+        {{ generating ? t('stats.generating') : t('stats.shareBtn') }}
       </button>
     </section>
 
@@ -142,8 +142,8 @@
       <div class="share-modal animate-pop-in">
         <img :src="shareImageUrl" class="share-preview" alt="Stats Card" />
         <div class="share-actions">
-          <button class="btn-download" @click="handleDownload">💾 Save Image</button>
-          <button class="btn-close" @click="shareImageUrl = null">Close</button>
+          <button class="btn-download" @click="handleDownload">{{ t('stats.saveImage') }}</button>
+          <button class="btn-close" @click="shareImageUrl = null">{{ t('stats.close') }}</button>
         </div>
       </div>
     </div>
@@ -158,6 +158,8 @@ import {
 } from '../data/statsStore'
 import { generateShareCard, downloadShareCard } from '../composables/useShareCard'
 import { getTodayQuote, themeColors } from '../data/dailyQuotes'
+import { useI18n } from '../composables/useI18n'
+const { t, locale } = useI18n()
 
 const todayStr = getTodayStr()
 const today = ref({ totalTime: 0, wordsLearned: 0, wordsInProgress: 0, gamesPlayed: 0 })

@@ -2,7 +2,7 @@
   <div class="game-view">
     <div class="game-header">
       <h1 class="game-title text-chinese">快速反应</h1>
-      <p class="game-subtitle">Speed Challenge — 60 seconds, as many words as you can!</p>
+      <p class="game-subtitle">{{ t('view.speed') }}</p>
     </div>
     <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
     <SpeedChallenge
@@ -11,7 +11,7 @@
       @game-start="onGameStart" @game-complete="onGameComplete"
     />
     <GameOverModal
-      v-if="gameState.isComplete.value" title="Time's Up!"
+      v-if="gameState.isComplete.value" :title="t('speed.timesUp')"
       :score="score.score.value" :time="'60s'" :accuracy="score.accuracy.value"
       @play-again="resetGame" @go-home="$router.push('/')"
     />
@@ -26,7 +26,9 @@ import SpeedChallenge from '../components/speed/SpeedChallenge.vue'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
 import { addGameSession, recordWordCorrect } from '../data/statsStore'
+import { useI18n } from '../composables/useI18n'
 
+const { t } = useI18n()
 const score = useScore()
 const gameState = useGameState()
 const hskLevel = ref('Beginner')

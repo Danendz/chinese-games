@@ -4,13 +4,13 @@
     <div class="progress-bar">
       <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
       <span class="progress-text">
-        <template v-if="infinite">Round {{ pool.round.value }} -- </template>
+        <template v-if="infinite">{{ t('game.round') }} {{ pool.round.value }} -- </template>
         {{ currentIndex + 1 }} / {{ idiomList.length }}
       </span>
     </div>
 
     <transition name="toast">
-      <div v-if="pool.poolExhausted.value" class="pool-toast">All idioms completed! Starting over...</div>
+      <div v-if="pool.poolExhausted.value" class="pool-toast">{{ t('game.poolExhausted') }}</div>
     </transition>
 
     <!-- Idiom display -->
@@ -36,7 +36,7 @@
 
     <!-- Hint area (for Beginner, always show English) -->
     <div class="hint-area" v-if="isBeginner">
-      <div class="hint-english">{{ currentIdiom.english }}</div>
+      <div class="hint-english">{{ tr(currentIdiom) }}</div>
       <div class="hint-pinyin">{{ currentIdiom.pinyin }}</div>
     </div>
 
@@ -46,7 +46,7 @@
         {{ answered ? currentIdiom.pinyin : 'Pinyin will appear after answering' }}
       </div>
       <div class="hint-english" :class="{ revealed: answered }">
-        {{ answered ? currentIdiom.english : 'Meaning will appear after answering' }}
+        {{ answered ? tr(currentIdiom) : 'Meaning will appear after answering' }}
       </div>
     </div>
 
@@ -71,7 +71,7 @@
     <!-- Explanation (shown after answering) -->
     <div v-if="answered" class="explanation-section animate-pop-in">
       <div class="explanation-header" :class="selectedCorrect ? 'correct' : 'incorrect'">
-        {{ selectedCorrect ? 'Correct!' : 'Not quite...' }}
+        {{ selectedCorrect ? t('game.correct') : 'Not quite...' }}
       </div>
       <div class="explanation-text">{{ currentIdiom.explanation }}</div>
     </div>
@@ -82,6 +82,8 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { idioms } from '../../data/idioms'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },
