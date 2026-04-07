@@ -1,6 +1,6 @@
 /**
  * Dictionary lookup utility.
- * Uses all existing game data as a lookup dictionary for auto-fill.
+ * Uses all existing game data + pinyin-pro for auto-fill.
  */
 import { vocabulary } from './vocabulary'
 import { radicalPuzzles } from './radicals'
@@ -8,6 +8,25 @@ import { sentences } from './sentences'
 import { extraDict } from './extraDict'
 import { extraSentences } from './extraSentences'
 import { extraRadicals } from './extraRadicals'
+import { pinyin } from 'pinyin-pro'
+
+/**
+ * Convert any Chinese text to pinyin with tone marks.
+ * Works for ANY Chinese character, even ones not in our dictionary.
+ * @param {string} text - Chinese text
+ * @returns {string} Pinyin with tone marks (e.g. "bāozi")
+ */
+export function toPinyin(text) {
+  if (!text) return ''
+  return pinyin(text, { toneType: 'symbol', type: 'string' })
+}
+
+/**
+ * Check if a string contains Chinese characters.
+ */
+export function isChinese(text) {
+  return /[\u4e00-\u9fff]/.test(text)
+}
 
 // Build flat arrays from all levels
 function flattenData(dataObj) {
@@ -26,12 +45,18 @@ const allSentences = [...flattenData(sentences), ...extraSentences]
 
 /**
  * Look up by Chinese character(s). Returns { pinyin, english } or null.
+ * Always returns pinyin (via pinyin-pro) even if word is not in dictionary.
  */
 export function lookupByChinese(chinese) {
   if (!chinese || !chinese.trim()) return null
   const q = chinese.trim()
+  // Try dictionary first
   const match = allVocab.find(v => v.character === q)
   if (match) return { pinyin: match.pinyin, english: match.english }
+  // Not in dictionary — still generate pinyin if it's Chinese
+  if (isChinese(q)) {
+    return { pinyin: toPinyin(q), english: '' }
+  }
   return null
 }
 
@@ -79,6 +104,15 @@ export function lookupRadicalByCharacter(character) {
     components: match.components,
     distractors: match.distractors,
     hint: match.hint
+  }
+  // Not in radical dictionary — try vocab dictionary for pinyin/english
+  if (isChinese(q)) {
+    const vocabMatch = allVocab.find(v => v.character === q)
+    return {
+      pinyin: vocabMatch ? vocabMatch.pinyin : toPinyin(q),
+      english: vocabMatch ? vocabMatch.english : '',
+      structure: null, components: null, distractors: null, hint: null
+    }
   }
   return null
 }
@@ -134,6 +168,16 @@ export function lookupSentenceByChinese(chinese) {
     english: match.english,
     grammarPattern: match.grammarPattern,
     grammarNote: match.grammarNote
+  }
+  // Not in sentence dictionary — still generate pinyin if Chinese
+  if (isChinese(q)) {
+    return {
+      words: null,
+      pinyin: toPinyin(q),
+      english: '',
+      grammarPattern: '',
+      grammarNote: ''
+    }
   }
   return null
 }

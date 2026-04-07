@@ -221,7 +221,8 @@ import {
   lookupByChinese, lookupByEnglish, lookupByPinyin,
   lookupRadicalByCharacter, lookupRadicalByPinyin, lookupRadicalByEnglish,
   lookupSentenceByChinese, lookupSentenceByEnglish,
-  getVocabSuggestions, getRadicalSuggestions, getSentenceSuggestions
+  getVocabSuggestions, getRadicalSuggestions, getSentenceSuggestions,
+  toPinyin, isChinese
 } from '../data/dictLookup'
 
 const activeTab = ref('vocabulary')
@@ -249,7 +250,16 @@ watch(() => [vocabForm.character, vocabForm.english, vocabForm.pinyin], () => {
 function autoFillVocab() {
   if (vocabForm.character) {
     const r = lookupByChinese(vocabForm.character)
-    if (r) { vocabForm.pinyin = r.pinyin; vocabForm.english = r.english; return }
+    if (r) {
+      if (r.pinyin) vocabForm.pinyin = r.pinyin
+      if (r.english) vocabForm.english = r.english
+      return
+    }
+    // Fallback: always generate pinyin for Chinese input
+    if (isChinese(vocabForm.character) && !vocabForm.pinyin) {
+      vocabForm.pinyin = toPinyin(vocabForm.character)
+    }
+    return
   }
   if (vocabForm.english) {
     const r = lookupByEnglish(vocabForm.english)
@@ -296,7 +306,19 @@ function autoFillSent() {
   if (sentForm.wordsRaw) {
     const q = sentForm.wordsRaw.replace(/\s+/g, '')
     const r = lookupSentenceByChinese(q)
-    if (r) { applySentData(r); return }
+    if (r) {
+      if (r.words) applySentData(r)
+      else {
+        // Not in dictionary but pinyin was generated
+        if (r.pinyin && !sentForm.pinyin) sentForm.pinyin = r.pinyin
+      }
+      return
+    }
+    // Fallback: always generate pinyin for Chinese input
+    if (isChinese(q) && !sentForm.pinyin) {
+      sentForm.pinyin = toPinyin(q)
+    }
+    return
   }
   if (sentForm.english) {
     const r = lookupSentenceByEnglish(sentForm.english)
@@ -356,7 +378,17 @@ function autoFillRad() {
   if (radForm.character) r = lookupRadicalByCharacter(radForm.character)
   if (!r && radForm.pinyin) r = lookupRadicalByPinyin(radForm.pinyin)
   if (!r && radForm.english) r = lookupRadicalByEnglish(radForm.english)
-  if (r) applyRadData(r)
+  if (r) {
+    applyRadData(r)
+    return
+  }
+  // Fallback: always generate pinyin for Chinese character
+  if (radForm.character && isChinese(radForm.character) && !radForm.pinyin) {
+    radForm.pinyin = toPinyin(radForm.character)
+    // Also try vocab dictionary for english
+    const vocabMatch = lookupByChinese(radForm.character)
+    if (vocabMatch && vocabMatch.english) radForm.english = vocabMatch.english
+  }
 }
 
 function applyRadData(r) {
