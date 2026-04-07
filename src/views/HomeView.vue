@@ -7,36 +7,67 @@
 
     <StreakBanner />
 
-    <section class="games-grid">
+    <!-- View toggle -->
+    <div class="view-toggle">
+      <button class="toggle-btn" :class="{ active: viewMode === 'large' }" @click="setView('large')" title="Large cards">
+        <span>☐</span>
+      </button>
+      <button class="toggle-btn" :class="{ active: viewMode === 'compact' }" @click="setView('compact')" title="Compact grid">
+        <span>▦</span>
+      </button>
+    </div>
+
+    <section class="games-grid" :class="{ compact: viewMode === 'compact' }">
       <router-link
         v-for="(game, index) in games"
         :key="game.route"
         :to="game.route"
         class="game-card"
-        :style="{ animationDelay: `${index * 0.1}s` }"
+        :style="{ animationDelay: `${index * 0.05}s` }"
       >
-        <div class="game-card-icon" :style="{ background: game.gradient }">
-          <span class="text-chinese">{{ game.icon }}</span>
-        </div>
-        <div class="game-card-body">
-          <h2 class="game-card-title text-chinese">{{ game.title }}</h2>
-          <p class="game-card-subtitle">{{ game.subtitle }}</p>
-          <p class="game-card-desc">{{ game.description }}</p>
-        </div>
-        <div class="game-card-footer">
-          <span class="game-card-tag" v-for="tag in game.tags" :key="tag">{{ tag }}</span>
-        </div>
+        <!-- Large mode -->
+        <template v-if="viewMode === 'large'">
+          <div class="game-card-icon" :style="{ background: game.gradient }">
+            <span class="text-chinese">{{ game.icon }}</span>
+          </div>
+          <div class="game-card-body">
+            <h2 class="game-card-title text-chinese">{{ game.title }}</h2>
+            <p class="game-card-subtitle">{{ game.subtitle }}</p>
+            <p class="game-card-desc">{{ game.description }}</p>
+          </div>
+          <div class="game-card-footer">
+            <span class="game-card-tag" v-for="tag in game.tags" :key="tag">{{ tag }}</span>
+          </div>
+        </template>
+        <!-- Compact mode -->
+        <template v-else>
+          <div class="compact-icon" :style="{ background: game.gradient }">
+            <span>{{ game.icon }}</span>
+          </div>
+          <div class="compact-body">
+            <h3 class="compact-title text-chinese">{{ game.title }}</h3>
+            <p class="compact-subtitle">{{ game.subtitle }}</p>
+          </div>
+        </template>
       </router-link>
     </section>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import StreakBanner from '../components/shared/StreakBanner.vue'
 import { useI18n } from '../composables/useI18n'
 
 const { t } = useI18n()
+
+const VIEW_KEY = 'chineseGames_viewMode'
+const viewMode = ref(localStorage.getItem(VIEW_KEY) || 'large')
+
+function setView(mode) {
+  viewMode.value = mode
+  localStorage.setItem(VIEW_KEY, mode)
+}
 
 const games = computed(() => [
   { route: '/memory', icon: '牌', title: '汉字配对翻牌', subtitle: t('card.memory.subtitle'), description: t('card.memory.desc'), gradient: 'linear-gradient(135deg, #e17055, #d63031)', tags: ['Beginner - HSK9', t('tag.vocabulary'), t('tag.memory')] },
@@ -79,6 +110,39 @@ const games = computed(() => [
   margin: 0 auto;
 }
 
+/* View toggle */
+.view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  max-width: 1080px;
+  margin: 0 auto 16px;
+  padding: 0 4px;
+}
+
+.toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: var(--color-bg-secondary);
+  color: var(--color-text-light);
+  transition: all var(--transition-fast);
+}
+
+.toggle-btn.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: var(--color-border);
+}
+
+/* Large mode grid (default) */
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -95,7 +159,7 @@ const games = computed(() => [
   transition: all var(--transition-medium);
   display: flex;
   flex-direction: column;
-  animation: fadeInUp 0.5s ease forwards;
+  animation: fadeInUp 0.4s ease forwards;
   opacity: 0;
 }
 
@@ -152,13 +216,97 @@ const games = computed(() => [
   font-weight: 500;
 }
 
+/* ===== Compact mode ===== */
+.games-grid.compact {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.compact .game-card {
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  min-height: 72px;
+}
+
+.compact .game-card:hover {
+  transform: translateY(-2px);
+}
+
+.compact-icon {
+  width: 72px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  flex-shrink: 0;
+}
+
+.compact-body {
+  padding: 10px 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.compact-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compact-subtitle {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
 @media (max-width: 640px) {
   .hero-title {
     font-size: 1.6rem;
   }
 
-  .games-grid {
+  .hero {
+    padding: 32px 0 24px;
+  }
+
+  .games-grid:not(.compact) {
     grid-template-columns: 1fr;
+  }
+
+  .games-grid.compact {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .compact-icon {
+    width: 56px;
+    min-height: 56px;
+    font-size: 1.4rem;
+  }
+
+  .compact-title {
+    font-size: 0.85rem;
+  }
+
+  .compact-subtitle {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .compact-icon {
+    width: 48px;
+    min-height: 48px;
+    font-size: 1.2rem;
   }
 }
 </style>
