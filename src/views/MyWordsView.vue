@@ -1,9 +1,9 @@
 <template>
   <div class="my-words-view">
     <div class="page-header">
-      <h1 class="page-title text-chinese">My Words</h1>
-      <p class="page-subtitle">Add your own vocabulary, radicals and sentences to review in games</p>
-      <p class="page-hint">Tip: Type Chinese, English, or Pinyin and click <strong>Auto Fill</strong> to complete the other fields automatically!</p>
+      <h1 class="page-title text-chinese">{{ t('mywords.title') }}</h1>
+      <p class="page-subtitle">{{ t('mywords.subtitle') }}</p>
+      <p class="page-hint">{{ t('mywords.tip') }}</p>
     </div>
 
     <!-- Tabs -->
@@ -16,7 +16,7 @@
     <!-- ==================== Vocabulary Tab ==================== -->
     <div v-if="activeTab === 'vocabulary'" class="tab-content">
       <form class="add-form" @submit.prevent="addVocab">
-        <h3 class="form-title">Add Vocabulary</h3>
+        <h3 class="form-title">{{ t('mywords.addVocab') }}</h3>
         <div class="form-row">
           <div class="form-group">
             <label>Character(s) <span class="label-zh">汉字</span></label>
@@ -41,8 +41,8 @@
           </button>
         </div>
         <div class="form-actions">
-          <button type="button" class="btn-auto" @click="autoFillVocab" :disabled="!canAutoFillVocab">⚡ Auto Fill</button>
-          <button type="submit" class="btn-add" :disabled="!vocabForm.character && !vocabForm.english">+ Add Word</button>
+          <button type="button" class="btn-auto" @click="autoFillVocab" :disabled="!canAutoFillVocab">{{ t('mywords.autoFill') }}</button>
+          <button type="submit" class="btn-add" :disabled="!vocabForm.character && !vocabForm.english">{{ t('mywords.addWord') }}</button>
         </div>
       </form>
 
@@ -66,7 +66,7 @@
     <!-- ==================== Sentences Tab ==================== -->
     <div v-if="activeTab === 'sentences'" class="tab-content">
       <form class="add-form" @submit.prevent="addSent">
-        <h3 class="form-title">Add Sentence</h3>
+        <h3 class="form-title">{{ t('mywords.addSentence') }}</h3>
         <div class="form-row">
           <div class="form-group form-group-wide">
             <label>Words (space-separated) <span class="label-zh">用空格分开每个词</span></label>
@@ -102,8 +102,8 @@
           </button>
         </div>
         <div class="form-actions">
-          <button type="button" class="btn-auto" @click="autoFillSent" :disabled="!canAutoFillSent">⚡ Auto Fill</button>
-          <button type="submit" class="btn-add" :disabled="!sentForm.wordsRaw && !sentForm.english">+ Add Sentence</button>
+          <button type="button" class="btn-auto" @click="autoFillSent" :disabled="!canAutoFillSent">{{ t('mywords.autoFill') }}</button>
+          <button type="submit" class="btn-add" :disabled="!sentForm.wordsRaw && !sentForm.english">{{ t('mywords.addSent') }}</button>
         </div>
       </form>
 
@@ -129,7 +129,7 @@
     <!-- ==================== Radicals Tab ==================== -->
     <div v-if="activeTab === 'radicals'" class="tab-content">
       <form class="add-form" @submit.prevent="addRad">
-        <h3 class="form-title">Add Radical Puzzle</h3>
+        <h3 class="form-title">{{ t('mywords.addRadical') }}</h3>
         <div class="form-row">
           <div class="form-group">
             <label>Target Character <span class="label-zh">目标汉字</span></label>
@@ -154,7 +154,7 @@
           </button>
         </div>
         <div class="form-actions" style="margin-bottom: 12px;">
-          <button type="button" class="btn-auto" @click="autoFillRad" :disabled="!canAutoFillRad">⚡ Auto Fill All Fields</button>
+          <button type="button" class="btn-auto" @click="autoFillRad" :disabled="!canAutoFillRad">{{ t('mywords.autoFillAll') }}</button>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -187,7 +187,7 @@
           </div>
         </div>
         <div class="form-actions">
-          <button type="submit" class="btn-add" :disabled="!radForm.character">+ Add Radical Puzzle</button>
+          <button type="submit" class="btn-add" :disabled="!radForm.character">{{ t('mywords.addRad') }}</button>
         </div>
       </form>
 
@@ -217,6 +217,9 @@ import {
   getMySentences, addMySentence, removeMySentence,
   getMyRadicals, addMyRadical, removeMyRadical
 } from '../data/myWordsStore'
+import { useI18n } from '../composables/useI18n'
+const { t } = useI18n()
+
 import {
   lookupByChinese, lookupByEnglish, lookupByPinyin,
   lookupRadicalByCharacter, lookupRadicalByPinyin, lookupRadicalByEnglish,
@@ -231,9 +234,9 @@ const mySentences = ref(getMySentences())
 const myRadicals = ref(getMyRadicals())
 
 const tabs = computed(() => [
-  { value: 'vocabulary', label: 'Vocabulary', count: myVocabulary.value.length },
-  { value: 'sentences', label: 'Sentences', count: mySentences.value.length },
-  { value: 'radicals', label: 'Radicals', count: myRadicals.value.length }
+  { value: 'vocabulary', label: t('mywords.tabVocab'), count: myVocabulary.value.length },
+  { value: 'sentences', label: t('mywords.tabSentences'), count: mySentences.value.length },
+  { value: 'radicals', label: t('mywords.tabRadicals'), count: myRadicals.value.length }
 ])
 
 // ============ Vocabulary ============

@@ -22,7 +22,7 @@
         :class="{ highlight: selectedWord !== null, flash: bucketFlash === ci }"
         @click="assignToCategory(ci)"
       >
-        <div class="category-label">{{ cat }}</div>
+        <div class="category-label">{{ typeof cat === 'object' ? (locale === 'ru' ? cat.ru : cat.en) : cat }}</div>
         <div class="sorted-words">
           <transition-group name="drop">
             <span
@@ -66,7 +66,7 @@ import { ref, computed, onMounted } from 'vue'
 import { wordCategories } from '../../data/wordCategories'
 import { useInfinitePool } from '../../composables/useInfinitePool'
 import { useI18n } from '../../composables/useI18n'
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

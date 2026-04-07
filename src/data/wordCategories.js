@@ -2,7 +2,7 @@
 export const wordCategories = {
   Beginner: [
     {
-      categories: ['Animals 动物', 'Colors 颜色'],
+      categories: [{ en: 'Animals 动物', ru: 'Животные 动物' }, { en: 'Colors 颜色', ru: 'Цвета 颜色' }],
       words: [
         { word: '猫', pinyin: 'māo', category: 0 },
         { word: '狗', pinyin: 'gǒu', category: 0 },
@@ -13,7 +13,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Family 家人', 'Numbers 数字'],
+      categories: [{ en: 'Family 家人', ru: 'Семья 家人' }, { en: 'Numbers 数字', ru: 'Числа 数字' }],
       words: [
         { word: '爸爸', pinyin: 'bàba', category: 0 },
         { word: '妈妈', pinyin: 'māma', category: 0 },
@@ -24,7 +24,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Food 食物', 'Body 身体'],
+      categories: [{ en: 'Food 食物', ru: 'Еда 食物' }, { en: 'Body 身体', ru: 'Тело 身体' }],
       words: [
         { word: '水', pinyin: 'shuǐ', category: 0 },
         { word: '饭', pinyin: 'fàn', category: 0 },
@@ -37,7 +37,7 @@ export const wordCategories = {
   ],
   'HSK1-3': [
     {
-      categories: ['Food 食物', 'Transport 交通'],
+      categories: [{ en: 'Food 食物', ru: 'Еда 食物' }, { en: 'Transport 交通', ru: 'Транспорт 交通' }],
       words: [
         { word: '米饭', pinyin: 'mǐfàn', category: 0 },
         { word: '苹果', pinyin: 'píngguǒ', category: 0 },
@@ -50,7 +50,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Places 地点', 'Time 时间'],
+      categories: [{ en: 'Places 地点', ru: 'Места 地点' }, { en: 'Time 时间', ru: 'Время 时间' }],
       words: [
         { word: '学校', pinyin: 'xuéxiào', category: 0 },
         { word: '医院', pinyin: 'yīyuàn', category: 0 },
@@ -63,7 +63,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Seasons 季节', 'Adjectives 形容词'],
+      categories: [{ en: 'Seasons 季节', ru: 'Времена года 季节' }, { en: 'Adjectives 形容词', ru: 'Прилагательные 形容词' }],
       words: [
         { word: '春天', pinyin: 'chūntiān', category: 0 },
         { word: '夏天', pinyin: 'xiàtiān', category: 0 },
@@ -76,7 +76,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Action 动作', 'Hobby 爱好'],
+      categories: [{ en: 'Action 动作', ru: 'Действие 动作' }, { en: 'Hobby 爱好', ru: 'Хобби 爱好' }],
       words: [
         { word: '吃', pinyin: 'chī', category: 0 },
         { word: '喝', pinyin: 'hē', category: 0 },
@@ -91,7 +91,7 @@ export const wordCategories = {
   ],
   'HSK4-6': [
     {
-      categories: ['Emotions 情绪', 'Work 工作'],
+      categories: [{ en: 'Emotions 情绪', ru: 'Эмоции 情绪' }, { en: 'Work 工作', ru: 'Работа 工作' }],
       words: [
         { word: '紧张', pinyin: 'jǐnzhāng', category: 0 },
         { word: '失望', pinyin: 'shīwàng', category: 0 },
@@ -104,7 +104,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Tech 科技', 'Culture 文化'],
+      categories: [{ en: 'Tech 科技', ru: 'Технологии 科技' }, { en: 'Culture 文化', ru: 'Культура 文化' }],
       words: [
         { word: '网络', pinyin: 'wǎngluò', category: 0 },
         { word: '软件', pinyin: 'ruǎnjiàn', category: 0 },
@@ -119,7 +119,7 @@ export const wordCategories = {
   ],
   'HSK7-9': [
     {
-      categories: ['Social 社交', 'Business 商务'],
+      categories: [{ en: 'Social 社交', ru: 'Общение 社交' }, { en: 'Business 商务', ru: 'Бизнес 商务' }],
       words: [
         { word: '八卦', pinyin: 'bāguà', category: 0 },
         { word: '面子', pinyin: 'miànzi', category: 0 },
@@ -132,7 +132,7 @@ export const wordCategories = {
       ]
     },
     {
-      categories: ['Internet 网络', 'Lifestyle 生活'],
+      categories: [{ en: 'Internet 网络', ru: 'Интернет 网络' }, { en: 'Lifestyle 生活', ru: 'Образ жизни 生活' }],
       words: [
         { word: '网红', pinyin: 'wǎnghóng', category: 0 },
         { word: '直播', pinyin: 'zhíbō', category: 0 },
