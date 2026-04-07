@@ -5,7 +5,7 @@
       <p class="game-subtitle">Word Sorting - Sort Words by Category</p>
     </div>
     <GameToolbar :score="score.score.value" :timer="timer.formatted.value" :is-playing="gameState.isPlaying.value" />
-    <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
+    <HskLevelPicker v-model="hskLevel" :show-my-words="false" @update:model-value="resetGame" />
     <div class="infinite-bar">
       <button class="infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">&#x221E; Infinite</button>
     </div>

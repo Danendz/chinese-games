@@ -9,7 +9,7 @@
       :timer="timer.formatted.value"
       :is-playing="gameState.isPlaying.value"
     />
-    <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
+    <HskLevelPicker v-model="hskLevel" :show-my-words="false" @update:model-value="resetGame" />
     <div class="mode-bar">
       <button class="mode-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
         ∞ Infinite

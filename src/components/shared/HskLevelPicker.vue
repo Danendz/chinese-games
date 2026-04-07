@@ -17,10 +17,6 @@
 import { computed } from 'vue'
 import { getMyVocabulary, getMySentences } from '../../data/myWordsStore'
 
-defineProps({
-  modelValue: { type: String, default: 'Beginner' },
-  showMyWords: { type: Boolean, default: true }
-})
 defineEmits(['update:modelValue'])
 
 const levels = [
@@ -40,9 +36,14 @@ const hasMyWords = computed(() => {
   }
 })
 
+const props = defineProps({
+  modelValue: { type: String, default: 'Beginner' },
+  showMyWords: { type: Boolean, default: true }
+})
+
 const allLevels = computed(() => {
   const base = [...levels]
-  if (hasMyWords.value) {
+  if (props.showMyWords && hasMyWords.value) {
     base.push({ value: 'MyWords', label: 'My Words', sub: '我的词库' })
   }
   return base
