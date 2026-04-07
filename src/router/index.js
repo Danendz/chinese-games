@@ -45,6 +45,30 @@ const routes = [
     meta: { title: '看图猜词 | Picture Quiz' }
   },
   {
+    path: '/tones',
+    name: 'tones',
+    component: () => import('../views/ToneGameView.vue'),
+    meta: { title: '声调大师 | Tone Master' }
+  },
+  {
+    path: '/antonyms',
+    name: 'antonyms',
+    component: () => import('../views/AntonymGameView.vue'),
+    meta: { title: '反义词配对 | Antonym Match' }
+  },
+  {
+    path: '/sorting',
+    name: 'sorting',
+    component: () => import('../views/SortingGameView.vue'),
+    meta: { title: '分类游戏 | Word Sorting' }
+  },
+  {
+    path: '/speed',
+    name: 'speed',
+    component: () => import('../views/SpeedGameView.vue'),
+    meta: { title: '快速反应 | Speed Challenge' }
+  },
+  {
     path: '/stats',
     name: 'stats',
     component: () => import('../views/StatsView.vue'),

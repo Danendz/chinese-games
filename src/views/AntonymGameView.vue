@@ -1,0 +1,86 @@
+<template>
+  <div class="game-view">
+    <div class="game-header">
+      <h1 class="game-title text-chinese">反义词配对</h1>
+      <p class="game-subtitle">Antonym Match</p>
+    </div>
+    <GameToolbar
+      :score="score.score.value"
+      :timer="timer.formatted.value"
+      :is-playing="gameState.isPlaying.value"
+    />
+    <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
+    <div class="mode-bar">
+      <button class="mode-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
+        ∞ Infinite
+      </button>
+    </div>
+    <AntonymMatch
+      :hsk-level="hskLevel"
+      :infinite="infiniteMode"
+      :key="gameKey"
+      @correct="onCorrect"
+      @incorrect="onIncorrect"
+      @game-start="onGameStart"
+      @game-complete="onGameComplete"
+      @round-complete="onRoundComplete"
+    />
+    <GameOverModal
+      v-if="gameState.isComplete.value && !infiniteMode"
+      title="Great Matching!"
+      :score="score.score.value"
+      :time="timer.formatted.value"
+      :accuracy="score.accuracy.value"
+      @play-again="resetGame"
+      @go-home="$router.push('/')"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import GameToolbar from '../components/shared/GameToolbar.vue'
+import GameOverModal from '../components/shared/GameOverModal.vue'
+import HskLevelPicker from '../components/shared/HskLevelPicker.vue'
+import AntonymMatch from '../components/antonym/AntonymMatch.vue'
+import { useTimer } from '../composables/useTimer'
+import { useScore } from '../composables/useScore'
+import { useGameState } from '../composables/useGameState'
+import { addGameSession, recordWordCorrect } from '../data/statsStore'
+
+const timer = useTimer()
+const score = useScore()
+const gameState = useGameState()
+const hskLevel = ref('Beginner')
+const gameKey = ref(0)
+const infiniteMode = ref(false)
+
+function onGameStart() { gameState.start(); timer.start() }
+function onCorrect(payload) { score.addCorrect(15); if (payload?.word) recordWordCorrect(payload.word) }
+function onIncorrect() { score.addIncorrect() }
+function onGameComplete() {
+  if (infiniteMode.value) return
+  timer.pause(); gameState.complete()
+  addGameSession('antonym', timer.elapsed.value, score.correct.value)
+}
+function onRoundComplete() {
+  if (infiniteMode.value) addGameSession('antonym', timer.elapsed.value, score.correct.value)
+}
+function toggleInfinite() { infiniteMode.value = !infiniteMode.value; resetGame() }
+function resetGame() { timer.reset(); score.reset(); gameState.reset(); gameKey.value++ }
+</script>
+
+<style scoped>
+.game-view { max-width: 800px; margin: 0 auto; }
+.game-header { text-align: center; margin-bottom: 20px; }
+.game-title { font-size: 1.8rem; font-weight: 700; }
+.game-subtitle { color: var(--color-text-secondary); font-size: 0.95rem; }
+.mode-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.mode-btn {
+  padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+  background: var(--color-bg-secondary); color: var(--color-text-secondary); transition: all var(--transition-fast);
+}
+.mode-btn.active { background: var(--color-primary); color: white; }
+.mode-btn:hover:not(.active) { background: var(--color-border); }
+.infinite-btn.active { background: #e17055; border-color: #e17055; }
+</style>

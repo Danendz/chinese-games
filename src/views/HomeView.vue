@@ -92,6 +92,42 @@ const games = [
     tags: ['Beginner - HSK9', 'Visual', 'Vocabulary']
   },
   {
+    route: '/tones',
+    icon: '调',
+    title: '声调大师',
+    subtitle: 'Tone Master',
+    description: 'See a character and identify the correct tone (1st-4th). Master the most challenging part of Chinese pronunciation!',
+    gradient: 'linear-gradient(135deg, #e17055, #fdcb6e)',
+    tags: ['Beginner - HSK9', 'Tones', 'Pronunciation']
+  },
+  {
+    route: '/antonyms',
+    icon: '反',
+    title: '反义词配对',
+    subtitle: 'Antonym Match',
+    description: 'Match words with their opposites! Learn two words at once — big↔small, fast↔slow, happy↔sad.',
+    gradient: 'linear-gradient(135deg, #6c5ce7, #a29bfe)',
+    tags: ['Beginner - HSK9', 'Antonyms', 'Vocabulary']
+  },
+  {
+    route: '/sorting',
+    icon: '类',
+    title: '分类游戏',
+    subtitle: 'Word Sorting',
+    description: 'Sort words into the correct categories — food, animals, colors, emotions and more!',
+    gradient: 'linear-gradient(135deg, #00cec9, #0984e3)',
+    tags: ['Beginner - HSK9', 'Categories', 'Vocabulary']
+  },
+  {
+    route: '/speed',
+    icon: '⚡',
+    title: '快速反应',
+    subtitle: 'Speed Challenge',
+    description: 'A word flashes on screen — select the meaning before time runs out! How fast can you read Chinese?',
+    gradient: 'linear-gradient(135deg, #d63031, #e17055)',
+    tags: ['Beginner - HSK9', 'Speed', 'Reading']
+  },
+  {
     route: '/stats',
     icon: '📊',
     title: '学习统计',
