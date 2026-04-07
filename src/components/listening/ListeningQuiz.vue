@@ -10,18 +10,18 @@
 
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All words completed! Starting over with fresh shuffle...
+        {{ t('game.poolExhausted') }}
       </div>
     </transition>
 
     <div class="speaker-area">
       <button class="speaker-btn" @click="speakWord" :disabled="speaking">
         <span class="speaker-icon">🔊</span>
-        <span class="speaker-label">{{ speaking ? 'Playing...' : 'Play Sound' }}</span>
+        <span class="speaker-label">{{ speaking ? t('listen.playing') : t('listen.playSound') }}</span>
       </button>
     </div>
 
-    <p class="quiz-prompt">{{ mode === 'english' ? 'Select the correct meaning:' : 'Select the word you heard:' }}</p>
+    <p class="quiz-prompt">{{ mode === 'english' ? t('prompt.selectMeaning') : t('prompt.selectWord') }}</p>
 
     <div class="options-grid">
       <button
@@ -36,14 +36,14 @@
         :disabled="answered"
         @click="selectAnswer(i)"
       >
-        {{ mode === 'english' ? opt.english : opt.character }}
+        {{ mode === 'english' ? tr(opt) : opt.character }}
       </button>
     </div>
 
     <div v-if="answered" class="answer-info animate-pop-in">
       <div class="answer-word text-chinese">{{ currentQuestion.character }}</div>
       <div class="answer-pinyin">{{ currentQuestion.pinyin }}</div>
-      <div class="answer-english">{{ currentQuestion.english }}</div>
+      <div class="answer-english">{{ tr(currentQuestion) }}</div>
     </div>
   </div>
 </template>
@@ -53,6 +53,8 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { vocabulary } from '../../data/vocabulary'
 import { getMyVocabulary } from '../../data/myWordsStore'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

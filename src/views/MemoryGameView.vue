@@ -2,7 +2,7 @@
   <div class="game-view">
     <div class="game-header">
       <h1 class="game-title text-chinese">汉字配对翻牌</h1>
-      <p class="game-subtitle">Character Matching Memory Game</p>
+      <p class="game-subtitle">{{ t('view.memory') }}</p>
     </div>
     <GameToolbar :score="score.score.value" :timer="timer.formatted.value" :is-playing="gameState.isPlaying.value" />
     <HskLevelPicker v-model="hskLevel" @update:model-value="resetGame" />
@@ -11,7 +11,7 @@
         v-for="d in difficulties" :key="d.value"
         class="ctrl-btn" :class="{ active: difficulty === d.value }"
         @click="difficulty = d.value; resetGame()"
-      >{{ d.label }}</button>
+      >{{ t(d.key) }}</button>
       <button class="ctrl-btn infinite-btn" :class="{ active: infiniteMode }" @click="toggleInfinite">
         ∞ Infinite
       </button>
@@ -22,7 +22,7 @@
       @game-complete="onGameComplete" @game-start="onGameStart" @round-complete="onRoundComplete"
     />
     <GameOverModal
-      v-if="gameState.isComplete.value && !infiniteMode" title="Well Done!"
+      v-if="gameState.isComplete.value && !infiniteMode" :title="t('game.wellDone')"
       :score="score.score.value" :time="timer.formatted.value" :accuracy="score.accuracy.value"
       @play-again="resetGame" @go-home="$router.push('/')"
     />
@@ -39,6 +39,9 @@ import { useTimer } from '../composables/useTimer'
 import { useScore } from '../composables/useScore'
 import { useGameState } from '../composables/useGameState'
 import { addGameSession, recordWordCorrect } from '../data/statsStore'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 
 const timer = useTimer()
 const score = useScore()
@@ -50,9 +53,9 @@ const gameKey = ref(0)
 const infiniteMode = ref(false)
 
 const difficulties = [
-  { label: 'Easy (4x3)', value: '4x3' },
-  { label: 'Medium (4x4)', value: '4x4' },
-  { label: 'Hard (6x4)', value: '6x4' }
+  { key: 'diff.easy', value: '4x3' },
+  { key: 'diff.medium', value: '4x4' },
+  { key: 'diff.hard', value: '6x4' }
 ]
 
 function onGameStart() { gameState.start(); timer.start() }

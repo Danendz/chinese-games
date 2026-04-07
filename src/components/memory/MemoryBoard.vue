@@ -2,10 +2,10 @@
   <div>
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All words completed! Starting over with fresh shuffle...
+        {{ t('game.poolExhausted') }}
       </div>
     </transition>
-    <div v-if="infinite" class="round-indicator">Round {{ pool.round.value }}</div>
+    <div v-if="infinite" class="round-indicator">{{ t('game.round') }} {{ pool.round.value }}</div>
     <div class="board" :style="{ gridTemplateColumns: `repeat(${cols}, 1fr)` }">
       <MemoryCard
         v-for="card in cards"
@@ -28,6 +28,9 @@ import MemoryCard from './MemoryCard.vue'
 import { vocabulary } from '../../data/vocabulary'
 import { getMyVocabulary } from '../../data/myWordsStore'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },
@@ -66,17 +69,17 @@ function buildCards(selected) {
       content: vocab.character,
       type: 'character',
       pinyin: vocab.pinyin,
-      english: vocab.english,
+      english: tr(vocab),
       isFlipped: false,
       isMatched: false
     },
     {
       id: `${pool.round.value}-${i}-pin`,
       pairId: i,
-      content: `${vocab.pinyin}\n${vocab.english}`,
+      content: `${vocab.pinyin}\n${tr(vocab)}`,
       type: 'pinyin',
       pinyin: vocab.pinyin,
-      english: vocab.english,
+      english: tr(vocab),
       isFlipped: false,
       isMatched: false
     }

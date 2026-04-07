@@ -10,7 +10,7 @@
 
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All pictures completed! Starting over...
+        {{ t('game.poolExhausted') }}
       </div>
     </transition>
 
@@ -18,7 +18,7 @@
       <span class="emoji">{{ currentQuestion.emoji }}</span>
     </div>
 
-    <p class="quiz-prompt">What does this represent in Chinese?</p>
+    <p class="quiz-prompt">{{ t('prompt.whatEmoji') }}</p>
 
     <div class="options-grid">
       <button
@@ -40,7 +40,7 @@
     <div v-if="answered" class="answer-info animate-pop-in">
       <div class="answer-word text-chinese">{{ currentQuestion.word }}</div>
       <div class="answer-pinyin">{{ currentQuestion.pinyin }}</div>
-      <div class="answer-english">{{ currentQuestion.english }}</div>
+      <div class="answer-english">{{ tr(currentQuestion) }}</div>
     </div>
   </div>
 </template>
@@ -49,6 +49,8 @@
 import { ref, computed, onMounted } from 'vue'
 import { pictureWords } from '../../data/pictureWords'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

@@ -3,9 +3,9 @@
     <!-- Pre-game: ready screen -->
     <div v-if="phase === 'ready'" class="ready-screen">
       <div class="ready-icon">⚡</div>
-      <h2 class="ready-title text-chinese">准备好了吗？</h2>
-      <p class="ready-desc">You have <strong>60 seconds</strong> to recognize as many words as possible!</p>
-      <button class="start-btn" @click="startGame">Start! 开始!</button>
+      <h2 class="ready-title text-chinese">{{ t('speed.ready') }}</h2>
+      <p class="ready-desc">{{ t('speed.readyDesc') }}</p>
+      <button class="start-btn" @click="startGame">{{ t('speed.start') }}</button>
     </div>
 
     <!-- Playing -->
@@ -19,15 +19,15 @@
       <!-- Stats row -->
       <div class="stats-row">
         <div class="stat-box">
-          <span class="stat-label">Score</span>
+          <span class="stat-label">{{ t('game.score') }}</span>
           <span class="stat-value">{{ totalScore }}</span>
         </div>
         <div class="stat-box">
-          <span class="stat-label">Correct</span>
+          <span class="stat-label">{{ t('speed.correct') }}</span>
           <span class="stat-value correct-text">{{ correctCount }}</span>
         </div>
         <div class="stat-box" :class="{ 'on-fire': streak >= 3 }">
-          <span class="stat-label">Streak</span>
+          <span class="stat-label">{{ t('tag.streak') }}</span>
           <span class="stat-value">{{ streak }}{{ streak >= 3 ? ' 🔥' : '' }}</span>
         </div>
       </div>
@@ -51,7 +51,7 @@
           :disabled="answered"
           @click="selectAnswer(i)"
         >
-          {{ opt.english }}
+          {{ tr(opt) }}
         </button>
       </div>
     </div>
@@ -59,23 +59,23 @@
     <!-- Game over -->
     <div v-if="phase === 'finished'" class="result-screen animate-pop-in">
       <div class="result-icon">🏆</div>
-      <h2 class="result-title">Time's Up!</h2>
+      <h2 class="result-title">{{ t('speed.timesUp') }}</h2>
       <div class="result-stats">
         <div class="result-stat">
           <span class="result-value">{{ totalScore }}</span>
-          <span class="result-label">Score</span>
+          <span class="result-label">{{ t('game.score') }}</span>
         </div>
         <div class="result-stat">
           <span class="result-value correct-text">{{ correctCount }}</span>
-          <span class="result-label">Correct</span>
+          <span class="result-label">{{ t('speed.correct') }}</span>
         </div>
         <div class="result-stat">
           <span class="result-value">{{ wrongCount }}</span>
-          <span class="result-label">Wrong</span>
+          <span class="result-label">{{ t('speed.wrong') }}</span>
         </div>
         <div class="result-stat">
           <span class="result-value">{{ bestStreak }}</span>
-          <span class="result-label">Best Streak</span>
+          <span class="result-label">{{ t('speed.bestStreak') }}</span>
         </div>
       </div>
     </div>
@@ -86,6 +86,8 @@
 import { ref, computed, onUnmounted } from 'vue'
 import { vocabulary } from '../../data/vocabulary'
 import { getMyVocabulary } from '../../data/myWordsStore'
+import { useI18n } from '../../composables/useI18n'
+const { t, tr } = useI18n()
 
 const props = defineProps({
   hskLevel: { type: String, default: 'Beginner' },

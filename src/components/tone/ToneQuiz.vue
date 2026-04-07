@@ -10,17 +10,17 @@
 
     <transition name="toast">
       <div v-if="pool.poolExhausted.value" class="pool-toast">
-        All words completed! Starting over with fresh shuffle...
+        {{ i18t('game.poolExhausted') }}
       </div>
     </transition>
 
     <div class="character-display">
       <div class="character text-chinese">{{ currentQuestion.character }}</div>
-      <div class="character-english">{{ currentQuestion.english }}</div>
+      <div class="character-english">{{ tr(currentQuestion) }}</div>
       <div v-if="answered" class="character-pinyin animate-pop-in">{{ currentQuestion.pinyin }}</div>
     </div>
 
-    <p class="quiz-prompt">Select the correct tone:</p>
+    <p class="quiz-prompt">{{ i18t('prompt.selectTone') }}</p>
 
     <div class="tone-grid">
       <button
@@ -36,7 +36,7 @@
       >
         <span class="tone-number">{{ t }}</span>
         <span class="tone-example text-pinyin">{{ currentToneExamples[t - 1] }}</span>
-        <span class="tone-desc">{{ toneNames[t].desc }}</span>
+        <span class="tone-desc">{{ i18t('tone.' + t + '.desc') }}</span>
       </button>
     </div>
   </div>
@@ -46,6 +46,8 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { toneQuizData, toneNames } from '../../data/tones'
 import { useInfinitePool } from '../../composables/useInfinitePool'
+import { useI18n } from '../../composables/useI18n'
+const { t: i18t, tr } = useI18n()
 
 // Generate 4 tone variants from a pinyin string
 // e.g. "yú" → ["yū", "yú", "yǔ", "yù"]
