@@ -50,6 +50,7 @@ const games = computed(() => [
   { route: '/sorting', icon: '类', title: '分类游戏', subtitle: t('card.sorting.subtitle'), description: t('card.sorting.desc'), gradient: 'linear-gradient(135deg, #00cec9, #0984e3)', tags: ['Beginner - HSK9', t('tag.categories'), t('tag.vocabulary')] },
   { route: '/speed', icon: '⚡', title: '快速反应', subtitle: t('card.speed.subtitle'), description: t('card.speed.desc'), gradient: 'linear-gradient(135deg, #d63031, #e17055)', tags: ['Beginner - HSK9', t('tag.speed'), t('tag.reading')] },
   { route: '/stats', icon: '📊', title: '学习统计', subtitle: t('card.stats.subtitle'), description: t('card.stats.desc'), gradient: 'linear-gradient(135deg, #fd79a8, #fdcb6e)', tags: [t('tag.progress'), t('tag.streak'), t('tag.share')] },
+  { route: '/wordlist', icon: '📋', title: '单词列表', subtitle: t('card.wordlist.subtitle'), description: t('card.wordlist.desc'), gradient: 'linear-gradient(135deg, #636e72, #2d3436)', tags: [t('tag.vocabulary'), t('tag.progress'), t('tag.review')] },
   { route: '/my-words', icon: '词', title: '我的词库', subtitle: t('card.mywords.subtitle'), description: t('card.mywords.desc'), gradient: 'linear-gradient(135deg, #fdcb6e, #e17055)', tags: [t('tag.custom'), t('tag.review'), t('tag.personal')] },
 ])
 </script>

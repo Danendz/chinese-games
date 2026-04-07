@@ -226,6 +226,25 @@ export const messages = {
     // Day names
     'day.sun': 'Sun', 'day.mon': 'Mon', 'day.tue': 'Tue',
     'day.wed': 'Wed', 'day.thu': 'Thu', 'day.fri': 'Fri', 'day.sat': 'Sat',
+
+    // Word List
+    'wordlist.subtitle': 'Track your vocabulary progress',
+    'wordlist.all': 'All',
+    'wordlist.learningTab': 'Learning',
+    'wordlist.masteredTab': 'Mastered',
+    'wordlist.newTab': 'Not Started',
+    'wordlist.search': 'Search words...',
+    'wordlist.play': 'Play',
+    'wordlist.empty': 'No words found in this category.',
+    'wordlist.progress': 'Progress',
+    'wordlist.totalCorrect': 'Total correct',
+    'wordlist.status': 'Status',
+    'wordlist.mastered': 'Mastered',
+    'wordlist.inProgress': 'In progress',
+    'wordlist.toMaster': 'to master',
+    'wordlist.examples': 'Example Sentences',
+    'card.wordlist.subtitle': 'Word List',
+    'card.wordlist.desc': 'Browse all vocabulary by level. Track which words you\'ve mastered, which you\'re learning, and which are new!',
   },
 
   ru: {
@@ -455,5 +474,24 @@ export const messages = {
     // Day names
     'day.sun': 'Вс', 'day.mon': 'Пн', 'day.tue': 'Вт',
     'day.wed': 'Ср', 'day.thu': 'Чт', 'day.fri': 'Пт', 'day.sat': 'Сб',
+
+    // Word List
+    'wordlist.subtitle': 'Отслеживайте прогресс словарного запаса',
+    'wordlist.all': 'Все',
+    'wordlist.learningTab': 'Изучаю',
+    'wordlist.masteredTab': 'Выучено',
+    'wordlist.newTab': 'Новые',
+    'wordlist.search': 'Поиск слов...',
+    'wordlist.play': 'Слушать',
+    'wordlist.empty': 'Слов в этой категории не найдено.',
+    'wordlist.progress': 'Прогресс',
+    'wordlist.totalCorrect': 'Всего правильно',
+    'wordlist.status': 'Статус',
+    'wordlist.mastered': 'Выучено',
+    'wordlist.inProgress': 'В процессе',
+    'wordlist.toMaster': 'для освоения',
+    'wordlist.examples': 'Примеры предложений',
+    'card.wordlist.subtitle': 'Список слов',
+    'card.wordlist.desc': 'Просматривайте словарь по уровням. Отслеживайте выученные, изучаемые и новые слова!',
   }
 }

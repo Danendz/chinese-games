@@ -69,6 +69,12 @@ const routes = [
     meta: { title: '快速反应 | Speed Challenge' }
   },
   {
+    path: '/wordlist',
+    name: 'wordlist',
+    component: () => import('../views/WordListView.vue'),
+    meta: { title: '单词列表 | Word List' }
+  },
+  {
     path: '/stats',
     name: 'stats',
     component: () => import('../views/StatsView.vue'),
