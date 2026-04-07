@@ -2604,4 +2604,1065 @@ export const wordDetails = {
       { zh: '别紧张，放松一下。', py: 'bié jǐnzhāng, fàngsōng yīxià.', en: 'Don\'t be nervous, relax a bit.', ru: 'Не нервничай, расслабься.' }
     ]
   },
+
+  // === HSK4-6: Emotions ===
+  '感动': {
+    definitions: [
+      { en: 'To be moved; touched (emotionally)', ru: 'Быть тронутым; растроганным' }
+    ],
+    examples: [
+      { zh: '这部电影让我很感动。', py: 'zhè bù diànyǐng ràng wǒ hěn gǎndòng.', en: 'This movie really moved me.', ru: 'Этот фильм меня очень тронул.' },
+      { zh: '他的话让大家很感动。', py: 'tā de huà ràng dàjiā hěn gǎndòng.', en: 'His words moved everyone.', ru: 'Его слова тронули всех.' }
+    ]
+  },
+  '骄傲': {
+    definitions: [
+      { en: 'Proud; pride', ru: 'Гордый; гордость' }
+    ],
+    examples: [
+      { zh: '我为你感到骄傲。', py: 'wǒ wèi nǐ gǎndào jiāoào.', en: 'I am proud of you.', ru: 'Я горжусь тобой.' },
+      { zh: '她是我们学校的骄傲。', py: 'tā shì wǒmen xuéxiào de jiāoào.', en: 'She is the pride of our school.', ru: 'Она — гордость нашей школы.' }
+    ]
+  },
+  '后悔': {
+    definitions: [
+      { en: 'To regret; to feel remorse', ru: 'Сожалеть; раскаиваться' }
+    ],
+    examples: [
+      { zh: '我后悔没有好好学习。', py: 'wǒ hòuhuǐ méiyǒu hǎohǎo xuéxí.', en: 'I regret not studying hard.', ru: 'Я сожалею, что не учился усердно.' },
+      { zh: '你现在后悔已经太晚了。', py: 'nǐ xiànzài hòuhuǐ yǐjīng tài wǎn le.', en: 'It is already too late for you to regret.', ru: 'Сейчас сожалеть уже слишком поздно.' }
+    ]
+  },
+  '失望': {
+    definitions: [
+      { en: 'Disappointed; to lose hope', ru: 'Разочарованный; потерять надежду' }
+    ],
+    examples: [
+      { zh: '考试结果让我很失望。', py: 'kǎoshì jiéguǒ ràng wǒ hěn shīwàng.', en: 'The exam results disappointed me.', ru: 'Результаты экзамена меня разочаровали.' },
+      { zh: '别让父母对你失望。', py: 'bié ràng fùmǔ duì nǐ shīwàng.', en: 'Don\'t let your parents be disappointed in you.', ru: 'Не разочаровывай родителей.' }
+    ]
+  },
+  '羡慕': {
+    definitions: [
+      { en: 'To envy; to admire', ru: 'Завидовать; восхищаться' }
+    ],
+    examples: [
+      { zh: '我很羡慕你能出国旅行。', py: 'wǒ hěn xiànmù nǐ néng chūguó lǚxíng.', en: 'I envy that you can travel abroad.', ru: 'Я завидую, что ты можешь путешествовать за границу.' },
+      { zh: '大家都羡慕他的工作。', py: 'dàjiā dōu xiànmù tā de gōngzuò.', en: 'Everyone envies his job.', ru: 'Все завидуют его работе.' }
+    ]
+  },
+  '害羞': {
+    definitions: [
+      { en: 'Shy; embarrassed', ru: 'Стеснительный; застенчивый' }
+    ],
+    examples: [
+      { zh: '她在陌生人面前很害羞。', py: 'tā zài mòshēngrén miànqián hěn hàixiū.', en: 'She is very shy in front of strangers.', ru: 'Она очень стеснительная перед незнакомцами.' },
+      { zh: '别害羞，大胆说出来。', py: 'bié hàixiū, dàdǎn shuō chūlái.', en: 'Don\'t be shy, speak up boldly.', ru: 'Не стесняйся, говори смело.' }
+    ]
+  },
+  '寂寞': {
+    definitions: [
+      { en: 'Lonely; lonesome', ru: 'Одинокий; тоскливый' }
+    ],
+    examples: [
+      { zh: '一个人住有时候很寂寞。', py: 'yī gè rén zhù yǒu shíhòu hěn jìmò.', en: 'Living alone can be lonely sometimes.', ru: 'Жить одному иногда бывает одиноко.' },
+      { zh: '他离开家乡后感到很寂寞。', py: 'tā líkāi jiāxiāng hòu gǎndào hěn jìmò.', en: 'He felt lonely after leaving his hometown.', ru: 'Он чувствовал себя одиноким после отъезда из родного города.' }
+    ]
+  },
+  '满意': {
+    definitions: [
+      { en: 'Satisfied; pleased', ru: 'Довольный; удовлетворённый' }
+    ],
+    examples: [
+      { zh: '老板对我的工作很满意。', py: 'lǎobǎn duì wǒ de gōngzuò hěn mǎnyì.', en: 'The boss is very satisfied with my work.', ru: 'Начальник доволен моей работой.' },
+      { zh: '你对这个结果满意吗？', py: 'nǐ duì zhège jiéguǒ mǎnyì ma?', en: 'Are you satisfied with this result?', ru: 'Ты доволен этим результатом?' }
+    ]
+  },
+  '吃惊': {
+    definitions: [
+      { en: 'Surprised; shocked', ru: 'Удивлённый; поражённый' }
+    ],
+    examples: [
+      { zh: '听到这个消息，我很吃惊。', py: 'tīngdào zhège xiāoxi, wǒ hěn chījīng.', en: 'I was surprised to hear this news.', ru: 'Я был удивлён, услышав эту новость.' },
+      { zh: '他的变化让所有人都吃惊。', py: 'tā de biànhuà ràng suǒyǒu rén dōu chījīng.', en: 'His transformation surprised everyone.', ru: 'Его перемены удивили всех.' }
+    ]
+  },
+  '感谢': {
+    definitions: [
+      { en: 'To thank; grateful', ru: 'Благодарить; признательный' }
+    ],
+    examples: [
+      { zh: '感谢你的帮助。', py: 'gǎnxiè nǐ de bāngzhù.', en: 'Thank you for your help.', ru: 'Спасибо за твою помощь.' },
+      { zh: '我非常感谢老师对我的关心。', py: 'wǒ fēicháng gǎnxiè lǎoshī duì wǒ de guānxīn.', en: 'I am very grateful for the teacher\'s care.', ru: 'Я очень благодарен учителю за заботу.' }
+    ]
+  },
+
+  // === HSK4-6: Work & Society ===
+  '经济': {
+    definitions: [
+      { en: 'Economy; economic', ru: 'Экономика; экономический' }
+    ],
+    examples: [
+      { zh: '中国的经济发展很快。', py: 'zhōngguó de jīngjì fāzhǎn hěn kuài.', en: 'China\'s economy is developing rapidly.', ru: 'Экономика Китая развивается быстро.' },
+      { zh: '经济问题影响了很多人的生活。', py: 'jīngjì wèntí yǐngxiǎng le hěn duō rén de shēnghuó.', en: 'Economic problems have affected many people\'s lives.', ru: 'Экономические проблемы повлияли на жизнь многих людей.' }
+    ]
+  },
+  '社会': {
+    definitions: [
+      { en: 'Society; social', ru: 'Общество; социальный' }
+    ],
+    examples: [
+      { zh: '这是一个社会问题。', py: 'zhè shì yī gè shèhuì wèntí.', en: 'This is a social issue.', ru: 'Это социальная проблема.' },
+      { zh: '我们要为社会做贡献。', py: 'wǒmen yào wèi shèhuì zuò gòngxiàn.', en: 'We should contribute to society.', ru: 'Мы должны вносить вклад в общество.' }
+    ]
+  },
+  '收入': {
+    definitions: [
+      { en: 'Income; earnings', ru: 'Доход; заработок' }
+    ],
+    examples: [
+      { zh: '他的收入不太高。', py: 'tā de shōurù bú tài gāo.', en: 'His income is not very high.', ru: 'Его доход не очень высокий.' },
+      { zh: '这份工作的收入还不错。', py: 'zhè fèn gōngzuò de shōurù hái búcuò.', en: 'The income from this job is decent.', ru: 'Доход от этой работы неплохой.' }
+    ]
+  },
+  '竞争': {
+    definitions: [
+      { en: 'Competition; to compete', ru: 'Конкуренция; конкурировать' }
+    ],
+    examples: [
+      { zh: '现在工作的竞争很激烈。', py: 'xiànzài gōngzuò de jìngzhēng hěn jīliè.', en: 'Job competition is very fierce now.', ru: 'Сейчас конкуренция за работу очень жёсткая.' },
+      { zh: '我们要在竞争中不断进步。', py: 'wǒmen yào zài jìngzhēng zhōng búduàn jìnbù.', en: 'We must keep improving through competition.', ru: 'Мы должны постоянно совершенствоваться в конкуренции.' }
+    ]
+  },
+  '经验': {
+    definitions: [
+      { en: 'Experience', ru: 'Опыт' }
+    ],
+    examples: [
+      { zh: '你有工作经验吗？', py: 'nǐ yǒu gōngzuò jīngyàn ma?', en: 'Do you have work experience?', ru: 'У тебя есть опыт работы?' },
+      { zh: '这次旅行给了我很多经验。', py: 'zhè cì lǚxíng gěi le wǒ hěn duō jīngyàn.', en: 'This trip gave me a lot of experience.', ru: 'Эта поездка дала мне много опыта.' }
+    ]
+  },
+  '机会': {
+    definitions: [
+      { en: 'Opportunity; chance', ru: 'Возможность; шанс' }
+    ],
+    examples: [
+      { zh: '我不想错过这个机会。', py: 'wǒ bù xiǎng cuòguò zhège jīhuì.', en: 'I don\'t want to miss this opportunity.', ru: 'Я не хочу упустить эту возможность.' },
+      { zh: '给他一个机会吧。', py: 'gěi tā yī gè jīhuì ba.', en: 'Give him a chance.', ru: 'Дай ему шанс.' }
+    ]
+  },
+  '失败': {
+    definitions: [
+      { en: 'To fail; failure', ru: 'Потерпеть неудачу; провал' }
+    ],
+    examples: [
+      { zh: '失败是成功之母。', py: 'shībài shì chénggōng zhī mǔ.', en: 'Failure is the mother of success.', ru: 'Неудача — мать успеха.' },
+      { zh: '这次考试我失败了。', py: 'zhè cì kǎoshì wǒ shībài le.', en: 'I failed this exam.', ru: 'Я провалил этот экзамен.' }
+    ]
+  },
+  '工资': {
+    definitions: [
+      { en: 'Salary; wage', ru: 'Зарплата; оклад' }
+    ],
+    examples: [
+      { zh: '这个月的工资还没有发。', py: 'zhège yuè de gōngzī hái méiyǒu fā.', en: 'This month\'s salary has not been paid yet.', ru: 'Зарплату за этот месяц ещё не выдали.' },
+      { zh: '他对自己的工资不满意。', py: 'tā duì zìjǐ de gōngzī bù mǎnyì.', en: 'He is not satisfied with his salary.', ru: 'Он не доволен своей зарплатой.' }
+    ]
+  },
+  '面试': {
+    definitions: [
+      { en: 'Job interview; to interview', ru: 'Собеседование; проходить собеседование' }
+    ],
+    examples: [
+      { zh: '明天我有一个面试。', py: 'míngtiān wǒ yǒu yī gè miànshì.', en: 'I have an interview tomorrow.', ru: 'Завтра у меня собеседование.' },
+      { zh: '面试的时候要穿正式的衣服。', py: 'miànshì de shíhòu yào chuān zhèngshì de yīfú.', en: 'You should wear formal clothes during an interview.', ru: 'На собеседование нужно надеть официальную одежду.' }
+    ]
+  },
+  '同事': {
+    definitions: [
+      { en: 'Colleague; coworker', ru: 'Коллега; сослуживец' }
+    ],
+    examples: [
+      { zh: '我和同事的关系很好。', py: 'wǒ hé tóngshì de guānxì hěn hǎo.', en: 'I have a good relationship with my colleagues.', ru: 'У меня хорошие отношения с коллегами.' },
+      { zh: '今天同事请我吃午饭。', py: 'jīntiān tóngshì qǐng wǒ chī wǔfàn.', en: 'My colleague treated me to lunch today.', ru: 'Сегодня коллега угостил меня обедом.' }
+    ]
+  },
+  '老板': {
+    definitions: [
+      { en: 'Boss; business owner', ru: 'Начальник; хозяин; босс' }
+    ],
+    examples: [
+      { zh: '老板让我加班。', py: 'lǎobǎn ràng wǒ jiābān.', en: 'The boss asked me to work overtime.', ru: 'Начальник попросил меня работать сверхурочно.' },
+      { zh: '我们老板人很好。', py: 'wǒmen lǎobǎn rén hěn hǎo.', en: 'Our boss is a very nice person.', ru: 'Наш начальник очень хороший человек.' }
+    ]
+  },
+  '加班': {
+    definitions: [
+      { en: 'To work overtime', ru: 'Работать сверхурочно' }
+    ],
+    examples: [
+      { zh: '我今天又要加班了。', py: 'wǒ jīntiān yòu yào jiābān le.', en: 'I have to work overtime again today.', ru: 'Мне сегодня опять нужно работать сверхурочно.' },
+      { zh: '他经常加班到很晚。', py: 'tā jīngcháng jiābān dào hěn wǎn.', en: 'He often works overtime until very late.', ru: 'Он часто работает сверхурочно допоздна.' }
+    ]
+  },
+  '请假': {
+    definitions: [
+      { en: 'To ask for leave; to take time off', ru: 'Отпроситься; взять отгул' }
+    ],
+    examples: [
+      { zh: '我想请假一天去看病。', py: 'wǒ xiǎng qǐngjià yī tiān qù kànbìng.', en: 'I want to take a day off to see a doctor.', ru: 'Я хочу взять выходной, чтобы сходить к врачу.' },
+      { zh: '他已经请假三天了。', py: 'tā yǐjīng qǐngjià sān tiān le.', en: 'He has already taken three days off.', ru: 'Он уже три дня в отпуске.' }
+    ]
+  },
+
+  // === HSK4-6: Daily Life Practical ===
+  '打折': {
+    definitions: [
+      { en: 'Discount; to give a discount', ru: 'Скидка; делать скидку' }
+    ],
+    examples: [
+      { zh: '这件衣服打八折。', py: 'zhè jiàn yīfú dǎ bā zhé.', en: 'This piece of clothing is 20% off.', ru: 'На эту одежду скидка 20%.' },
+      { zh: '打折的时候我喜欢去购物。', py: 'dǎzhé de shíhòu wǒ xǐhuān qù gòuwù.', en: 'I like to go shopping when there are discounts.', ru: 'Мне нравится ходить за покупками, когда есть скидки.' }
+    ]
+  },
+  '外卖': {
+    definitions: [
+      { en: 'Food delivery; takeout', ru: 'Доставка еды; еда на вынос' }
+    ],
+    examples: [
+      { zh: '今天太累了，我们叫外卖吧。', py: 'jīntiān tài lèi le, wǒmen jiào wàimài ba.', en: 'I am too tired today, let\'s order delivery.', ru: 'Сегодня я слишком устал, давай закажем доставку.' },
+      { zh: '外卖大概半个小时到。', py: 'wàimài dàgài bàn gè xiǎoshí dào.', en: 'The delivery will arrive in about half an hour.', ru: 'Доставка приедет примерно через полчаса.' }
+    ]
+  },
+  '快递': {
+    definitions: [
+      { en: 'Express delivery; courier', ru: 'Курьерская доставка; посылка' }
+    ],
+    examples: [
+      { zh: '你的快递到了，请去取一下。', py: 'nǐ de kuàidì dào le, qǐng qù qǔ yīxià.', en: 'Your package has arrived, please go pick it up.', ru: 'Твоя посылка пришла, забери её.' },
+      { zh: '我在网上买的东西，快递很快。', py: 'wǒ zài wǎngshàng mǎi de dōngxi, kuàidì hěn kuài.', en: 'Things I bought online were delivered very quickly.', ru: 'То, что я купил в интернете, доставили очень быстро.' }
+    ]
+  },
+  '密码': {
+    definitions: [
+      { en: 'Password; PIN code', ru: 'Пароль; ПИН-код' }
+    ],
+    examples: [
+      { zh: '请输入你的密码。', py: 'qǐng shūrù nǐ de mìmǎ.', en: 'Please enter your password.', ru: 'Пожалуйста, введите свой пароль.' },
+      { zh: '我忘了WiFi密码。', py: 'wǒ wàng le WiFi mìmǎ.', en: 'I forgot the WiFi password.', ru: 'Я забыл пароль от WiFi.' }
+    ]
+  },
+  '网站': {
+    definitions: [
+      { en: 'Website', ru: 'Веб-сайт; сайт' }
+    ],
+    examples: [
+      { zh: '这个网站上有很多有用的信息。', py: 'zhège wǎngzhàn shàng yǒu hěn duō yǒuyòng de xìnxī.', en: 'There is a lot of useful information on this website.', ru: 'На этом сайте много полезной информации.' },
+      { zh: '你经常上什么网站？', py: 'nǐ jīngcháng shàng shénme wǎngzhàn?', en: 'What websites do you usually visit?', ru: 'Какие сайты ты обычно посещаешь?' }
+    ]
+  },
+  '空调': {
+    definitions: [
+      { en: 'Air conditioning; air conditioner', ru: 'Кондиционер' }
+    ],
+    examples: [
+      { zh: '天太热了，打开空调吧。', py: 'tiān tài rè le, dǎkāi kōngtiáo ba.', en: 'It is too hot, let\'s turn on the air conditioner.', ru: 'Слишком жарко, давай включим кондиционер.' },
+      { zh: '空调的温度不要调太低。', py: 'kōngtiáo de wēndù búyào tiáo tài dī.', en: 'Don\'t set the air conditioner temperature too low.', ru: 'Не ставь кондиционер на слишком низкую температуру.' }
+    ]
+  },
+  '签证': {
+    definitions: [
+      { en: 'Visa', ru: 'Виза' }
+    ],
+    examples: [
+      { zh: '我正在申请去美国的签证。', py: 'wǒ zhèngzài shēnqǐng qù měiguó de qiānzhèng.', en: 'I am applying for a visa to the US.', ru: 'Я подаю заявку на визу в США.' },
+      { zh: '签证还没有批下来。', py: 'qiānzhèng hái méiyǒu pī xiàlái.', en: 'The visa has not been approved yet.', ru: 'Визу ещё не одобрили.' }
+    ]
+  },
+  '行李': {
+    definitions: [
+      { en: 'Luggage; baggage', ru: 'Багаж; чемодан' }
+    ],
+    examples: [
+      { zh: '请把行李放在这里。', py: 'qǐng bǎ xíngli fàng zài zhèlǐ.', en: 'Please put the luggage here.', ru: 'Пожалуйста, поставьте багаж сюда.' },
+      { zh: '你的行李太重了。', py: 'nǐ de xíngli tài zhòng le.', en: 'Your luggage is too heavy.', ru: 'Твой багаж слишком тяжёлый.' }
+    ]
+  },
+  '垃圾': {
+    definitions: [
+      { en: 'Garbage; trash; rubbish', ru: 'Мусор; отходы' }
+    ],
+    examples: [
+      { zh: '请把垃圾扔到垃圾桶里。', py: 'qǐng bǎ lājī rēng dào lājītǒng lǐ.', en: 'Please throw the trash in the trash can.', ru: 'Пожалуйста, выброси мусор в мусорное ведро.' },
+      { zh: '我们要学会垃圾分类。', py: 'wǒmen yào xuéhuì lājī fēnlèi.', en: 'We need to learn to sort garbage.', ru: 'Нам нужно научиться сортировать мусор.' }
+    ]
+  },
+  '塑料袋': {
+    definitions: [
+      { en: 'Plastic bag', ru: 'Пластиковый пакет' }
+    ],
+    examples: [
+      { zh: '超市不再免费提供塑料袋了。', py: 'chāoshì bú zài miǎnfèi tígōng sùliàodài le.', en: 'Supermarkets no longer provide plastic bags for free.', ru: 'Супермаркеты больше не предоставляют бесплатные пластиковые пакеты.' },
+      { zh: '请自己带购物袋，少用塑料袋。', py: 'qǐng zìjǐ dài gòuwù dài, shǎo yòng sùliàodài.', en: 'Please bring your own shopping bag and use fewer plastic bags.', ru: 'Пожалуйста, берите свою сумку для покупок и используйте меньше пакетов.' }
+    ]
+  },
+  '信用卡': {
+    definitions: [
+      { en: 'Credit card', ru: 'Кредитная карта' }
+    ],
+    examples: [
+      { zh: '你可以用信用卡付款。', py: 'nǐ kěyǐ yòng xìnyòngkǎ fùkuǎn.', en: 'You can pay by credit card.', ru: 'Вы можете оплатить кредитной картой.' },
+      { zh: '我的信用卡丢了，需要挂失。', py: 'wǒ de xìnyòngkǎ diū le, xūyào guàshī.', en: 'I lost my credit card and need to report it.', ru: 'Я потерял кредитную карту, нужно заблокировать.' }
+    ]
+  },
+
+  // === HSK4-6: Abstract Concepts ===
+  '责任': {
+    definitions: [
+      { en: 'Responsibility; duty', ru: 'Ответственность; обязанность' }
+    ],
+    examples: [
+      { zh: '这是我的责任。', py: 'zhè shì wǒ de zérèn.', en: 'This is my responsibility.', ru: 'Это моя ответственность.' },
+      { zh: '每个人都应该对自己的行为负责任。', py: 'měi gè rén dōu yīnggāi duì zìjǐ de xíngwéi fù zérèn.', en: 'Everyone should be responsible for their own actions.', ru: 'Каждый должен нести ответственность за свои поступки.' }
+    ]
+  },
+  '态度': {
+    definitions: [
+      { en: 'Attitude; manner', ru: 'Отношение; позиция' }
+    ],
+    examples: [
+      { zh: '他的工作态度很认真。', py: 'tā de gōngzuò tàidù hěn rènzhēn.', en: 'His work attitude is very serious.', ru: 'Его отношение к работе очень серьёзное.' },
+      { zh: '态度决定一切。', py: 'tàidù juédìng yīqiè.', en: 'Attitude determines everything.', ru: 'Отношение определяет всё.' }
+    ]
+  },
+  '影响': {
+    definitions: [
+      { en: 'Influence; impact; to affect', ru: 'Влияние; воздействие; влиять' }
+    ],
+    examples: [
+      { zh: '天气影响了我们的计划。', py: 'tiānqì yǐngxiǎng le wǒmen de jìhuà.', en: 'The weather affected our plans.', ru: 'Погода повлияла на наши планы.' },
+      { zh: '父母对孩子的影响很大。', py: 'fùmǔ duì háizi de yǐngxiǎng hěn dà.', en: 'Parents have a great influence on children.', ru: 'Родители оказывают большое влияние на детей.' }
+    ]
+  },
+  '原因': {
+    definitions: [
+      { en: 'Reason; cause', ru: 'Причина' }
+    ],
+    examples: [
+      { zh: '迟到的原因是什么？', py: 'chídào de yuányīn shì shénme?', en: 'What is the reason for being late?', ru: 'Какова причина опоздания?' },
+      { zh: '我想知道失败的原因。', py: 'wǒ xiǎng zhīdào shībài de yuányīn.', en: 'I want to know the reason for the failure.', ru: 'Я хочу узнать причину неудачи.' }
+    ]
+  },
+  '结果': {
+    definitions: [
+      { en: 'Result; outcome', ru: 'Результат; итог' }
+    ],
+    examples: [
+      { zh: '考试结果出来了吗？', py: 'kǎoshì jiéguǒ chūlái le ma?', en: 'Have the exam results come out?', ru: 'Результаты экзамена уже вышли?' },
+      { zh: '结果和我想的不一样。', py: 'jiéguǒ hé wǒ xiǎng de bù yīyàng.', en: 'The result is different from what I expected.', ru: 'Результат отличается от того, что я ожидал.' }
+    ]
+  },
+  '方法': {
+    definitions: [
+      { en: 'Method; way; approach', ru: 'Метод; способ; подход' }
+    ],
+    examples: [
+      { zh: '你有什么好方法？', py: 'nǐ yǒu shénme hǎo fāngfǎ?', en: 'Do you have any good ideas?', ru: 'У тебя есть хорошие способы?' },
+      { zh: '学习语言的方法有很多。', py: 'xuéxí yǔyán de fāngfǎ yǒu hěn duō.', en: 'There are many ways to learn a language.', ru: 'Есть много способов изучения языка.' }
+    ]
+  },
+  '目标': {
+    definitions: [
+      { en: 'Goal; target; objective', ru: 'Цель; задача' }
+    ],
+    examples: [
+      { zh: '我的目标是学好中文。', py: 'wǒ de mùbiāo shì xué hǎo zhōngwén.', en: 'My goal is to learn Chinese well.', ru: 'Моя цель — хорошо выучить китайский.' },
+      { zh: '设定一个清楚的目标很重要。', py: 'shèdìng yī gè qīngchǔ de mùbiāo hěn zhòngyào.', en: 'It is important to set a clear goal.', ru: 'Важно поставить ясную цель.' }
+    ]
+  },
+  '解决': {
+    definitions: [
+      { en: 'To solve; to resolve', ru: 'Решать; разрешать' }
+    ],
+    examples: [
+      { zh: '我们一起解决这个问题吧。', py: 'wǒmen yīqǐ jiějué zhège wèntí ba.', en: 'Let\'s solve this problem together.', ru: 'Давайте вместе решим эту проблему.' },
+      { zh: '这个问题很难解决。', py: 'zhège wèntí hěn nán jiějué.', en: 'This problem is hard to solve.', ru: 'Эту проблему сложно решить.' }
+    ]
+  },
+  '合作': {
+    definitions: [
+      { en: 'Cooperation; to cooperate', ru: 'Сотрудничество; сотрудничать' }
+    ],
+    examples: [
+      { zh: '希望我们以后能继续合作。', py: 'xīwàng wǒmen yǐhòu néng jìxù hézuò.', en: 'I hope we can continue to cooperate in the future.', ru: 'Надеюсь, мы сможем продолжить сотрудничество.' },
+      { zh: '合作才能成功。', py: 'hézuò cái néng chénggōng.', en: 'Only through cooperation can we succeed.', ru: 'Только через сотрудничество можно добиться успеха.' }
+    ]
+  },
+  '沟通': {
+    definitions: [
+      { en: 'To communicate; communication', ru: 'Общаться; коммуникация' }
+    ],
+    examples: [
+      { zh: '和同事沟通很重要。', py: 'hé tóngshì gōutōng hěn zhòngyào.', en: 'Communication with colleagues is important.', ru: 'Общение с коллегами очень важно.' },
+      { zh: '我们需要更好地沟通。', py: 'wǒmen xūyào gèng hǎo de gōutōng.', en: 'We need to communicate better.', ru: 'Нам нужно лучше общаться.' }
+    ]
+  },
+
+  // === HSK4-6: Tech & Modern Life ===
+  '科技': {
+    definitions: [
+      { en: 'Technology; science and technology', ru: 'Технологии; наука и техника' }
+    ],
+    examples: [
+      { zh: '科技改变了我们的生活。', py: 'kējì gǎibiàn le wǒmen de shēnghuó.', en: 'Technology has changed our lives.', ru: 'Технологии изменили нашу жизнь.' },
+      { zh: '现在科技发展越来越快。', py: 'xiànzài kējì fāzhǎn yuè lái yuè kuài.', en: 'Technology is developing faster and faster now.', ru: 'Сейчас технологии развиваются всё быстрее.' }
+    ]
+  },
+  '网络': {
+    definitions: [
+      { en: 'Internet; network', ru: 'Интернет; сеть' }
+    ],
+    examples: [
+      { zh: '这里的网络信号不好。', py: 'zhèlǐ de wǎngluò xìnhào bù hǎo.', en: 'The internet signal here is not good.', ru: 'Здесь плохой сигнал интернета.' },
+      { zh: '我们的生活离不开网络。', py: 'wǒmen de shēnghuó lí bù kāi wǎngluò.', en: 'Our lives cannot do without the internet.', ru: 'Наша жизнь невозможна без интернета.' }
+    ]
+  },
+  '软件': {
+    definitions: [
+      { en: 'Software; application', ru: 'Программное обеспечение; приложение' }
+    ],
+    examples: [
+      { zh: '你用什么软件学中文？', py: 'nǐ yòng shénme ruǎnjiàn xué zhōngwén?', en: 'What software do you use to learn Chinese?', ru: 'Какое приложение ты используешь для изучения китайского?' },
+      { zh: '这个软件很好用。', py: 'zhège ruǎnjiàn hěn hǎo yòng.', en: 'This software is very easy to use.', ru: 'Это приложение очень удобное.' }
+    ]
+  },
+  '数据': {
+    definitions: [
+      { en: 'Data; information', ru: 'Данные; информация' }
+    ],
+    examples: [
+      { zh: '请把数据发给我。', py: 'qǐng bǎ shùjù fā gěi wǒ.', en: 'Please send me the data.', ru: 'Пожалуйста, отправь мне данные.' },
+      { zh: '这些数据非常重要。', py: 'zhèxiē shùjù fēicháng zhòngyào.', en: 'These data are very important.', ru: 'Эти данные очень важные.' }
+    ]
+  },
+  '人工智能': {
+    definitions: [
+      { en: 'Artificial intelligence (AI)', ru: 'Искусственный интеллект (ИИ)' }
+    ],
+    examples: [
+      { zh: '人工智能技术发展很快。', py: 'réngōng zhìnéng jìshù fāzhǎn hěn kuài.', en: 'AI technology is developing rapidly.', ru: 'Технологии искусственного интеллекта развиваются быстро.' },
+      { zh: '很多公司都在使用人工智能。', py: 'hěn duō gōngsī dōu zài shǐyòng réngōng zhìnéng.', en: 'Many companies are using artificial intelligence.', ru: 'Многие компании используют искусственный интеллект.' }
+    ]
+  },
+  '二维码': {
+    definitions: [
+      { en: 'QR code', ru: 'QR-код' }
+    ],
+    examples: [
+      { zh: '请扫一下这个二维码。', py: 'qǐng sǎo yīxià zhège èrwéimǎ.', en: 'Please scan this QR code.', ru: 'Пожалуйста, отсканируй этот QR-код.' },
+      { zh: '在中国，到处都可以用二维码付款。', py: 'zài zhōngguó, dàochù dōu kěyǐ yòng èrwéimǎ fùkuǎn.', en: 'In China, you can pay with QR codes everywhere.', ru: 'В Китае везде можно платить с помощью QR-кода.' }
+    ]
+  },
+  '充电': {
+    definitions: [
+      { en: 'To charge (a battery); to recharge', ru: 'Заряжать; подзаряжать' }
+    ],
+    examples: [
+      { zh: '我的手机需要充电。', py: 'wǒ de shǒujī xūyào chōngdiàn.', en: 'My phone needs to be charged.', ru: 'Мой телефон нужно зарядить.' },
+      { zh: '这里有地方可以充电吗？', py: 'zhèlǐ yǒu dìfāng kěyǐ chōngdiàn ma?', en: 'Is there a place to charge here?', ru: 'Здесь есть место, где можно зарядить?' }
+    ]
+  },
+
+  // === HSK4-6: Culture & Education ===
+  '传统': {
+    definitions: [
+      { en: 'Tradition; traditional', ru: 'Традиция; традиционный' }
+    ],
+    examples: [
+      { zh: '春节是中国最重要的传统节日。', py: 'chūnjié shì zhōngguó zuì zhòngyào de chuántǒng jiérì.', en: 'Spring Festival is China\'s most important traditional holiday.', ru: 'Праздник Весны — самый важный традиционный праздник Китая.' },
+      { zh: '我们要保护传统文化。', py: 'wǒmen yào bǎohù chuántǒng wénhuà.', en: 'We should protect traditional culture.', ru: 'Мы должны защищать традиционную культуру.' }
+    ]
+  },
+  '文化': {
+    definitions: [
+      { en: 'Culture', ru: 'Культура' }
+    ],
+    examples: [
+      { zh: '我对中国文化很感兴趣。', py: 'wǒ duì zhōngguó wénhuà hěn gǎn xìngqù.', en: 'I am very interested in Chinese culture.', ru: 'Мне очень интересна китайская культура.' },
+      { zh: '每个国家都有自己的文化。', py: 'měi gè guójiā dōu yǒu zìjǐ de wénhuà.', en: 'Every country has its own culture.', ru: 'У каждой страны своя культура.' }
+    ]
+  },
+  '艺术': {
+    definitions: [
+      { en: 'Art; the arts', ru: 'Искусство' }
+    ],
+    examples: [
+      { zh: '他对艺术很有天赋。', py: 'tā duì yìshù hěn yǒu tiānfù.', en: 'He has a great talent for art.', ru: 'У него большой талант к искусству.' },
+      { zh: '我喜欢去艺术展览。', py: 'wǒ xǐhuān qù yìshù zhǎnlǎn.', en: 'I like to go to art exhibitions.', ru: 'Мне нравится ходить на выставки искусства.' }
+    ]
+  },
+  '历史': {
+    definitions: [
+      { en: 'History', ru: 'История' }
+    ],
+    examples: [
+      { zh: '中国有很长的历史。', py: 'zhōngguó yǒu hěn cháng de lìshǐ.', en: 'China has a very long history.', ru: 'У Китая очень длинная история.' },
+      { zh: '学习历史可以帮助我们了解过去。', py: 'xuéxí lìshǐ kěyǐ bāngzhù wǒmen liǎojiě guòqù.', en: 'Studying history helps us understand the past.', ru: 'Изучение истории помогает нам понять прошлое.' }
+    ]
+  },
+  '教育': {
+    definitions: [
+      { en: 'Education', ru: 'Образование' }
+    ],
+    examples: [
+      { zh: '教育对每个人都很重要。', py: 'jiàoyù duì měi gè rén dōu hěn zhòngyào.', en: 'Education is important for everyone.', ru: 'Образование важно для каждого.' },
+      { zh: '父母非常重视孩子的教育。', py: 'fùmǔ fēicháng zhòngshì háizi de jiàoyù.', en: 'Parents attach great importance to children\'s education.', ru: 'Родители придают большое значение образованию детей.' }
+    ]
+  },
+  '知识': {
+    definitions: [
+      { en: 'Knowledge', ru: 'Знание; знания' }
+    ],
+    examples: [
+      { zh: '知识就是力量。', py: 'zhīshi jiùshì lìliang.', en: 'Knowledge is power.', ru: 'Знание — сила.' },
+      { zh: '他的知识面很广。', py: 'tā de zhīshi miàn hěn guǎng.', en: 'He has a broad range of knowledge.', ru: 'У него широкий кругозор.' }
+    ]
+  },
+
+  // === HSK4-6: Character & Personality ===
+  '勇敢': {
+    definitions: [
+      { en: 'Brave; courageous', ru: 'Смелый; храбрый' }
+    ],
+    examples: [
+      { zh: '他是一个很勇敢的人。', py: 'tā shì yī gè hěn yǒnggǎn de rén.', en: 'He is a very brave person.', ru: 'Он очень смелый человек.' },
+      { zh: '要勇敢地面对困难。', py: 'yào yǒnggǎn de miànduì kùnnán.', en: 'Face difficulties bravely.', ru: 'Нужно смело встречать трудности.' }
+    ]
+  },
+  '诚实': {
+    definitions: [
+      { en: 'Honest; truthful', ru: 'Честный; правдивый' }
+    ],
+    examples: [
+      { zh: '做人要诚实。', py: 'zuòrén yào chéngshí.', en: 'One should be honest.', ru: 'Нужно быть честным.' },
+      { zh: '他是一个非常诚实的人。', py: 'tā shì yī gè fēicháng chéngshí de rén.', en: 'He is a very honest person.', ru: 'Он очень честный человек.' }
+    ]
+  },
+  '幽默': {
+    definitions: [
+      { en: 'Humorous; humor', ru: 'С юмором; юмористичный' }
+    ],
+    examples: [
+      { zh: '他说话很幽默。', py: 'tā shuōhuà hěn yōumò.', en: 'He speaks humorously.', ru: 'Он очень остроумно говорит.' },
+      { zh: '幽默的人到哪里都受欢迎。', py: 'yōumò de rén dào nǎlǐ dōu shòu huānyíng.', en: 'Humorous people are welcome everywhere.', ru: 'Человек с юмором везде желанный гость.' }
+    ]
+  },
+  '温柔': {
+    definitions: [
+      { en: 'Gentle; tender; soft', ru: 'Нежный; мягкий; ласковый' }
+    ],
+    examples: [
+      { zh: '她是一个很温柔的人。', py: 'tā shì yī gè hěn wēnróu de rén.', en: 'She is a very gentle person.', ru: 'Она очень нежный человек.' },
+      { zh: '妈妈的声音很温柔。', py: 'māma de shēngyīn hěn wēnróu.', en: 'Mother\'s voice is very gentle.', ru: 'Голос мамы очень нежный.' }
+    ]
+  },
+  '耐心': {
+    definitions: [
+      { en: 'Patient; patience', ru: 'Терпеливый; терпение' }
+    ],
+    examples: [
+      { zh: '老师很有耐心地教我们。', py: 'lǎoshī hěn yǒu nàixīn de jiāo wǒmen.', en: 'The teacher teaches us with great patience.', ru: 'Учитель очень терпеливо нас учит.' },
+      { zh: '请耐心等一下。', py: 'qǐng nàixīn děng yīxià.', en: 'Please wait patiently.', ru: 'Пожалуйста, подождите терпеливо.' }
+    ]
+  },
+  '自信': {
+    definitions: [
+      { en: 'Confident; self-confident', ru: 'Уверенный в себе' }
+    ],
+    examples: [
+      { zh: '你要对自己有自信。', py: 'nǐ yào duì zìjǐ yǒu zìxìn.', en: 'You need to have confidence in yourself.', ru: 'Нужно быть уверенным в себе.' },
+      { zh: '她是一个很自信的女孩。', py: 'tā shì yī gè hěn zìxìn de nǚhái.', en: 'She is a very confident girl.', ru: 'Она очень уверенная в себе девушка.' }
+    ]
+  },
+  '大方': {
+    definitions: [
+      { en: 'Generous; natural and poised', ru: 'Щедрый; непринуждённый' }
+    ],
+    examples: [
+      { zh: '他对朋友很大方。', py: 'tā duì péngyǒu hěn dàfāng.', en: 'He is very generous with friends.', ru: 'Он очень щедрый с друзьями.' },
+      { zh: '她穿衣服很大方得体。', py: 'tā chuān yīfú hěn dàfāng détǐ.', en: 'She dresses in a natural and elegant way.', ru: 'Она одевается элегантно и со вкусом.' }
+    ]
+  },
+  '靠谱': {
+    definitions: [
+      { en: 'Reliable; dependable; trustworthy', ru: 'Надёжный; на которого можно положиться' }
+    ],
+    examples: [
+      { zh: '他做事很靠谱。', py: 'tā zuòshì hěn kàopǔ.', en: 'He is very reliable in his work.', ru: 'Он очень надёжный в работе.' },
+      { zh: '找一个靠谱的朋友很重要。', py: 'zhǎo yī gè kàopǔ de péngyǒu hěn zhòngyào.', en: 'It is important to find a reliable friend.', ru: 'Важно найти надёжного друга.' }
+    ]
+  },
+
+  // === HSK4-6: Practical Verbs ===
+  '申请': {
+    definitions: [
+      { en: 'To apply; application', ru: 'Подать заявку; заявление' }
+    ],
+    examples: [
+      { zh: '我申请了一份新工作。', py: 'wǒ shēnqǐng le yī fèn xīn gōngzuò.', en: 'I applied for a new job.', ru: 'Я подал заявку на новую работу.' },
+      { zh: '申请签证需要什么材料？', py: 'shēnqǐng qiānzhèng xūyào shénme cáiliào?', en: 'What materials are needed to apply for a visa?', ru: 'Какие документы нужны для подачи заявки на визу?' }
+    ]
+  },
+  '尊重': {
+    definitions: [
+      { en: 'To respect; respect', ru: 'Уважать; уважение' }
+    ],
+    examples: [
+      { zh: '我们要尊重每一个人。', py: 'wǒmen yào zūnzhòng měi yī gè rén.', en: 'We should respect everyone.', ru: 'Мы должны уважать каждого человека.' },
+      { zh: '尊重别人就是尊重自己。', py: 'zūnzhòng biérén jiùshì zūnzhòng zìjǐ.', en: 'Respecting others is respecting yourself.', ru: 'Уважать других — значит уважать себя.' }
+    ]
+  },
+  '珍惜': {
+    definitions: [
+      { en: 'To cherish; to treasure', ru: 'Дорожить; ценить; беречь' }
+    ],
+    examples: [
+      { zh: '我们要珍惜时间。', py: 'wǒmen yào zhēnxī shíjiān.', en: 'We should cherish our time.', ru: 'Мы должны ценить время.' },
+      { zh: '珍惜身边的每一个人。', py: 'zhēnxī shēnbiān de měi yī gè rén.', en: 'Cherish everyone around you.', ru: 'Дорожите каждым человеком рядом с вами.' }
+    ]
+  },
+  '挑战': {
+    definitions: [
+      { en: 'Challenge; to challenge', ru: 'Вызов; бросить вызов' }
+    ],
+    examples: [
+      { zh: '学中文是一个很大的挑战。', py: 'xué zhōngwén shì yī gè hěn dà de tiǎozhàn.', en: 'Learning Chinese is a big challenge.', ru: 'Изучение китайского — большой вызов.' },
+      { zh: '我喜欢挑战自己。', py: 'wǒ xǐhuān tiǎozhàn zìjǐ.', en: 'I like to challenge myself.', ru: 'Мне нравится бросать себе вызов.' }
+    ]
+  },
+  '进步': {
+    definitions: [
+      { en: 'Progress; to make progress', ru: 'Прогресс; делать успехи' }
+    ],
+    examples: [
+      { zh: '你的中文进步很大。', py: 'nǐ de zhōngwén jìnbù hěn dà.', en: 'Your Chinese has improved a lot.', ru: 'Твой китайский значительно улучшился.' },
+      { zh: '只要努力，就会进步。', py: 'zhǐyào nǔlì, jiù huì jìnbù.', en: 'As long as you work hard, you will make progress.', ru: 'Если стараться, обязательно будет прогресс.' }
+    ]
+  },
+  '适应': {
+    definitions: [
+      { en: 'To adapt; to adjust', ru: 'Адаптироваться; приспособиться' }
+    ],
+    examples: [
+      { zh: '我还没有适应这里的天气。', py: 'wǒ hái méiyǒu shìyìng zhèlǐ de tiānqì.', en: 'I have not adapted to the weather here yet.', ru: 'Я ещё не привык к здешнему климату.' },
+      { zh: '他很快就适应了新环境。', py: 'tā hěn kuài jiù shìyìng le xīn huánjìng.', en: 'He quickly adapted to the new environment.', ru: 'Он быстро адаптировался к новой обстановке.' }
+    ]
+  },
+  '放弃': {
+    definitions: [
+      { en: 'To give up; to abandon', ru: 'Сдаваться; отказываться' }
+    ],
+    examples: [
+      { zh: '不要轻易放弃。', py: 'búyào qīngyì fàngqì.', en: 'Don\'t give up easily.', ru: 'Не сдавайся легко.' },
+      { zh: '他放弃了出国的机会。', py: 'tā fàngqì le chūguó de jīhuì.', en: 'He gave up the opportunity to go abroad.', ru: 'Он отказался от возможности поехать за границу.' }
+    ]
+  },
+  '坚持': {
+    definitions: [
+      { en: 'To persist; to insist; to keep at it', ru: 'Упорствовать; настаивать; продолжать' }
+    ],
+    examples: [
+      { zh: '坚持就是胜利。', py: 'jiānchí jiùshì shènglì.', en: 'Persistence is victory.', ru: 'Упорство — это победа.' },
+      { zh: '他每天坚持跑步。', py: 'tā měitiān jiānchí pǎobù.', en: 'He persists in running every day.', ru: 'Он каждый день продолжает бегать.' }
+    ]
+  },
+  '约会': {
+    definitions: [
+      { en: 'Date; appointment; to go on a date', ru: 'Свидание; встреча' }
+    ],
+    examples: [
+      { zh: '他们今晚有个约会。', py: 'tāmen jīnwǎn yǒu gè yuēhuì.', en: 'They have a date tonight.', ru: 'У них сегодня вечером свидание.' },
+      { zh: '第一次约会你们去了哪里？', py: 'dì yī cì yuēhuì nǐmen qù le nǎlǐ?', en: 'Where did you go on your first date?', ru: 'Куда вы ходили на первое свидание?' }
+    ]
+  },
+  '发现': {
+    definitions: [
+      { en: 'To discover; to find out', ru: 'Обнаружить; открыть' }
+    ],
+    examples: [
+      { zh: '我发现了一家很好吃的餐厅。', py: 'wǒ fāxiàn le yī jiā hěn hǎochī de cāntīng.', en: 'I discovered a very delicious restaurant.', ru: 'Я нашёл очень вкусный ресторан.' },
+      { zh: '科学家发现了一种新的药物。', py: 'kēxuéjiā fāxiàn le yī zhǒng xīn de yàowù.', en: 'Scientists discovered a new medicine.', ru: 'Учёные открыли новое лекарство.' }
+    ]
+  },
+  '保护': {
+    definitions: [
+      { en: 'To protect; protection', ru: 'Защищать; охранять' }
+    ],
+    examples: [
+      { zh: '我们要保护环境。', py: 'wǒmen yào bǎohù huánjìng.', en: 'We should protect the environment.', ru: 'Мы должны защищать окружающую среду.' },
+      { zh: '父母总是想保护自己的孩子。', py: 'fùmǔ zǒngshì xiǎng bǎohù zìjǐ de háizi.', en: 'Parents always want to protect their children.', ru: 'Родители всегда хотят защитить своих детей.' }
+    ]
+  },
+  '浪费': {
+    definitions: [
+      { en: 'To waste; wasteful', ru: 'Тратить впустую; расточительный' }
+    ],
+    examples: [
+      { zh: '不要浪费食物。', py: 'búyào làngfèi shíwù.', en: 'Don\'t waste food.', ru: 'Не трать еду впустую.' },
+      { zh: '浪费时间就是浪费生命。', py: 'làngfèi shíjiān jiùshì làngfèi shēngmìng.', en: 'Wasting time is wasting life.', ru: 'Тратить время впустую — значит тратить жизнь.' }
+    ]
+  },
+  '节约': {
+    definitions: [
+      { en: 'To save; to conserve; frugal', ru: 'Экономить; беречь' }
+    ],
+    examples: [
+      { zh: '我们要节约用水。', py: 'wǒmen yào jiéyuē yòng shuǐ.', en: 'We should conserve water.', ru: 'Мы должны экономить воду.' },
+      { zh: '节约是一种好习惯。', py: 'jiéyuē shì yī zhǒng hǎo xíguàn.', en: 'Being frugal is a good habit.', ru: 'Экономить — это хорошая привычка.' }
+    ]
+  },
+  '道歉': {
+    definitions: [
+      { en: 'To apologize; apology', ru: 'Извиняться; извинение' }
+    ],
+    examples: [
+      { zh: '我应该向他道歉。', py: 'wǒ yīnggāi xiàng tā dàoqiàn.', en: 'I should apologize to him.', ru: 'Я должен перед ним извиниться.' },
+      { zh: '他不愿意道歉。', py: 'tā bú yuànyì dàoqiàn.', en: 'He is not willing to apologize.', ru: 'Он не хочет извиняться.' }
+    ]
+  },
+  '误会': {
+    definitions: [
+      { en: 'Misunderstanding; to misunderstand', ru: 'Недоразумение; неправильно понять' }
+    ],
+    examples: [
+      { zh: '这是一个误会。', py: 'zhè shì yī gè wùhuì.', en: 'This is a misunderstanding.', ru: 'Это недоразумение.' },
+      { zh: '你误会我了，我不是那个意思。', py: 'nǐ wùhuì wǒ le, wǒ búshì nàge yìsi.', en: 'You misunderstood me, that is not what I meant.', ru: 'Ты меня неправильно понял, я имел в виду не это.' }
+    ]
+  },
+
+  // === HSK4-6: Health & Wellness ===
+  '锻炼': {
+    definitions: [
+      { en: 'To exercise; to work out', ru: 'Тренироваться; заниматься спортом' }
+    ],
+    examples: [
+      { zh: '每天锻炼身体对健康有好处。', py: 'měitiān duànliàn shēntǐ duì jiànkāng yǒu hǎochù.', en: 'Exercising every day is good for your health.', ru: 'Ежедневные тренировки полезны для здоровья.' },
+      { zh: '你多久锻炼一次？', py: 'nǐ duōjiǔ duànliàn yī cì?', en: 'How often do you exercise?', ru: 'Как часто ты тренируешься?' }
+    ]
+  },
+  '营养': {
+    definitions: [
+      { en: 'Nutrition; nourishment', ru: 'Питание; питательность' }
+    ],
+    examples: [
+      { zh: '孩子需要充足的营养。', py: 'háizi xūyào chōngzú de yíngyǎng.', en: 'Children need sufficient nutrition.', ru: 'Детям нужно достаточное питание.' },
+      { zh: '这种水果营养很丰富。', py: 'zhè zhǒng shuǐguǒ yíngyǎng hěn fēngfù.', en: 'This kind of fruit is very nutritious.', ru: 'Этот фрукт очень питательный.' }
+    ]
+  },
+  '维生素': {
+    definitions: [
+      { en: 'Vitamin', ru: 'Витамин' }
+    ],
+    examples: [
+      { zh: '多吃水果可以补充维生素。', py: 'duō chī shuǐguǒ kěyǐ bǔchōng wéishēngsù.', en: 'Eating more fruit can supplement your vitamins.', ru: 'Есть больше фруктов помогает пополнять витамины.' },
+      { zh: '你每天吃维生素吗？', py: 'nǐ měitiān chī wéishēngsù ma?', en: 'Do you take vitamins every day?', ru: 'Ты принимаешь витамины каждый день?' }
+    ]
+  },
+  '免疫': {
+    definitions: [
+      { en: 'Immune; immunity', ru: 'Иммунный; иммунитет' }
+    ],
+    examples: [
+      { zh: '运动可以提高免疫力。', py: 'yùndòng kěyǐ tígāo miǎnyìlì.', en: 'Exercise can boost immunity.', ru: 'Спорт помогает укрепить иммунитет.' },
+      { zh: '他的免疫系统很弱。', py: 'tā de miǎnyì xìtǒng hěn ruò.', en: 'His immune system is very weak.', ru: 'У него очень слабая иммунная система.' }
+    ]
+  },
+  '疫苗': {
+    definitions: [
+      { en: 'Vaccine', ru: 'Вакцина' }
+    ],
+    examples: [
+      { zh: '孩子需要按时打疫苗。', py: 'háizi xūyào ànshí dǎ yìmiáo.', en: 'Children need to get vaccinated on time.', ru: 'Детям нужно вовремя делать прививки.' },
+      { zh: '你打过流感疫苗吗？', py: 'nǐ dǎ guò liúgǎn yìmiáo ma?', en: 'Have you had a flu vaccine?', ru: 'Ты делал прививку от гриппа?' }
+    ]
+  },
+  '症状': {
+    definitions: [
+      { en: 'Symptom', ru: 'Симптом' }
+    ],
+    examples: [
+      { zh: '你有什么症状？', py: 'nǐ yǒu shénme zhèngzhuàng?', en: 'What symptoms do you have?', ru: 'Какие у тебя симптомы?' },
+      { zh: '发烧是感冒的常见症状。', py: 'fāshāo shì gǎnmào de chángjiàn zhèngzhuàng.', en: 'Fever is a common symptom of a cold.', ru: 'Температура — это распространённый симптом простуды.' }
+    ]
+  },
+  '药': {
+    definitions: [
+      { en: 'Medicine; drug; medication', ru: 'Лекарство; медикамент' }
+    ],
+    examples: [
+      { zh: '你吃药了吗？', py: 'nǐ chī yào le ma?', en: 'Have you taken your medicine?', ru: 'Ты принял лекарство?' },
+      { zh: '这种药饭后吃。', py: 'zhè zhǒng yào fàn hòu chī.', en: 'Take this medicine after meals.', ru: 'Это лекарство принимают после еды.' }
+    ]
+  },
+  '手术': {
+    definitions: [
+      { en: 'Surgery; operation', ru: 'Операция; хирургическое вмешательство' }
+    ],
+    examples: [
+      { zh: '他下周要做手术。', py: 'tā xià zhōu yào zuò shǒushù.', en: 'He will have surgery next week.', ru: 'На следующей неделе ему сделают операцию.' },
+      { zh: '手术很成功。', py: 'shǒushù hěn chénggōng.', en: 'The surgery was very successful.', ru: 'Операция прошла очень успешно.' }
+    ]
+  },
+
+  // === HSK4-6: Legal & Social ===
+  '法律': {
+    definitions: [
+      { en: 'Law; legal', ru: 'Закон; юридический' }
+    ],
+    examples: [
+      { zh: '每个人都要遵守法律。', py: 'měi gè rén dōu yào zūnshǒu fǎlǜ.', en: 'Everyone must obey the law.', ru: 'Каждый должен соблюдать закон.' },
+      { zh: '他在大学学的是法律专业。', py: 'tā zài dàxué xué de shì fǎlǜ zhuānyè.', en: 'He studied law at university.', ru: 'Он изучал юриспруденцию в университете.' }
+    ]
+  },
+  '合同': {
+    definitions: [
+      { en: 'Contract; agreement', ru: 'Контракт; договор' }
+    ],
+    examples: [
+      { zh: '请仔细看一下合同再签字。', py: 'qǐng zǐxì kàn yīxià hétong zài qiānzì.', en: 'Please read the contract carefully before signing.', ru: 'Пожалуйста, внимательно прочитай контракт перед подписанием.' },
+      { zh: '我们签了两年的合同。', py: 'wǒmen qiān le liǎng nián de hétong.', en: 'We signed a two-year contract.', ru: 'Мы подписали контракт на два года.' }
+    ]
+  },
+  '保险': {
+    definitions: [
+      { en: 'Insurance', ru: 'Страховка; страхование' }
+    ],
+    examples: [
+      { zh: '你买了医疗保险吗？', py: 'nǐ mǎi le yīliáo bǎoxiǎn ma?', en: 'Have you bought health insurance?', ru: 'Ты оформил медицинскую страховку?' },
+      { zh: '出国旅行最好买一份保险。', py: 'chūguó lǚxíng zuìhǎo mǎi yī fèn bǎoxiǎn.', en: 'It is best to buy insurance when traveling abroad.', ru: 'При поездке за границу лучше оформить страховку.' }
+    ]
+  },
+  '规定': {
+    definitions: [
+      { en: 'Rule; regulation; to stipulate', ru: 'Правило; положение; предписание' }
+    ],
+    examples: [
+      { zh: '公司有很多规定。', py: 'gōngsī yǒu hěn duō guīdìng.', en: 'The company has many rules.', ru: 'В компании много правил.' },
+      { zh: '按照规定，这里不能抽烟。', py: 'ànzhào guīdìng, zhèlǐ bù néng chōuyān.', en: 'According to the rules, smoking is not allowed here.', ru: 'Согласно правилам, здесь нельзя курить.' }
+    ]
+  },
+  '权利': {
+    definitions: [
+      { en: 'Right (legal); entitlement', ru: 'Право (юридическое)' }
+    ],
+    examples: [
+      { zh: '每个人都有受教育的权利。', py: 'měi gè rén dōu yǒu shòu jiàoyù de quánlì.', en: 'Everyone has the right to education.', ru: 'Каждый имеет право на образование.' },
+      { zh: '消费者有权利退货。', py: 'xiāofèizhě yǒu quánlì tuìhuò.', en: 'Consumers have the right to return goods.', ru: 'Потребители имеют право на возврат товара.' }
+    ]
+  },
+  '义务': {
+    definitions: [
+      { en: 'Duty; obligation', ru: 'Обязанность; долг' }
+    ],
+    examples: [
+      { zh: '纳税是每个公民的义务。', py: 'nàshuì shì měi gè gōngmín de yìwù.', en: 'Paying taxes is every citizen\'s duty.', ru: 'Уплата налогов — обязанность каждого гражданина.' },
+      { zh: '我们有义务保护环境。', py: 'wǒmen yǒu yìwù bǎohù huánjìng.', en: 'We have the obligation to protect the environment.', ru: 'Мы обязаны защищать окружающую среду.' }
+    ]
+  },
+
+  // === HSK4-6: Travel ===
+  '旅馆': {
+    definitions: [
+      { en: 'Hotel; inn; guesthouse', ru: 'Гостиница; отель' }
+    ],
+    examples: [
+      { zh: '我们在网上订了一家旅馆。', py: 'wǒmen zài wǎngshàng dìng le yī jiā lǚguǎn.', en: 'We booked a hotel online.', ru: 'Мы забронировали гостиницу через интернет.' },
+      { zh: '这家旅馆又便宜又干净。', py: 'zhè jiā lǚguǎn yòu piányi yòu gānjìng.', en: 'This hotel is both cheap and clean.', ru: 'Эта гостиница и дешёвая, и чистая.' }
+    ]
+  },
+  '景点': {
+    definitions: [
+      { en: 'Scenic spot; tourist attraction', ru: 'Достопримечательность; туристическое место' }
+    ],
+    examples: [
+      { zh: '这个城市有很多有名的景点。', py: 'zhège chéngshì yǒu hěn duō yǒumíng de jǐngdiǎn.', en: 'This city has many famous tourist attractions.', ru: 'В этом городе много известных достопримечательностей.' },
+      { zh: '假日的时候景点人很多。', py: 'jiàrì de shíhòu jǐngdiǎn rén hěn duō.', en: 'Tourist attractions are very crowded during holidays.', ru: 'В праздники на достопримечательностях очень много людей.' }
+    ]
+  },
+  '门票': {
+    definitions: [
+      { en: 'Admission ticket; entrance fee', ru: 'Входной билет' }
+    ],
+    examples: [
+      { zh: '这个博物馆的门票多少钱？', py: 'zhège bówùguǎn de ménpiào duōshǎo qián?', en: 'How much is the admission ticket for this museum?', ru: 'Сколько стоит входной билет в этот музей?' },
+      { zh: '学生买门票可以打折。', py: 'xuéshēng mǎi ménpiào kěyǐ dǎzhé.', en: 'Students can get a discount on admission tickets.', ru: 'Студенты могут купить входные билеты со скидкой.' }
+    ]
+  },
+  '纪念品': {
+    definitions: [
+      { en: 'Souvenir; memento', ru: 'Сувенир; памятная вещь' }
+    ],
+    examples: [
+      { zh: '我给朋友买了一些纪念品。', py: 'wǒ gěi péngyǒu mǎi le yīxiē jìniànpǐn.', en: 'I bought some souvenirs for my friends.', ru: 'Я купил друзьям несколько сувениров.' },
+      { zh: '这个纪念品很有特色。', py: 'zhège jìniànpǐn hěn yǒu tèsè.', en: 'This souvenir is very unique.', ru: 'Этот сувенир очень необычный.' }
+    ]
+  },
+  '导游': {
+    definitions: [
+      { en: 'Tour guide', ru: 'Гид; экскурсовод' }
+    ],
+    examples: [
+      { zh: '导游给我们介绍了这个地方的历史。', py: 'dǎoyóu gěi wǒmen jièshào le zhège dìfāng de lìshǐ.', en: 'The tour guide introduced us to the history of this place.', ru: 'Гид рассказал нам об истории этого места.' },
+      { zh: '我们要不要请一个导游？', py: 'wǒmen yào búyào qǐng yī gè dǎoyóu?', en: 'Should we hire a tour guide?', ru: 'Нам стоит нанять гида?' }
+    ]
+  },
+  '预订': {
+    definitions: [
+      { en: 'To book; to reserve; reservation', ru: 'Бронировать; заказывать заранее' }
+    ],
+    examples: [
+      { zh: '我已经预订了一间房间。', py: 'wǒ yǐjīng yùdìng le yī jiān fángjiān.', en: 'I have already booked a room.', ru: 'Я уже забронировал номер.' },
+      { zh: '这家餐厅需要提前预订。', py: 'zhè jiā cāntīng xūyào tíqián yùdìng.', en: 'This restaurant requires advance reservation.', ru: 'В этом ресторане нужно бронировать заранее.' }
+    ]
+  },
+
+  // === HSK4-6: Finance ===
+  '存款': {
+    definitions: [
+      { en: 'Savings; deposit; to deposit money', ru: 'Вклад; сбережения; вносить деньги' }
+    ],
+    examples: [
+      { zh: '我想在银行存款。', py: 'wǒ xiǎng zài yínháng cúnkuǎn.', en: 'I want to make a deposit at the bank.', ru: 'Я хочу положить деньги в банк.' },
+      { zh: '他有不少存款。', py: 'tā yǒu bùshǎo cúnkuǎn.', en: 'He has quite a lot of savings.', ru: 'У него немало сбережений.' }
+    ]
+  },
+  '贷款': {
+    definitions: [
+      { en: 'Loan; to take out a loan', ru: 'Кредит; займ; брать кредит' }
+    ],
+    examples: [
+      { zh: '他贷款买了一套房子。', py: 'tā dàikuǎn mǎi le yī tào fángzi.', en: 'He took out a loan to buy an apartment.', ru: 'Он взял кредит, чтобы купить квартиру.' },
+      { zh: '银行的贷款利息不高。', py: 'yínháng de dàikuǎn lìxī bù gāo.', en: 'The bank\'s loan interest rate is not high.', ru: 'Процентная ставка по кредиту в банке невысокая.' }
+    ]
+  },
+  '利息': {
+    definitions: [
+      { en: 'Interest (financial)', ru: 'Проценты (финансовые)' }
+    ],
+    examples: [
+      { zh: '这个银行的利息比较高。', py: 'zhège yínháng de lìxī bǐjiào gāo.', en: 'This bank\'s interest rate is relatively high.', ru: 'В этом банке процентная ставка довольно высокая.' },
+      { zh: '存款的利息是多少？', py: 'cúnkuǎn de lìxī shì duōshǎo?', en: 'What is the interest rate on the deposit?', ru: 'Какова процентная ставка по вкладу?' }
+    ]
+  },
+  '股票': {
+    definitions: [
+      { en: 'Stock; shares', ru: 'Акции; ценные бумаги' }
+    ],
+    examples: [
+      { zh: '他最近在炒股票。', py: 'tā zuìjìn zài chǎo gǔpiào.', en: 'He has been trading stocks recently.', ru: 'Он в последнее время торгует акциями.' },
+      { zh: '股票市场今天大跌了。', py: 'gǔpiào shìchǎng jīntiān dà diē le.', en: 'The stock market dropped significantly today.', ru: 'Фондовый рынок сегодня сильно упал.' }
+    ]
+  },
+  '税': {
+    definitions: [
+      { en: 'Tax', ru: 'Налог' }
+    ],
+    examples: [
+      { zh: '每年都要交税。', py: 'měi nián dōu yào jiāo shuì.', en: 'Taxes must be paid every year.', ru: 'Налоги нужно платить каждый год.' },
+      { zh: '这件商品含税吗？', py: 'zhè jiàn shāngpǐn hán shuì ma?', en: 'Does this product include tax?', ru: 'Налог включён в стоимость этого товара?' }
+    ]
+  },
+  '汇率': {
+    definitions: [
+      { en: 'Exchange rate', ru: 'Обменный курс; курс валют' }
+    ],
+    examples: [
+      { zh: '今天美元和人民币的汇率是多少？', py: 'jīntiān měiyuán hé rénmínbì de huìlǜ shì duōshǎo?', en: 'What is today\'s exchange rate between USD and RMB?', ru: 'Какой сегодня курс доллара к юаню?' },
+      { zh: '汇率每天都在变化。', py: 'huìlǜ měitiān dōu zài biànhuà.', en: 'The exchange rate changes every day.', ru: 'Обменный курс меняется каждый день.' }
+    ]
+  },
+
+  // === HSK4-6: Technology ===
+  '智能手机': {
+    definitions: [
+      { en: 'Smartphone', ru: 'Смартфон' }
+    ],
+    examples: [
+      { zh: '现在几乎每个人都有智能手机。', py: 'xiànzài jīhū měi gè rén dōu yǒu zhìnéng shǒujī.', en: 'Almost everyone has a smartphone now.', ru: 'Сейчас почти у каждого есть смартфон.' },
+      { zh: '智能手机可以做很多事情。', py: 'zhìnéng shǒujī kěyǐ zuò hěn duō shìqing.', en: 'Smartphones can do many things.', ru: 'Смартфон может делать очень много всего.' }
+    ]
+  },
+  '社交媒体': {
+    definitions: [
+      { en: 'Social media', ru: 'Социальные сети' }
+    ],
+    examples: [
+      { zh: '很多人每天花很多时间在社交媒体上。', py: 'hěn duō rén měitiān huā hěn duō shíjiān zài shèjiāo méitǐ shàng.', en: 'Many people spend a lot of time on social media every day.', ru: 'Многие люди каждый день проводят много времени в социальных сетях.' },
+      { zh: '社交媒体改变了人们的沟通方式。', py: 'shèjiāo méitǐ gǎibiàn le rénmen de gōutōng fāngshì.', en: 'Social media has changed the way people communicate.', ru: 'Социальные сети изменили способ общения между людьми.' }
+    ]
+  },
+  '视频电话': {
+    definitions: [
+      { en: 'Video call', ru: 'Видеозвонок' }
+    ],
+    examples: [
+      { zh: '我每周和家人打视频电话。', py: 'wǒ měi zhōu hé jiārén dǎ shìpín diànhuà.', en: 'I make video calls with my family every week.', ru: 'Я каждую неделю звоню семье по видеосвязи.' },
+      { zh: '视频电话让远距离沟通更方便了。', py: 'shìpín diànhuà ràng yuǎn jùlí gōutōng gèng fāngbiàn le.', en: 'Video calls have made long-distance communication easier.', ru: 'Видеозвонки сделали общение на расстоянии удобнее.' }
+    ]
+  },
+  '下载': {
+    definitions: [
+      { en: 'To download', ru: 'Скачивать; загружать' }
+    ],
+    examples: [
+      { zh: '你可以从网上下载这个软件。', py: 'nǐ kěyǐ cóng wǎngshàng xiàzǎi zhège ruǎnjiàn.', en: 'You can download this software from the internet.', ru: 'Ты можешь скачать эту программу из интернета.' },
+      { zh: '我下载了一部新电影。', py: 'wǒ xiàzǎi le yī bù xīn diànyǐng.', en: 'I downloaded a new movie.', ru: 'Я скачал новый фильм.' }
+    ]
+  },
+  '上传': {
+    definitions: [
+      { en: 'To upload', ru: 'Загружать (на сервер); выкладывать' }
+    ],
+    examples: [
+      { zh: '请把文件上传到网站上。', py: 'qǐng bǎ wénjiàn shàngchuán dào wǎngzhàn shàng.', en: 'Please upload the file to the website.', ru: 'Пожалуйста, загрузи файл на сайт.' },
+      { zh: '他上传了很多照片到社交媒体。', py: 'tā shàngchuán le hěn duō zhàopiàn dào shèjiāo méitǐ.', en: 'He uploaded many photos to social media.', ru: 'Он загрузил много фотографий в социальные сети.' }
+    ]
+  },
+  '搜索': {
+    definitions: [
+      { en: 'To search; to look up', ru: 'Искать; поиск' }
+    ],
+    examples: [
+      { zh: '你可以在网上搜索这个问题。', py: 'nǐ kěyǐ zài wǎngshàng sōusuǒ zhège wèntí.', en: 'You can search for this question online.', ru: 'Ты можешь поискать этот вопрос в интернете.' },
+      { zh: '搜索引擎可以帮我们找到很多信息。', py: 'sōusuǒ yǐnqíng kěyǐ bāng wǒmen zhǎodào hěn duō xìnxī.', en: 'Search engines can help us find a lot of information.', ru: 'Поисковые системы помогают нам находить много информации.' }
+    ]
+  },
+  '账号': {
+    definitions: [
+      { en: 'Account (online); username', ru: 'Аккаунт; учётная запись' }
+    ],
+    examples: [
+      { zh: '请先注册一个账号。', py: 'qǐng xiān zhùcè yī gè zhànghào.', en: 'Please register an account first.', ru: 'Сначала зарегистрируй аккаунт.' },
+      { zh: '我忘了我的账号密码。', py: 'wǒ wàng le wǒ de zhànghào mìmǎ.', en: 'I forgot my account password.', ru: 'Я забыл пароль от своего аккаунта.' }
+    ]
+  },
+  '电子邮件': {
+    definitions: [
+      { en: 'Email; electronic mail', ru: 'Электронная почта; имейл' }
+    ],
+    examples: [
+      { zh: '请把文件用电子邮件发给我。', py: 'qǐng bǎ wénjiàn yòng diànzǐ yóujiàn fā gěi wǒ.', en: 'Please send me the file by email.', ru: 'Пожалуйста, отправь мне файл по электронной почте.' },
+      { zh: '我每天要看很多电子邮件。', py: 'wǒ měitiān yào kàn hěn duō diànzǐ yóujiàn.', en: 'I have to read many emails every day.', ru: 'Мне каждый день нужно читать много электронных писем.' }
+    ]
+  },
+  '打印': {
+    definitions: [
+      { en: 'To print', ru: 'Печатать; распечатывать' }
+    ],
+    examples: [
+      { zh: '请帮我打印两份文件。', py: 'qǐng bāng wǒ dǎyìn liǎng fèn wénjiàn.', en: 'Please help me print two copies of the document.', ru: 'Пожалуйста, распечатай мне два экземпляра документа.' },
+      { zh: '打印机没有纸了。', py: 'dǎyìnjī méiyǒu zhǐ le.', en: 'The printer is out of paper.', ru: 'В принтере закончилась бумага.' }
+    ]
+  },
 }
