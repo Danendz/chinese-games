@@ -247,6 +247,20 @@ export const messages = {
     'wordlist.noDetail': 'No detailed info available yet. Play games with this word to see your progress!',
     'card.wordlist.subtitle': 'Word List',
     'card.wordlist.desc': 'Browse all vocabulary by level. Track which words you\'ve mastered, which you\'re learning, and which are new!',
+
+    // Pinyin Spelling
+    'view.pinyin': 'Pinyin Spelling Practice',
+    'card.pinyin.subtitle': 'Pinyin Spelling',
+    'card.pinyin.desc': 'See a character and type the correct pinyin with tone marks. Master Chinese pronunciation spelling!',
+    'pinyin.typeFullPinyin': 'Type the full pinyin with tone marks:',
+    'pinyin.typeInitial': 'Type the missing initial:',
+    'pinyin.typeFinal': 'Type the missing final:',
+    'pinyin.placeholder': 'Type pinyin here...',
+    'pinyin.check': 'Check',
+    'pinyin.toneHelp': 'Tone marks',
+    'pinyin.wrong': 'Not quite...',
+    'pinyin.yourAnswer': 'Your answer',
+    'pinyin.correctAnswer': 'Correct',
   },
 
   ru: {
@@ -497,5 +511,19 @@ export const messages = {
     'wordlist.noDetail': 'Подробности пока недоступны. Играйте с этим словом, чтобы увидеть прогресс!',
     'card.wordlist.subtitle': 'Список слов',
     'card.wordlist.desc': 'Просматривайте словарь по уровням. Отслеживайте выученные, изучаемые и новые слова!',
+
+    // Pinyin Spelling
+    'view.pinyin': 'Упражнения на пиньинь',
+    'card.pinyin.subtitle': 'Написание пиньиня',
+    'card.pinyin.desc': 'Увидьте иероглиф и напишите правильный пиньинь с тонами. Освойте фонетику китайского!',
+    'pinyin.typeFullPinyin': 'Напишите полный пиньинь с тонами:',
+    'pinyin.typeInitial': 'Напишите пропущенный инициаль:',
+    'pinyin.typeFinal': 'Напишите пропущенный финаль:',
+    'pinyin.placeholder': 'Введите пиньинь...',
+    'pinyin.check': 'Проверить',
+    'pinyin.toneHelp': 'Тоны',
+    'pinyin.wrong': 'Не совсем...',
+    'pinyin.yourAnswer': 'Ваш ответ',
+    'pinyin.correctAnswer': 'Правильно',
   }
 }

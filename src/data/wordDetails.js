@@ -3665,4 +3665,955 @@ export const wordDetails = {
       { zh: '打印机没有纸了。', py: 'dǎyìnjī méiyǒu zhǐ le.', en: 'The printer is out of paper.', ru: 'В принтере закончилась бумага.' }
     ]
   },
+
+  // === HSK7-9: Social & Culture ===
+  '人脉': {
+    definitions: [
+      { en: 'Connections; networking', ru: 'Связи; нетворкинг' }
+    ],
+    examples: [
+      { zh: '在中国，人脉很重要。', py: 'zài Zhōngguó, rénmài hěn zhòngyào.', en: 'In China, connections are very important.', ru: 'В Китае связи очень важны.' },
+      { zh: '他的人脉很广，做什么事都方便。', py: 'tā de rénmài hěn guǎng, zuò shénme shì dōu fāngbiàn.', en: 'He has a wide network, so everything is easy for him.', ru: 'У него широкие связи, поэтому всё даётся легко.' }
+    ]
+  },
+  '面子': {
+    definitions: [
+      { en: 'Face; reputation; dignity', ru: 'Лицо; репутация; достоинство' }
+    ],
+    examples: [
+      { zh: '你这样做让他很没面子。', py: 'nǐ zhèyàng zuò ràng tā hěn méi miànzi.', en: 'What you did made him lose face.', ru: 'То, что ты сделал, заставило его потерять лицо.' },
+      { zh: '中国人特别在意面子问题。', py: 'Zhōngguórén tèbié zàiyì miànzi wèntí.', en: 'Chinese people particularly care about face.', ru: 'Китайцы особенно заботятся о репутации.' }
+    ]
+  },
+  '吐槽': {
+    definitions: [
+      { en: 'To complain; to roast; to mock', ru: 'Жаловаться; высмеивать; троллить' }
+    ],
+    examples: [
+      { zh: '他经常在网上吐槽公司的管理。', py: 'tā jīngcháng zài wǎngshàng tùcáo gōngsī de guǎnlǐ.', en: 'He often complains online about the company management.', ru: 'Он часто жалуется в интернете на управление компанией.' },
+      { zh: '大家都在吐槽这部电影的结局。', py: 'dàjiā dōu zài tùcáo zhè bù diànyǐng de jiéjú.', en: 'Everyone is roasting the ending of this movie.', ru: 'Все высмеивают концовку этого фильма.' }
+    ]
+  },
+  '套路': {
+    definitions: [
+      { en: 'Routine; trick; formulaic approach', ru: 'Приём; трюк; шаблонная схема' }
+    ],
+    examples: [
+      { zh: '别跟我玩套路，说实话。', py: 'bié gēn wǒ wán tàolù, shuō shíhuà.', en: 'Don\'t play tricks on me, tell the truth.', ru: 'Не разводи меня, говори правду.' },
+      { zh: '这个销售的套路太深了。', py: 'zhège xiāoshòu de tàolù tài shēn le.', en: 'This salesperson\'s tricks are too deep.', ru: 'Уловки этого продавца слишком хитрые.' }
+    ]
+  },
+  '随便': {
+    definitions: [
+      { en: 'Whatever; casual; as one pleases', ru: 'Как угодно; небрежный; по желанию' }
+    ],
+    examples: [
+      { zh: '吃什么？——随便，你决定吧。', py: 'chī shénme? ——suíbiàn, nǐ juédìng ba.', en: 'What shall we eat? — Whatever, you decide.', ru: 'Что будем есть? — Что угодно, ты решай.' },
+      { zh: '他做事太随便了，一点都不认真。', py: 'tā zuòshì tài suíbiàn le, yīdiǎn dōu bú rènzhēn.', en: 'He does things too carelessly, not serious at all.', ru: 'Он слишком небрежен в делах, совсем не серьёзный.' }
+    ]
+  },
+  '客气': {
+    definitions: [
+      { en: 'Polite; courteous; to be formal', ru: 'Вежливый; учтивый; церемониться' }
+    ],
+    examples: [
+      { zh: '别客气，就像在自己家一样。', py: 'bié kèqi, jiù xiàng zài zìjǐ jiā yīyàng.', en: 'Don\'t be polite, make yourself at home.', ru: 'Не стесняйся, чувствуй себя как дома.' },
+      { zh: '中国人说"不客气"表示不用谢。', py: 'Zhōngguórén shuō "bú kèqi" biǎoshì búyòng xiè.', en: 'Chinese people say "bu keqi" to mean "you\'re welcome".', ru: 'Китайцы говорят «бу кэци», что значит «не за что».' }
+    ]
+  },
+  '热情': {
+    definitions: [
+      { en: 'Warm; enthusiastic; hospitable', ru: 'Тёплый; энтузиазм; гостеприимный' }
+    ],
+    examples: [
+      { zh: '中国人对待客人特别热情。', py: 'Zhōngguórén duìdài kèrén tèbié rèqíng.', en: 'Chinese people are especially hospitable to guests.', ru: 'Китайцы особенно гостеприимны к гостям.' },
+      { zh: '她对工作充满热情。', py: 'tā duì gōngzuò chōngmǎn rèqíng.', en: 'She is full of enthusiasm for her work.', ru: 'Она полна энтузиазма к работе.' }
+    ]
+  },
+  '含蓄': {
+    definitions: [
+      { en: 'Reserved; indirect; subtle', ru: 'Сдержанный; деликатный; намёками' }
+    ],
+    examples: [
+      { zh: '中国人表达感情比较含蓄。', py: 'Zhōngguórén biǎodá gǎnqíng bǐjiào hánxù.', en: 'Chinese people express emotions in a more reserved way.', ru: 'Китайцы выражают чувства более сдержанно.' },
+      { zh: '他含蓄地拒绝了对方的邀请。', py: 'tā hánxù de jùjué le duìfāng de yāoqǐng.', en: 'He subtly declined the other party\'s invitation.', ru: 'Он деликатно отклонил приглашение.' }
+    ]
+  },
+  '默契': {
+    definitions: [
+      { en: 'Tacit understanding; unspoken rapport', ru: 'Взаимопонимание; молчаливое согласие' }
+    ],
+    examples: [
+      { zh: '他们合作多年，配合非常默契。', py: 'tāmen hézuò duōnián, pèihé fēicháng mòqì.', en: 'They\'ve worked together for years and have great rapport.', ru: 'Они сотрудничают много лет и прекрасно понимают друг друга.' },
+      { zh: '夫妻之间的默契是慢慢培养的。', py: 'fūqī zhījiān de mòqì shì mànmàn péiyǎng de.', en: 'The tacit understanding between spouses is built over time.', ru: 'Взаимопонимание между супругами формируется постепенно.' }
+    ]
+  },
+
+  // === HSK7-9: Internet & Social Media ===
+  '点赞': {
+    definitions: [
+      { en: 'To like (on social media); to give a thumbs up', ru: 'Лайкнуть; поставить лайк' }
+    ],
+    examples: [
+      { zh: '她发的照片收到了一万个点赞。', py: 'tā fā de zhàopiàn shōudào le yī wàn gè diǎnzàn.', en: 'The photo she posted got ten thousand likes.', ru: 'Фотография, которую она выложила, получила десять тысяч лайков.' },
+      { zh: '帮我点赞一下，谢谢！', py: 'bāng wǒ diǎnzàn yīxià, xièxie!', en: 'Give me a like, please, thanks!', ru: 'Поставь мне лайк, пожалуйста, спасибо!' }
+    ]
+  },
+  '网红': {
+    definitions: [
+      { en: 'Internet celebrity; influencer', ru: 'Интернет-знаменитость; блогер; инфлюенсер' }
+    ],
+    examples: [
+      { zh: '现在很多年轻人梦想当网红。', py: 'xiànzài hěn duō niánqīngrén mèngxiǎng dāng wǎnghóng.', en: 'Nowadays many young people dream of becoming influencers.', ru: 'Сейчас многие молодые люди мечтают стать блогерами.' },
+      { zh: '这家网红餐厅每天都要排队。', py: 'zhè jiā wǎnghóng cāntīng měitiān dōu yào páiduì.', en: 'There\'s a line every day at this internet-famous restaurant.', ru: 'В этом популярном ресторане каждый день очередь.' }
+    ]
+  },
+  '刷屏': {
+    definitions: [
+      { en: 'To flood the screen; to go viral; to dominate a feed', ru: 'Заполнить ленту; завирусить' }
+    ],
+    examples: [
+      { zh: '这条新闻刷屏了整个朋友圈。', py: 'zhè tiáo xīnwén shuāpíng le zhěnggè péngyouquān.', en: 'This news flooded everyone\'s WeChat Moments.', ru: 'Эта новость заполнила весь WeChat.' },
+      { zh: '世界杯期间，足球话题刷屏了。', py: 'shìjièbēi qījiān, zúqiú huàtí shuāpíng le.', en: 'During the World Cup, football topics dominated the feeds.', ru: 'Во время чемпионата мира футбольные темы заполнили ленту.' }
+    ]
+  },
+  '吃瓜': {
+    definitions: [
+      { en: 'To watch drama unfold; to be a bystander enjoying gossip', ru: 'Наблюдать за драмой; быть зрителем скандала' }
+    ],
+    examples: [
+      { zh: '我只是个吃瓜群众，不了解内情。', py: 'wǒ zhǐshì gè chīguā qúnzhòng, bù liǎojiě nèiqíng.', en: 'I\'m just a bystander, I don\'t know the inside story.', ru: 'Я просто зритель, я не знаю подробностей.' },
+      { zh: '又有明星离婚了，大家一起吃瓜吧。', py: 'yòu yǒu míngxīng líhūn le, dàjiā yīqǐ chīguā ba.', en: 'Another celebrity got divorced, let\'s all watch the drama.', ru: 'Ещё одна знаменитость развелась, давайте понаблюдаем за драмой.' }
+    ]
+  },
+  '粉丝': {
+    definitions: [
+      { en: 'Fans; followers', ru: 'Фанаты; подписчики' }
+    ],
+    examples: [
+      { zh: '他在抖音上有五百万粉丝。', py: 'tā zài Dǒuyīn shàng yǒu wǔbǎi wàn fěnsī.', en: 'He has five million followers on Douyin.', ru: 'У него пять миллионов подписчиков в Доуине.' },
+      { zh: '粉丝们在机场接偶像。', py: 'fěnsīmen zài jīchǎng jiē ǒuxiàng.', en: 'Fans picked up their idol at the airport.', ru: 'Фанаты встречали своего кумира в аэропорту.' }
+    ]
+  },
+  '段子': {
+    definitions: [
+      { en: 'Joke; funny story; humorous bit', ru: 'Шутка; анекдот; юмористическая история' }
+    ],
+    examples: [
+      { zh: '他特别会讲段子，每次都逗得大家哈哈大笑。', py: 'tā tèbié huì jiǎng duànzi, měicì dōu dòu de dàjiā hāhā dàxiào.', en: 'He\'s great at telling jokes, cracking everyone up every time.', ru: 'Он отлично рассказывает шутки, каждый раз все хохочут.' },
+      { zh: '网上的段子手越来越多了。', py: 'wǎngshàng de duànzishǒu yuèláiyuè duō le.', en: 'There are more and more online comedians.', ru: 'В интернете всё больше и больше юмористов.' }
+    ]
+  },
+  '话题': {
+    definitions: [
+      { en: 'Topic; trending topic; subject of conversation', ru: 'Тема; обсуждаемая тема; тренд' }
+    ],
+    examples: [
+      { zh: '这个话题在微博上引起了热烈讨论。', py: 'zhège huàtí zài Wēibó shàng yǐnqǐ le rèliè tǎolùn.', en: 'This topic sparked heated discussion on Weibo.', ru: 'Эта тема вызвала жаркое обсуждение в Вейбо.' },
+      { zh: '我们换个话题吧，这个太沉重了。', py: 'wǒmen huàn gè huàtí ba, zhège tài chénzhòng le.', en: 'Let\'s change the subject, this one is too heavy.', ru: 'Давай сменим тему, эта слишком тяжёлая.' }
+    ]
+  },
+
+  // === HSK7-9: Business & Work ===
+  '创业': {
+    definitions: [
+      { en: 'To start a business; entrepreneurship', ru: 'Открыть бизнес; предпринимательство' }
+    ],
+    examples: [
+      { zh: '他辞掉了稳定的工作去创业。', py: 'tā cídiào le wěndìng de gōngzuò qù chuàngyè.', en: 'He quit his stable job to start a business.', ru: 'Он уволился со стабильной работы, чтобы открыть бизнес.' },
+      { zh: '创业的风险很大，但回报也高。', py: 'chuàngyè de fēngxiǎn hěn dà, dàn huíbào yě gāo.', en: 'Starting a business is risky, but the rewards are high.', ru: 'Риск предпринимательства велик, но и отдача высока.' }
+    ]
+  },
+  '投资': {
+    definitions: [
+      { en: 'To invest; investment', ru: 'Инвестировать; инвестиция' }
+    ],
+    examples: [
+      { zh: '他把所有积蓄都投资了股市。', py: 'tā bǎ suǒyǒu jīxù dōu tóuzī le gǔshì.', en: 'He invested all his savings in the stock market.', ru: 'Он вложил все свои сбережения в фондовый рынок.' },
+      { zh: '投资自己是最好的投资。', py: 'tóuzī zìjǐ shì zuì hǎo de tóuzī.', en: 'Investing in yourself is the best investment.', ru: 'Инвестировать в себя — лучшая инвестиция.' }
+    ]
+  },
+  '谈判': {
+    definitions: [
+      { en: 'To negotiate; negotiation', ru: 'Вести переговоры; переговоры' }
+    ],
+    examples: [
+      { zh: '双方经过多轮谈判终于达成协议。', py: 'shuāngfāng jīngguò duō lún tánpàn zhōngyú dáchéng xiéyì.', en: 'Both sides finally reached an agreement after multiple rounds of negotiation.', ru: 'Обе стороны наконец пришли к соглашению после нескольких раундов переговоров.' },
+      { zh: '谈判桌上，他寸步不让。', py: 'tánpàn zhuō shàng, tā cùn bù bú ràng.', en: 'At the negotiation table, he didn\'t give an inch.', ru: 'На переговорах он не уступил ни на шаг.' }
+    ]
+  },
+  '效率': {
+    definitions: [
+      { en: 'Efficiency; productivity', ru: 'Эффективность; продуктивность' }
+    ],
+    examples: [
+      { zh: '提高工作效率是每个公司的目标。', py: 'tígāo gōngzuò xiàolǜ shì měi gè gōngsī de mùbiāo.', en: 'Improving work efficiency is every company\'s goal.', ru: 'Повышение эффективности — цель каждой компании.' },
+      { zh: '他做事效率很高，总是准时完成。', py: 'tā zuòshì xiàolǜ hěn gāo, zǒngshì zhǔnshí wánchéng.', en: 'He works very efficiently, always finishing on time.', ru: 'Он работает очень эффективно, всегда заканчивает вовремя.' }
+    ]
+  },
+  '加薪': {
+    definitions: [
+      { en: 'Pay raise; salary increase', ru: 'Повышение зарплаты; прибавка' }
+    ],
+    examples: [
+      { zh: '他鼓起勇气向老板提出了加薪。', py: 'tā gǔqǐ yǒngqì xiàng lǎobǎn tíchū le jiāxīn.', en: 'He mustered the courage to ask the boss for a raise.', ru: 'Он набрался смелости и попросил у начальника повышение зарплаты.' },
+      { zh: '公司今年不打算给员工加薪。', py: 'gōngsī jīnnián bù dǎsuàn gěi yuángōng jiāxīn.', en: 'The company doesn\'t plan to give employees a raise this year.', ru: 'Компания не планирует повышать зарплату сотрудникам в этом году.' }
+    ]
+  },
+  '辞职': {
+    definitions: [
+      { en: 'To resign; to quit one\'s job', ru: 'Уволиться; подать в отставку' }
+    ],
+    examples: [
+      { zh: '他提交了辞职信，下个月离开。', py: 'tā tíjiāo le cízhí xìn, xià gè yuè líkāi.', en: 'He submitted his resignation letter and will leave next month.', ru: 'Он подал заявление об увольнении и уйдёт в следующем месяце.' },
+      { zh: '裸辞需要很大的勇气。', py: 'luǒcí xūyào hěn dà de yǒngqì.', en: 'Quitting without a backup plan takes a lot of courage.', ru: 'Уволиться без запасного плана — для этого нужна большая смелость.' }
+    ]
+  },
+  '升职': {
+    definitions: [
+      { en: 'To get promoted; promotion', ru: 'Получить повышение; продвижение по службе' }
+    ],
+    examples: [
+      { zh: '她努力了三年终于升职了。', py: 'tā nǔlì le sān nián zhōngyú shēngzhí le.', en: 'She worked hard for three years and finally got promoted.', ru: 'Она усердно работала три года и наконец получила повышение.' },
+      { zh: '升职加薪是很多人的职场目标。', py: 'shēngzhí jiāxīn shì hěn duō rén de zhíchǎng mùbiāo.', en: 'Promotion and a raise is a workplace goal for many people.', ru: 'Повышение в должности и зарплате — цель многих на работе.' }
+    ]
+  },
+  '摸鱼': {
+    definitions: [
+      { en: 'To slack off at work; to goof off', ru: 'Лениться на работе; отлынивать' }
+    ],
+    examples: [
+      { zh: '上班摸鱼被领导发现了，太尴尬了。', py: 'shàngbān mōyú bèi lǐngdǎo fāxiàn le, tài gāngà le.', en: 'I got caught slacking off at work by the boss, so embarrassing.', ru: 'Меня поймали за бездельем на работе — как неловко.' },
+      { zh: '今天活儿不多，摸会儿鱼吧。', py: 'jīntiān huór bù duō, mō huìr yú ba.', en: 'Not much work today, let\'s slack off a bit.', ru: 'Сегодня дел немного, можно немного полениться.' }
+    ]
+  },
+  '划算': {
+    definitions: [
+      { en: 'Cost-effective; worth it; a good deal', ru: 'Выгодный; стоящий; окупается' }
+    ],
+    examples: [
+      { zh: '双十一买东西特别划算。', py: 'shuāng shíyī mǎi dōngxi tèbié huásuàn.', en: 'Shopping during Double 11 is really cost-effective.', ru: 'Покупки в День холостяков очень выгодны.' },
+      { zh: '这个价格一点也不划算，太贵了。', py: 'zhège jiàgé yīdiǎn yě bù huásuàn, tài guì le.', en: 'This price isn\'t worth it at all, too expensive.', ru: 'Эта цена совсем невыгодная, слишком дорого.' }
+    ]
+  },
+
+  // === HSK7-9: Personality & Character ===
+  '情商': {
+    definitions: [
+      { en: 'Emotional intelligence; EQ', ru: 'Эмоциональный интеллект; EQ' }
+    ],
+    examples: [
+      { zh: '情商高的人说话让人很舒服。', py: 'qíngshāng gāo de rén shuōhuà ràng rén hěn shūfu.', en: 'People with high EQ make others comfortable when they speak.', ru: 'Люди с высоким эмоциональным интеллектом говорят так, что собеседнику приятно.' },
+      { zh: '职场上情商有时候比智商更重要。', py: 'zhíchǎng shàng qíngshāng yǒushíhou bǐ zhìshāng gèng zhòngyào.', en: 'At work, EQ is sometimes more important than IQ.', ru: 'На работе эмоциональный интеллект иногда важнее IQ.' }
+    ]
+  },
+  '格局': {
+    definitions: [
+      { en: 'Vision; big picture; broad-mindedness', ru: 'Кругозор; масштаб мышления; широта взглядов' }
+    ],
+    examples: [
+      { zh: '做大事的人要有大格局。', py: 'zuò dàshì de rén yào yǒu dà géjú.', en: 'People who do great things need to see the big picture.', ru: 'Тот, кто делает большие дела, должен мыслить масштабно.' },
+      { zh: '别在小事上纠结，格局大一点。', py: 'bié zài xiǎoshì shàng jiūjié, géjú dà yīdiǎn.', en: 'Don\'t dwell on small things, think bigger.', ru: 'Не зацикливайся на мелочах, мысли шире.' }
+    ]
+  },
+  '佛系': {
+    definitions: [
+      { en: 'Zen-like; laid-back; unbothered attitude', ru: 'Расслабленный; дзен; пофигистический' }
+    ],
+    examples: [
+      { zh: '他是个佛系青年，什么都无所谓。', py: 'tā shì gè fóxì qīngnián, shénme dōu wúsuǒwèi.', en: 'He\'s a laid-back young man who doesn\'t care about anything.', ru: 'Он расслабленный молодой человек, ему всё равно.' },
+      { zh: '佛系生活就是不争不抢，顺其自然。', py: 'fóxì shēnghuó jiùshì bù zhēng bù qiǎng, shùn qí zìrán.', en: 'The zen lifestyle means not competing, just going with the flow.', ru: 'Жизнь в стиле дзен — это не соревноваться, а плыть по течению.' }
+    ]
+  },
+  '焦虑': {
+    definitions: [
+      { en: 'Anxiety; anxious; to worry', ru: 'Тревога; тревожный; беспокоиться' }
+    ],
+    examples: [
+      { zh: '年轻人的焦虑主要来自工作和房价。', py: 'niánqīngrén de jiāolǜ zhǔyào láizì gōngzuò hé fángjià.', en: 'Young people\'s anxiety mainly comes from work and housing prices.', ru: 'Тревога молодёжи в основном связана с работой и ценами на жильё.' },
+      { zh: '考试前他焦虑得整晚睡不着。', py: 'kǎoshì qián tā jiāolǜ de zhěng wǎn shuì bu zháo.', en: 'He was so anxious before the exam that he couldn\'t sleep all night.', ru: 'Перед экзаменом он так тревожился, что не спал всю ночь.' }
+    ]
+  },
+  '自律': {
+    definitions: [
+      { en: 'Self-discipline; self-disciplined', ru: 'Самодисциплина; самоконтроль' }
+    ],
+    examples: [
+      { zh: '自律的人更容易成功。', py: 'zìlǜ de rén gèng róngyì chénggōng.', en: 'Self-disciplined people are more likely to succeed.', ru: 'Дисциплинированные люди легче добиваются успеха.' },
+      { zh: '我每天六点起床跑步，坚持自律。', py: 'wǒ měitiān liù diǎn qǐchuáng pǎobù, jiānchí zìlǜ.', en: 'I get up at six every day to run, maintaining self-discipline.', ru: 'Я каждый день встаю в шесть на пробежку, поддерживаю самодисциплину.' }
+    ]
+  },
+  '独立': {
+    definitions: [
+      { en: 'Independent; independence', ru: 'Независимый; самостоятельный; независимость' }
+    ],
+    examples: [
+      { zh: '她从小就很独立，什么事都自己处理。', py: 'tā cóngxiǎo jiù hěn dúlì, shénme shì dōu zìjǐ chǔlǐ.', en: 'She has been independent since childhood, handling everything herself.', ru: 'С детства она была самостоятельной, всё делала сама.' },
+      { zh: '经济独立是人格独立的基础。', py: 'jīngjì dúlì shì réngé dúlì de jīchǔ.', en: 'Financial independence is the foundation of personal independence.', ru: 'Финансовая независимость — основа личной независимости.' }
+    ]
+  },
+  '成熟': {
+    definitions: [
+      { en: 'Mature; to mature; ripe', ru: 'Зрелый; повзрослеть; созревший' }
+    ],
+    examples: [
+      { zh: '经历了那些事之后，他变得成熟多了。', py: 'jīnglì le nàxiē shì zhīhòu, tā biànde chéngshú duō le.', en: 'After going through those experiences, he became much more mature.', ru: 'Пройдя через это, он стал намного взрослее.' },
+      { zh: '一个成熟的人懂得控制自己的情绪。', py: 'yī gè chéngshú de rén dǒngde kòngzhì zìjǐ de qíngxù.', en: 'A mature person knows how to control their emotions.', ru: 'Зрелый человек умеет контролировать свои эмоции.' }
+    ]
+  },
+  '体面': {
+    definitions: [
+      { en: 'Decent; dignified; respectable', ru: 'Достойный; приличный; респектабельный' }
+    ],
+    examples: [
+      { zh: '他想找一份体面的工作给父母看。', py: 'tā xiǎng zhǎo yī fèn tǐmiàn de gōngzuò gěi fùmǔ kàn.', en: 'He wants to find a respectable job to show his parents.', ru: 'Он хочет найти достойную работу, чтобы показать родителям.' },
+      { zh: '分手也要分得体面一点。', py: 'fēnshǒu yě yào fēn de tǐmiàn yīdiǎn.', en: 'Even when breaking up, do it with dignity.', ru: 'Даже при расставании нужно вести себя достойно.' }
+    ]
+  },
+  '将就': {
+    definitions: [
+      { en: 'To make do; to settle for less; to put up with', ru: 'Довольствоваться; мириться; терпеть' }
+    ],
+    examples: [
+      { zh: '生活可以将就，但感情不能将就。', py: 'shēnghuó kěyǐ jiāngjiu, dàn gǎnqíng bù néng jiāngjiu.', en: 'You can settle in daily life, but not in love.', ru: 'В быту можно потерпеть, но в чувствах — нельзя.' },
+      { zh: '没有合适的衣服，先将就穿这件吧。', py: 'méiyǒu héshì de yīfu, xiān jiāngjiu chuān zhè jiàn ba.', en: 'There are no suitable clothes, just make do with this one for now.', ru: 'Подходящей одежды нет, пока надень эту.' }
+    ]
+  },
+  '讲究': {
+    definitions: [
+      { en: 'To be particular about; to pay attention to quality', ru: 'Быть разборчивым; придирчивым; уделять внимание качеству' }
+    ],
+    examples: [
+      { zh: '他吃饭很讲究，只去高档餐厅。', py: 'tā chīfàn hěn jiǎngjiu, zhǐ qù gāodàng cāntīng.', en: 'He\'s very particular about food, only going to upscale restaurants.', ru: 'Он очень придирчив к еде, ходит только в дорогие рестораны.' },
+      { zh: '中国茶道非常讲究，每一步都有规矩。', py: 'Zhōngguó chádào fēicháng jiǎngjiu, měi yī bù dōu yǒu guījù.', en: 'Chinese tea ceremony is very meticulous, every step has its rules.', ru: 'Китайская чайная церемония очень щепетильна, каждый шаг имеет свои правила.' }
+    ]
+  },
+
+  // === HSK7-9: Health & Lifestyle ===
+  '健身': {
+    definitions: [
+      { en: 'To work out; fitness; to exercise', ru: 'Тренироваться; фитнес; заниматься спортом' }
+    ],
+    examples: [
+      { zh: '他每天下班后都去健身房健身。', py: 'tā měitiān xiàbān hòu dōu qù jiànshēnfáng jiànshēn.', en: 'He goes to the gym to work out every day after work.', ru: 'Он каждый день после работы ходит в спортзал.' },
+      { zh: '健身不仅锻炼身体，也缓解压力。', py: 'jiànshēn bùjǐn duànliàn shēntǐ, yě huǎnjiě yālì.', en: 'Working out not only exercises the body but also relieves stress.', ru: 'Тренировки не только укрепляют тело, но и снимают стресс.' }
+    ]
+  },
+  '养生': {
+    definitions: [
+      { en: 'Health maintenance; wellness; nurturing life', ru: 'Забота о здоровье; оздоровление; ЗОЖ' }
+    ],
+    examples: [
+      { zh: '现在年轻人也开始注重养生了。', py: 'xiànzài niánqīngrén yě kāishǐ zhùzhòng yǎngshēng le.', en: 'Nowadays young people are also starting to pay attention to wellness.', ru: 'Сейчас и молодёжь начала заботиться о здоровье.' },
+      { zh: '枸杞泡水是中国人最常见的养生方式。', py: 'gǒuqǐ pào shuǐ shì Zhōngguórén zuì chángjiàn de yǎngshēng fāngshì.', en: 'Soaking goji berries in water is the most common Chinese wellness practice.', ru: 'Заваривание ягод годжи — самый распространённый способ оздоровления в Китае.' }
+    ]
+  },
+  '减肥': {
+    definitions: [
+      { en: 'To lose weight; to go on a diet', ru: 'Худеть; сидеть на диете; сбрасывать вес' }
+    ],
+    examples: [
+      { zh: '她说从明天开始减肥，每次都是明天。', py: 'tā shuō cóng míngtiān kāishǐ jiǎnféi, měicì dōu shì míngtiān.', en: 'She says she\'ll start dieting tomorrow, but it\'s always tomorrow.', ru: 'Она говорит, что начнёт худеть завтра, но всегда — завтра.' },
+      { zh: '减肥最重要的是管住嘴，迈开腿。', py: 'jiǎnféi zuì zhòngyào de shì guǎnzhù zuǐ, màikāi tuǐ.', en: 'The key to losing weight is eating less and exercising more.', ru: 'Главное в похудении — следить за питанием и больше двигаться.' }
+    ]
+  },
+  '过敏': {
+    definitions: [
+      { en: 'Allergy; allergic; to be allergic to', ru: 'Аллергия; аллергический' }
+    ],
+    examples: [
+      { zh: '我对海鲜过敏，吃了会全身起疹子。', py: 'wǒ duì hǎixiān guòmǐn, chī le huì quánshēn qǐ zhěnzi.', en: 'I\'m allergic to seafood; I break out in a rash if I eat it.', ru: 'У меня аллергия на морепродукты, после них сыпь по всему телу.' },
+      { zh: '春天花粉过敏的人特别多。', py: 'chūntiān huāfěn guòmǐn de rén tèbié duō.', en: 'In spring, there are especially many people with pollen allergies.', ru: 'Весной особенно много людей с аллергией на пыльцу.' }
+    ]
+  },
+  '失眠': {
+    definitions: [
+      { en: 'Insomnia; to suffer from sleeplessness', ru: 'Бессонница; не мочь заснуть' }
+    ],
+    examples: [
+      { zh: '压力太大导致他长期失眠。', py: 'yālì tài dà dǎozhì tā chángqī shīmián.', en: 'Too much pressure caused him to suffer from long-term insomnia.', ru: 'Чрезмерное давление привело к его хронической бессоннице.' },
+      { zh: '失眠的时候越想睡越睡不着。', py: 'shīmián de shíhou yuè xiǎng shuì yuè shuì bu zháo.', en: 'When you have insomnia, the more you try to sleep, the less you can.', ru: 'При бессоннице чем больше пытаешься заснуть, тем труднее.' }
+    ]
+  },
+  '熬夜': {
+    definitions: [
+      { en: 'To stay up late; to burn the midnight oil', ru: 'Не спать допоздна; засиживаться за полночь' }
+    ],
+    examples: [
+      { zh: '年轻人总是熬夜玩手机，对身体不好。', py: 'niánqīngrén zǒngshì áoyè wán shǒujī, duì shēntǐ bù hǎo.', en: 'Young people always stay up late on their phones; it\'s bad for health.', ru: 'Молодёжь постоянно сидит в телефоне допоздна — это вредно для здоровья.' },
+      { zh: '他熬夜赶论文，第二天眼睛都肿了。', py: 'tā áoyè gǎn lùnwén, dì-èr tiān yǎnjing dōu zhǒng le.', en: 'He stayed up all night to finish his paper, and his eyes were swollen the next day.', ru: 'Он не спал всю ночь, дописывая работу, и на следующий день глаза опухли.' }
+    ]
+  },
+  '外出': {
+    definitions: [
+      { en: 'To go out; to leave the house; outing', ru: 'Выходить; покидать дом; выезд' }
+    ],
+    examples: [
+      { zh: '外出时请记得带钥匙和手机。', py: 'wàichū shí qǐng jìde dài yàoshi hé shǒujī.', en: 'Remember to bring your keys and phone when you go out.', ru: 'Выходя из дома, не забудь ключи и телефон.' },
+      { zh: '疫情期间，大家尽量减少外出。', py: 'yìqíng qījiān, dàjiā jǐnliàng jiǎnshǎo wàichū.', en: 'During the pandemic, everyone tried to go out less.', ru: 'Во время пандемии все старались выходить из дома как можно реже.' }
+    ]
+  },
+  '旅游': {
+    definitions: [
+      { en: 'To travel; tourism; to tour', ru: 'Путешествовать; туризм' }
+    ],
+    examples: [
+      { zh: '国庆节是中国的旅游高峰期。', py: 'Guóqìngjié shì Zhōngguó de lǚyóu gāofēngqī.', en: 'National Day is China\'s peak travel season.', ru: 'Национальный праздник — пик туристического сезона в Китае.' },
+      { zh: '他最大的爱好就是环游世界。', py: 'tā zuìdà de àihào jiùshì huányóu shìjiè.', en: 'His greatest hobby is traveling around the world.', ru: 'Его главное увлечение — путешествовать по миру.' }
+    ]
+  },
+  '排队': {
+    definitions: [
+      { en: 'To queue; to line up; to wait in line', ru: 'Стоять в очереди; выстраиваться в очередь' }
+    ],
+    examples: [
+      { zh: '这家奶茶店永远在排队。', py: 'zhè jiā nǎichá diàn yǒngyuǎn zài páiduì.', en: 'There\'s always a line at this bubble tea shop.', ru: 'В этой чайной всегда очередь.' },
+      { zh: '高峰期坐地铁要排很长的队。', py: 'gāofēngqī zuò dìtiě yào pái hěn cháng de duì.', en: 'During rush hour you have to wait in a very long line for the subway.', ru: 'В час пик нужно стоять в длинной очереди на метро.' }
+    ]
+  },
+
+  // === HSK7-9: Chengyu (Idioms) ===
+  '一举两得': {
+    definitions: [
+      { en: 'To kill two birds with one stone; one act, two gains', ru: 'Одним выстрелом двух зайцев; одно действие — двойная выгода' }
+    ],
+    examples: [
+      { zh: '骑自行车上班，锻炼身体又省钱，一举两得。', py: 'qí zìxíngchē shàngbān, duànliàn shēntǐ yòu shěngqián, yī jǔ liǎng dé.', en: 'Cycling to work exercises the body and saves money — killing two birds with one stone.', ru: 'Ездить на работу на велосипеде — и для здоровья полезно, и деньги экономишь.' },
+      { zh: '学中文的同时了解中国文化，一举两得。', py: 'xué Zhōngwén de tóngshí liǎojiě Zhōngguó wénhuà, yī jǔ liǎng dé.', en: 'Learning Chinese while understanding Chinese culture — two birds with one stone.', ru: 'Изучая китайский, одновременно узнаёшь китайскую культуру — двойная выгода.' }
+    ]
+  },
+  '半途而废': {
+    definitions: [
+      { en: 'To give up halfway; to leave something unfinished', ru: 'Бросить на полпути; не довести до конца' }
+    ],
+    examples: [
+      { zh: '学语言最怕半途而废，要坚持下去。', py: 'xué yǔyán zuì pà bàn tú ér fèi, yào jiānchí xiàqù.', en: 'The worst thing in learning a language is giving up halfway — you must persevere.', ru: 'Худшее в изучении языка — бросить на полпути; нужно продолжать.' },
+      { zh: '他做什么都半途而废，从来没有完成过。', py: 'tā zuò shénme dōu bàn tú ér fèi, cónglái méiyǒu wánchéng guò.', en: 'He gives up on everything halfway and has never finished anything.', ru: 'Он всё бросает на полпути и ничего не доводит до конца.' }
+    ]
+  },
+  '入乡随俗': {
+    definitions: [
+      { en: 'When in Rome, do as the Romans do; follow local customs', ru: 'В чужой монастырь со своим уставом не ходят' }
+    ],
+    examples: [
+      { zh: '来中国就要入乡随俗，学会用筷子。', py: 'lái Zhōngguó jiù yào rù xiāng suí sú, xuéhuì yòng kuàizi.', en: 'When you come to China, follow local customs and learn to use chopsticks.', ru: 'Приехал в Китай — следуй местным обычаям, учись есть палочками.' },
+      { zh: '入乡随俗是尊重当地文化的表现。', py: 'rù xiāng suí sú shì zūnzhòng dāngdì wénhuà de biǎoxiàn.', en: 'Following local customs shows respect for the local culture.', ru: 'Следовать местным обычаям — это проявление уважения к местной культуре.' }
+    ]
+  },
+  '马马虎虎': {
+    definitions: [
+      { en: 'So-so; careless; just passable', ru: 'Так себе; кое-как; небрежно' }
+    ],
+    examples: [
+      { zh: '你的中文怎么样？——马马虎虎吧。', py: 'nǐ de Zhōngwén zěnmeyàng? ——mǎmǎhūhū ba.', en: 'How\'s your Chinese? — So-so.', ru: 'Как твой китайский? — Так себе.' },
+      { zh: '做事不能马马虎虎，要认真对待。', py: 'zuòshì bù néng mǎmǎhūhū, yào rènzhēn duìdài.', en: 'You can\'t do things carelessly; you need to take them seriously.', ru: 'Нельзя делать дела кое-как, нужно относиться серьёзно.' }
+    ]
+  },
+  '乱七八糟': {
+    definitions: [
+      { en: 'Messy; chaotic; in a complete mess', ru: 'Полный беспорядок; бардак; хаос' }
+    ],
+    examples: [
+      { zh: '他的房间乱七八糟的，连下脚的地方都没有。', py: 'tā de fángjiān luàn qī bā zāo de, lián xiàjiǎo de dìfang dōu méiyǒu.', en: 'His room is such a mess, there\'s not even a place to step.', ru: 'В его комнате такой бардак, что ногу поставить негде.' },
+      { zh: '这件事被他搞得乱七八糟。', py: 'zhè jiàn shì bèi tā gǎo de luàn qī bā zāo.', en: 'He made a complete mess of this matter.', ru: 'Он устроил полный хаос с этим делом.' }
+    ]
+  },
+  '莫名其妙': {
+    definitions: [
+      { en: 'Baffling; inexplicable; for no apparent reason', ru: 'Непонятно; необъяснимо; ни с того ни с сего' }
+    ],
+    examples: [
+      { zh: '他莫名其妙地发了一顿脾气。', py: 'tā mò míng qí miào de fā le yī dùn píqi.', en: 'He lost his temper for no apparent reason.', ru: 'Он ни с того ни с сего вспылил.' },
+      { zh: '我收到了一封莫名其妙的邮件。', py: 'wǒ shōudào le yī fēng mò míng qí miào de yóujiàn.', en: 'I received a baffling email.', ru: 'Я получил непонятное письмо.' }
+    ]
+  },
+  '理所当然': {
+    definitions: [
+      { en: 'Taken for granted; as a matter of course; naturally', ru: 'Само собой разумеется; как должное' }
+    ],
+    examples: [
+      { zh: '不要把别人的帮助当作理所当然。', py: 'búyào bǎ biérén de bāngzhù dàngzuò lǐ suǒ dāng rán.', en: 'Don\'t take other people\'s help for granted.', ru: 'Не воспринимай чужую помощь как должное.' },
+      { zh: '努力就会成功，这并不是理所当然的。', py: 'nǔlì jiù huì chénggōng, zhè bìng búshì lǐ suǒ dāng rán de.', en: 'Working hard leads to success — that\'s not necessarily a given.', ru: 'Усилия приведут к успеху — это вовсе не само собой разумеется.' }
+    ]
+  },
+  '恍然大悟': {
+    definitions: [
+      { en: 'To suddenly realize; to have an aha moment', ru: 'Вдруг осознать; прозреть; эврика' }
+    ],
+    examples: [
+      { zh: '听了他的解释，我恍然大悟。', py: 'tīng le tā de jiěshì, wǒ huǎng rán dà wù.', en: 'After hearing his explanation, I suddenly understood.', ru: 'Выслушав его объяснение, я вдруг всё понял.' },
+      { zh: '直到看了答案，他才恍然大悟。', py: 'zhídào kàn le dá\'àn, tā cái huǎng rán dà wù.', en: 'Only after seeing the answer did he finally realize.', ru: 'Только увидев ответ, он наконец прозрел.' }
+    ]
+  },
+  '一言难尽': {
+    definitions: [
+      { en: 'It\'s a long story; hard to explain in a few words', ru: 'В двух словах не расскажешь; долгая история' }
+    ],
+    examples: [
+      { zh: '你问我最近怎么样？一言难尽啊。', py: 'nǐ wèn wǒ zuìjìn zěnmeyàng? yī yán nán jìn a.', en: 'You ask how I\'ve been? It\'s a long story.', ru: 'Спрашиваешь, как у меня дела? В двух словах не расскажешь.' },
+      { zh: '这件事情一言难尽，改天慢慢跟你说。', py: 'zhè jiàn shìqing yī yán nán jìn, gǎitiān mànmàn gēn nǐ shuō.', en: 'This matter is hard to explain briefly; I\'ll tell you another day.', ru: 'Это долгая история, расскажу тебе в другой раз.' }
+    ]
+  },
+  '不可思议': {
+    definitions: [
+      { en: 'Unbelievable; incredible; inconceivable', ru: 'Невероятно; немыслимо; невообразимо' }
+    ],
+    examples: [
+      { zh: '他一年学会了五种语言，简直不可思议。', py: 'tā yī nián xuéhuì le wǔ zhǒng yǔyán, jiǎnzhí bù kě sī yì.', en: 'He learned five languages in one year — simply incredible.', ru: 'Он выучил пять языков за год — просто невероятно.' },
+      { zh: '这种巧合真是不可思议。', py: 'zhè zhǒng qiǎohé zhēnshì bù kě sī yì.', en: 'This kind of coincidence is truly unbelievable.', ru: 'Такое совпадение просто немыслимо.' }
+    ]
+  },
+
+  // === HSK7-9: Adverbs & Expressions ===
+  '明显': {
+    definitions: [
+      { en: 'Obvious; clearly; evident', ru: 'Очевидный; явный; заметный' }
+    ],
+    examples: [
+      { zh: '他的中文水平有了明显的提高。', py: 'tā de Zhōngwén shuǐpíng yǒu le míngxiǎn de tígāo.', en: 'His Chinese level has improved noticeably.', ru: 'Его уровень китайского заметно вырос.' },
+      { zh: '这个问题的答案很明显。', py: 'zhège wèntí de dá\'àn hěn míngxiǎn.', en: 'The answer to this question is obvious.', ru: 'Ответ на этот вопрос очевиден.' }
+    ]
+  },
+  '彻底': {
+    definitions: [
+      { en: 'Thorough; completely; utterly', ru: 'Полностью; до конца; основательно' }
+    ],
+    examples: [
+      { zh: '这次改革必须彻底，不能半途而废。', py: 'zhè cì gǎigé bìxū chèdǐ, bù néng bàn tú ér fèi.', en: 'This reform must be thorough; we can\'t give up halfway.', ru: 'Эта реформа должна быть основательной, нельзя бросать на полпути.' },
+      { zh: '我彻底放弃了减肥的念头。', py: 'wǒ chèdǐ fàngqì le jiǎnféi de niàntou.', en: 'I completely gave up on the idea of dieting.', ru: 'Я окончательно отказался от мысли о похудении.' }
+    ]
+  },
+  '夸张': {
+    definitions: [
+      { en: 'Exaggerated; over the top; to exaggerate', ru: 'Преувеличенный; чрезмерный; утрировать' }
+    ],
+    examples: [
+      { zh: '你别太夸张了，事情没那么严重。', py: 'nǐ bié tài kuāzhāng le, shìqing méi nàme yánzhòng.', en: 'Don\'t exaggerate, things aren\'t that serious.', ru: 'Не преувеличивай, всё не так серьёзно.' },
+      { zh: '他的表情太夸张了，大家都忍不住笑。', py: 'tā de biǎoqíng tài kuāzhāng le, dàjiā dōu rěnbuzhù xiào.', en: 'His facial expressions were so exaggerated that everyone couldn\'t help laughing.', ru: 'Его мимика была настолько утрированной, что все не смогли сдержать смех.' }
+    ]
+  },
+  '实际': {
+    definitions: [
+      { en: 'Practical; realistic; in reality', ru: 'Практичный; реалистичный; на деле' }
+    ],
+    examples: [
+      { zh: '理想很丰满，现实很骨感，要实际一点。', py: 'lǐxiǎng hěn fēngmǎn, xiànshí hěn gǔgǎn, yào shíjì yīdiǎn.', en: 'Dreams are lofty but reality is harsh; be more practical.', ru: 'Мечты прекрасны, а реальность сурова — будь практичнее.' },
+      { zh: '实际上，这个方案根本行不通。', py: 'shíjì shàng, zhège fāng\'àn gēnběn xíng bu tōng.', en: 'In reality, this plan simply won\'t work.', ru: 'На самом деле, этот план совсем не сработает.' }
+    ]
+  },
+  '复杂': {
+    definitions: [
+      { en: 'Complex; complicated; intricate', ru: 'Сложный; запутанный; комплексный' }
+    ],
+    examples: [
+      { zh: '这件事比你想象的复杂得多。', py: 'zhè jiàn shì bǐ nǐ xiǎngxiàng de fùzá de duō.', en: 'This matter is much more complicated than you think.', ru: 'Это дело гораздо сложнее, чем ты думаешь.' },
+      { zh: '中国的人际关系非常复杂。', py: 'Zhōngguó de rénjì guānxì fēicháng fùzá.', en: 'Interpersonal relationships in China are very complex.', ru: 'Межличностные отношения в Китае очень запутанные.' }
+    ]
+  },
+  '简单': {
+    definitions: [
+      { en: 'Simple; easy; uncomplicated', ru: 'Простой; лёгкий; несложный' }
+    ],
+    examples: [
+      { zh: '这道题看起来简单，其实很难。', py: 'zhè dào tí kànqǐlái jiǎndān, qíshí hěn nán.', en: 'This problem looks simple but is actually very hard.', ru: 'Эта задача выглядит простой, но на самом деле очень трудная.' },
+      { zh: '简单的生活才是最幸福的。', py: 'jiǎndān de shēnghuó cái shì zuì xìngfú de.', en: 'A simple life is the happiest.', ru: 'Простая жизнь — самая счастливая.' }
+    ]
+  },
+  '普通': {
+    definitions: [
+      { en: 'Ordinary; common; average', ru: 'Обычный; заурядный; рядовой' }
+    ],
+    examples: [
+      { zh: '我就是个普通人，没什么特别的。', py: 'wǒ jiùshì gè pǔtōng rén, méi shénme tèbié de.', en: 'I\'m just an ordinary person, nothing special.', ru: 'Я просто обычный человек, ничего особенного.' },
+      { zh: '普通话是中国的通用语言。', py: 'pǔtōnghuà shì Zhōngguó de tōngyòng yǔyán.', en: 'Mandarin is the common language of China.', ru: 'Путунхуа — общепринятый язык Китая.' }
+    ]
+  },
+  '特别': {
+    definitions: [
+      { en: 'Special; especially; particularly', ru: 'Особенный; особенно; в частности' }
+    ],
+    examples: [
+      { zh: '今天的日落特别美。', py: 'jīntiān de rìluò tèbié měi.', en: 'Today\'s sunset is especially beautiful.', ru: 'Сегодняшний закат особенно красивый.' },
+      { zh: '这家餐厅没什么特别的，就是普通的家常菜。', py: 'zhè jiā cāntīng méi shénme tèbié de, jiùshì pǔtōng de jiāchángcài.', en: 'This restaurant is nothing special, just ordinary home-style cooking.', ru: 'В этом ресторане нет ничего особенного, обычная домашняя кухня.' }
+    ]
+  },
+  '竟然': {
+    definitions: [
+      { en: 'Unexpectedly; actually; to one\'s surprise', ru: 'Неожиданно; к удивлению; на удивление' }
+    ],
+    examples: [
+      { zh: '他竟然通过了那么难的考试！', py: 'tā jìngrán tōngguò le nàme nán de kǎoshì!', en: 'He actually passed such a difficult exam!', ru: 'Он, к удивлению, сдал такой сложный экзамен!' },
+      { zh: '没想到你竟然会说中文！', py: 'méi xiǎngdào nǐ jìngrán huì shuō Zhōngwén!', en: 'I didn\'t expect that you could speak Chinese!', ru: 'Не ожидал, что ты умеешь говорить по-китайски!' }
+    ]
+  },
+  '居然': {
+    definitions: [
+      { en: 'Surprisingly; to one\'s astonishment; unexpectedly', ru: 'К удивлению; неожиданно; на удивление' }
+    ],
+    examples: [
+      { zh: '他居然忘了我的生日！', py: 'tā jūrán wàng le wǒ de shēngrì!', en: 'He actually forgot my birthday!', ru: 'Он, оказывается, забыл мой день рождения!' },
+      { zh: '这么简单的问题你居然不会？', py: 'zhème jiǎndān de wèntí nǐ jūrán bú huì?', en: 'You surprisingly can\'t answer such a simple question?', ru: 'Ты даже на такой простой вопрос не можешь ответить?' }
+    ]
+  },
+  '果然': {
+    definitions: [
+      { en: 'As expected; sure enough; indeed', ru: 'Как и ожидалось; действительно; и правда' }
+    ],
+    examples: [
+      { zh: '天气预报说会下雨，果然下了。', py: 'tiānqì yùbào shuō huì xiàyǔ, guǒrán xià le.', en: 'The weather forecast said it would rain, and sure enough it did.', ru: 'Прогноз погоды обещал дождь, и действительно пошёл.' },
+      { zh: '她果然是个靠谱的人，每次都准时。', py: 'tā guǒrán shì gè kàopǔ de rén, měicì dōu zhǔnshí.', en: 'She really is a reliable person, always on time.', ru: 'Она и правда надёжный человек, всегда пунктуальна.' }
+    ]
+  },
+  '反正': {
+    definitions: [
+      { en: 'Anyway; in any case; regardless', ru: 'В любом случае; всё равно; так или иначе' }
+    ],
+    examples: [
+      { zh: '反正我已经决定了，你别劝了。', py: 'fǎnzhèng wǒ yǐjīng juédìng le, nǐ bié quàn le.', en: 'I\'ve already decided anyway, so stop trying to persuade me.', ru: 'Я всё равно уже решил, не уговаривай.' },
+      { zh: '去不去都行，反正我无所谓。', py: 'qù bú qù dōu xíng, fǎnzhèng wǒ wúsuǒwèi.', en: 'Whether we go or not is fine, I don\'t care either way.', ru: 'Идти или не идти — мне всё равно, в любом случае.' }
+    ]
+  },
+
+  // === HSK7-9: Academic & Research ===
+  '研究': {
+    definitions: [
+      { en: 'Research; to study; to investigate', ru: 'Исследование; изучать; исследовать' }
+    ],
+    examples: [
+      { zh: '他一直在研究中国古代历史。', py: 'tā yīzhí zài yánjiū Zhōngguó gǔdài lìshǐ.', en: 'He has been studying ancient Chinese history.', ru: 'Он всё время изучает историю Древнего Китая.' },
+      { zh: '这个课题还需要进一步研究。', py: 'zhège kètí hái xūyào jìnyībù yánjiū.', en: 'This topic requires further research.', ru: 'Эта тема требует дальнейшего исследования.' }
+    ]
+  },
+  '实验': {
+    definitions: [
+      { en: 'Experiment; to experiment; test', ru: 'Эксперимент; опыт; испытание' }
+    ],
+    examples: [
+      { zh: '这个实验需要在实验室里完成。', py: 'zhège shíyàn xūyào zài shíyànshì lǐ wánchéng.', en: 'This experiment needs to be completed in the laboratory.', ru: 'Этот эксперимент нужно провести в лаборатории.' },
+      { zh: '实验结果证明了他的假设是正确的。', py: 'shíyàn jiéguǒ zhèngmíng le tā de jiǎshè shì zhèngquè de.', en: 'The experimental results proved his hypothesis was correct.', ru: 'Результаты эксперимента подтвердили правильность его гипотезы.' }
+    ]
+  },
+  '数据分析': {
+    definitions: [
+      { en: 'Data analysis; to analyze data', ru: 'Анализ данных; анализировать данные' }
+    ],
+    examples: [
+      { zh: '数据分析在现代商业中越来越重要。', py: 'shùjù fēnxī zài xiàndài shāngyè zhōng yuèláiyuè zhòngyào.', en: 'Data analysis is becoming increasingly important in modern business.', ru: 'Анализ данных становится всё более важным в современном бизнесе.' },
+      { zh: '通过数据分析，我们发现了一个有趣的趋势。', py: 'tōngguò shùjù fēnxī, wǒmen fāxiàn le yī gè yǒuqù de qūshì.', en: 'Through data analysis, we discovered an interesting trend.', ru: 'Благодаря анализу данных мы обнаружили интересную тенденцию.' }
+    ]
+  },
+  '论文': {
+    definitions: [
+      { en: 'Thesis; academic paper; dissertation', ru: 'Диссертация; научная статья; дипломная работа' }
+    ],
+    examples: [
+      { zh: '他的博士论文写了三年才完成。', py: 'tā de bóshì lùnwén xiě le sān nián cái wánchéng.', en: 'His doctoral thesis took three years to write.', ru: 'Его докторская диссертация писалась три года.' },
+      { zh: '这篇论文被国际期刊发表了。', py: 'zhè piān lùnwén bèi guójì qīkān fābiǎo le.', en: 'This paper was published in an international journal.', ru: 'Эта статья была опубликована в международном журнале.' }
+    ]
+  },
+  '假设': {
+    definitions: [
+      { en: 'Hypothesis; to assume; supposing', ru: 'Гипотеза; предполагать; допущение' }
+    ],
+    examples: [
+      { zh: '科学研究首先需要提出假设。', py: 'kēxué yánjiū shǒuxiān xūyào tíchū jiǎshè.', en: 'Scientific research first requires formulating a hypothesis.', ru: 'Научное исследование начинается с выдвижения гипотезы.' },
+      { zh: '假设你有一百万，你会做什么？', py: 'jiǎshè nǐ yǒu yībǎi wàn, nǐ huì zuò shénme?', en: 'Suppose you had a million; what would you do?', ru: 'Предположим, у тебя миллион — что бы ты сделал?' }
+    ]
+  },
+  '结论': {
+    definitions: [
+      { en: 'Conclusion; to conclude; finding', ru: 'Вывод; заключение; итог' }
+    ],
+    examples: [
+      { zh: '根据实验数据，我们得出了以下结论。', py: 'gēnjù shíyàn shùjù, wǒmen déchū le yǐxià jiélùn.', en: 'Based on the experimental data, we reached the following conclusion.', ru: 'На основании экспериментальных данных мы пришли к следующему выводу.' },
+      { zh: '不要过早下结论，事情可能还会变。', py: 'búyào guòzǎo xià jiélùn, shìqing kěnéng hái huì biàn.', en: 'Don\'t jump to conclusions; things might still change.', ru: 'Не делай поспешных выводов, всё ещё может измениться.' }
+    ]
+  },
+  '理论': {
+    definitions: [
+      { en: 'Theory; theoretical', ru: 'Теория; теоретический' }
+    ],
+    examples: [
+      { zh: '理论和实践之间往往有很大的差距。', py: 'lǐlùn hé shíjiàn zhījiān wǎngwǎng yǒu hěn dà de chājù.', en: 'There is often a big gap between theory and practice.', ru: 'Между теорией и практикой часто существует большой разрыв.' },
+      { zh: '他的理论框架很有创新性。', py: 'tā de lǐlùn kuàngjià hěn yǒu chuàngxīnxìng.', en: 'His theoretical framework is very innovative.', ru: 'Его теоретическая база очень инновационна.' }
+    ]
+  },
+
+  // === HSK7-9: Media & News ===
+  '舆论': {
+    definitions: [
+      { en: 'Public opinion; public discourse', ru: 'Общественное мнение; общественная дискуссия' }
+    ],
+    examples: [
+      { zh: '舆论的力量不可小看。', py: 'yúlùn de lìliang bùkě xiǎokàn.', en: 'The power of public opinion should not be underestimated.', ru: 'Силу общественного мнения нельзя недооценивать.' },
+      { zh: '这件事引起了巨大的舆论风波。', py: 'zhè jiàn shì yǐnqǐ le jùdà de yúlùn fēngbō.', en: 'This incident caused a huge public opinion storm.', ru: 'Этот инцидент вызвал огромный общественный резонанс.' }
+    ]
+  },
+  '头条': {
+    definitions: [
+      { en: 'Headline; top news; front page', ru: 'Заголовок; главная новость; передовица' }
+    ],
+    examples: [
+      { zh: '这条新闻上了各大媒体的头条。', py: 'zhè tiáo xīnwén shàng le gè dà méitǐ de tóutiáo.', en: 'This news made the headlines of all major media outlets.', ru: 'Эта новость попала в заголовки всех крупных СМИ.' },
+      { zh: '今日头条是中国很受欢迎的新闻平台。', py: 'Jīnrì Tóutiáo shì Zhōngguó hěn shòu huānyíng de xīnwén píngtái.', en: 'Toutiao is a very popular news platform in China.', ru: 'Тоутяо — очень популярная новостная платформа в Китае.' }
+    ]
+  },
+  '评论': {
+    definitions: [
+      { en: 'Comment; review; to comment on', ru: 'Комментарий; рецензия; комментировать' }
+    ],
+    examples: [
+      { zh: '这篇文章下面有上千条评论。', py: 'zhè piān wénzhāng xiàmiàn yǒu shàngqiān tiáo pínglùn.', en: 'There are over a thousand comments below this article.', ru: 'Под этой статьёй более тысячи комментариев.' },
+      { zh: '请不要在网上发表恶意评论。', py: 'qǐng búyào zài wǎngshàng fābiǎo èyì pínglùn.', en: 'Please don\'t post malicious comments online.', ru: 'Пожалуйста, не оставляйте злонамеренные комментарии в интернете.' }
+    ]
+  },
+  '记者': {
+    definitions: [
+      { en: 'Journalist; reporter; correspondent', ru: 'Журналист; репортёр; корреспондент' }
+    ],
+    examples: [
+      { zh: '记者冒着危险在前线报道。', py: 'jìzhě màozhe wēixiǎn zài qiánxiàn bàodào.', en: 'The journalists reported from the front lines at great risk.', ru: 'Журналисты рискуя жизнью вели репортажи с передовой.' },
+      { zh: '她从小就梦想当一名记者。', py: 'tā cóngxiǎo jiù mèngxiǎng dāng yī míng jìzhě.', en: 'She has dreamed of being a journalist since she was little.', ru: 'С детства она мечтала стать журналисткой.' }
+    ]
+  },
+  '新闻': {
+    definitions: [
+      { en: 'News; press; journalism', ru: 'Новости; пресса; журналистика' }
+    ],
+    examples: [
+      { zh: '你看今天的新闻了吗？出大事了。', py: 'nǐ kàn jīntiān de xīnwén le ma? chū dàshì le.', en: 'Have you seen today\'s news? Something big happened.', ru: 'Ты видел сегодняшние новости? Произошло кое-что важное.' },
+      { zh: '现在假新闻太多了，要学会辨别。', py: 'xiànzài jiǎ xīnwén tài duō le, yào xuéhuì biànbié.', en: 'There\'s too much fake news now; you need to learn to tell it apart.', ru: 'Сейчас слишком много фейковых новостей, нужно учиться их распознавать.' }
+    ]
+  },
+  '采访': {
+    definitions: [
+      { en: 'To interview; interview; to cover (news)', ru: 'Брать интервью; интервью; освещать' }
+    ],
+    examples: [
+      { zh: '记者要求采访这位科学家。', py: 'jìzhě yāoqiú cǎifǎng zhè wèi kēxuéjiā.', en: 'The reporter requested an interview with the scientist.', ru: 'Журналист попросил взять интервью у этого учёного.' },
+      { zh: '他在采访中透露了新专辑的计划。', py: 'tā zài cǎifǎng zhōng tòulù le xīn zhuānjí de jìhuà.', en: 'He revealed plans for a new album during the interview.', ru: 'Во время интервью он рассказал о планах нового альбома.' }
+    ]
+  },
+
+  // === HSK7-9: Traditional Culture ===
+  '书法': {
+    definitions: [
+      { en: 'Calligraphy; the art of writing Chinese characters', ru: 'Каллиграфия; искусство написания иероглифов' }
+    ],
+    examples: [
+      { zh: '中国书法是世界非物质文化遗产。', py: 'Zhōngguó shūfǎ shì shìjiè fēi wùzhì wénhuà yíchǎn.', en: 'Chinese calligraphy is a UNESCO intangible cultural heritage.', ru: 'Китайская каллиграфия — нематериальное культурное наследие ЮНЕСКО.' },
+      { zh: '练书法可以修身养性，让人心静。', py: 'liàn shūfǎ kěyǐ xiūshēn yǎngxìng, ràng rén xīn jìng.', en: 'Practicing calligraphy cultivates character and calms the mind.', ru: 'Занятия каллиграфией воспитывают характер и успокаивают ум.' }
+    ]
+  },
+  '太极': {
+    definitions: [
+      { en: 'Tai chi; taiji; traditional martial art and exercise', ru: 'Тайцзи; тайчи; традиционное боевое искусство' }
+    ],
+    examples: [
+      { zh: '每天早上公园里有很多老人在打太极。', py: 'měitiān zǎoshang gōngyuán lǐ yǒu hěn duō lǎorén zài dǎ tàijí.', en: 'Every morning many elderly people practice tai chi in the park.', ru: 'Каждое утро в парке много пожилых людей занимаются тайцзи.' },
+      { zh: '太极讲究以柔克刚。', py: 'tàijí jiǎngjiu yǐ róu kè gāng.', en: 'Tai chi emphasizes overcoming hardness with softness.', ru: 'Тайцзи основывается на принципе мягкости, побеждающей силу.' }
+    ]
+  },
+  '功夫': {
+    definitions: [
+      { en: 'Kung fu; martial arts; skill acquired through effort', ru: 'Кунг-фу; боевые искусства; мастерство' }
+    ],
+    examples: [
+      { zh: '李小龙让全世界认识了中国功夫。', py: 'Lǐ Xiǎolóng ràng quán shìjiè rènshi le Zhōngguó gōngfu.', en: 'Bruce Lee introduced Chinese kung fu to the whole world.', ru: 'Брюс Ли познакомил весь мир с китайским кунг-фу.' },
+      { zh: '学好功夫需要下苦功夫。', py: 'xuéhǎo gōngfu xūyào xià kǔ gōngfu.', en: 'To master kung fu, you need to put in hard effort.', ru: 'Чтобы овладеть кунг-фу, нужно приложить немало усилий.' }
+    ]
+  },
+  '春联': {
+    definitions: [
+      { en: 'Spring couplets; New Year scrolls posted on doors', ru: 'Весенние парные надписи; новогодние свитки на дверях' }
+    ],
+    examples: [
+      { zh: '过年的时候，家家户户都要贴春联。', py: 'guònián de shíhou, jiājiā hùhù dōu yào tiē chūnlián.', en: 'During Chinese New Year, every household puts up spring couplets.', ru: 'На Новый год каждая семья вешает весенние парные надписи.' },
+      { zh: '爷爷每年都亲手写春联。', py: 'yéye měinián dōu qīnshǒu xiě chūnlián.', en: 'Grandpa writes the spring couplets by hand every year.', ru: 'Дедушка каждый год сам пишет весенние парные надписи.' }
+    ]
+  },
+  '京剧': {
+    definitions: [
+      { en: 'Peking opera; Beijing opera', ru: 'Пекинская опера; цзинцзюй' }
+    ],
+    examples: [
+      { zh: '京剧被称为中国的国粹。', py: 'jīngjù bèi chēngwéi Zhōngguó de guócuì.', en: 'Peking opera is called the quintessence of Chinese culture.', ru: 'Пекинскую оперу называют квинтэссенцией китайской культуры.' },
+      { zh: '京剧演员的脸谱有不同的含义。', py: 'jīngjù yǎnyuán de liǎnpǔ yǒu bùtóng de hányì.', en: 'The facial makeup of Peking opera actors has different meanings.', ru: 'Маски актёров пекинской оперы имеют разные значения.' }
+    ]
+  },
+  '中医': {
+    definitions: [
+      { en: 'Traditional Chinese medicine (TCM)', ru: 'Традиционная китайская медицина (ТКМ)' }
+    ],
+    examples: [
+      { zh: '中医讲究望闻问切，整体调理。', py: 'zhōngyī jiǎngjiu wàng wén wèn qiè, zhěngtǐ tiáolǐ.', en: 'TCM emphasizes diagnosis through observation, listening, inquiry, and pulse-taking, treating the whole body.', ru: 'ТКМ основана на диагностике через наблюдение, выслушивание, расспрос и пульсодиагностику.' },
+      { zh: '越来越多的外国人开始相信中医。', py: 'yuèláiyuè duō de wàiguórén kāishǐ xiāngxìn zhōngyī.', en: 'More and more foreigners are beginning to believe in TCM.', ru: 'Всё больше иностранцев начинают доверять китайской медицине.' }
+    ]
+  },
+  '红包': {
+    definitions: [
+      { en: 'Red envelope; gift money (physical or digital)', ru: 'Красный конверт; денежный подарок (бумажный или электронный)' }
+    ],
+    examples: [
+      { zh: '过年长辈会给小孩发红包。', py: 'guònián zhǎngbèi huì gěi xiǎohái fā hóngbāo.', en: 'During New Year, elders give red envelopes to children.', ru: 'На Новый год старшие дарят детям красные конверты с деньгами.' },
+      { zh: '现在大家都用微信发红包了。', py: 'xiànzài dàjiā dōu yòng Wēixìn fā hóngbāo le.', en: 'Now everyone sends red envelopes via WeChat.', ru: 'Сейчас все отправляют красные конверты через WeChat.' }
+    ]
+  },
+  '饮食文化': {
+    definitions: [
+      { en: 'Food culture; culinary culture; dining traditions', ru: 'Культура питания; кулинарная культура; традиции застолья' }
+    ],
+    examples: [
+      { zh: '中国的饮食文化博大精深，每个地区都不一样。', py: 'Zhōngguó de yǐnshí wénhuà bódà jīngshēn, měi gè dìqū dōu bù yīyàng.', en: 'Chinese food culture is vast and profound, different in every region.', ru: 'Китайская культура питания необъятна и глубока, в каждом регионе своя.' },
+      { zh: '了解一个国家的饮食文化就能了解它的历史。', py: 'liǎojiě yī gè guójiā de yǐnshí wénhuà jiù néng liǎojiě tā de lìshǐ.', en: 'Understanding a country\'s food culture helps you understand its history.', ru: 'Узнав кулинарную культуру страны, можно понять её историю.' }
+    ]
+  },
+
+  // === HSK7-9: Modern Slang ===
+  '给力': {
+    definitions: [
+      { en: 'Awesome; cool; impressive; powerful', ru: 'Круто; мощно; впечатляюще' }
+    ],
+    examples: [
+      { zh: '这个新功能太给力了！', py: 'zhège xīn gōngnéng tài gěilì le!', en: 'This new feature is awesome!', ru: 'Эта новая функция просто огонь!' },
+      { zh: '你的方案很给力，领导肯定满意。', py: 'nǐ de fāng\'àn hěn gěilì, lǐngdǎo kěndìng mǎnyì.', en: 'Your plan is really impressive; the boss will definitely be satisfied.', ru: 'Твой план очень мощный, начальник точно будет доволен.' }
+    ]
+  },
+  '躺平': {
+    definitions: [
+      { en: 'Lying flat; opting out of the rat race; refusing to hustle', ru: 'Лежать плашмя; отказ от гонки; не напрягаться' }
+    ],
+    examples: [
+      { zh: '越来越多的年轻人选择躺平。', py: 'yuèláiyuè duō de niánqīngrén xuǎnzé tǎngpíng.', en: 'More and more young people are choosing to lie flat.', ru: 'Всё больше молодых людей выбирают «лежать плашмя».' },
+      { zh: '他说他要躺平了，不再卷了。', py: 'tā shuō tā yào tǎngpíng le, bú zài juǎn le.', en: 'He said he\'s going to lie flat and stop competing.', ru: 'Он сказал, что ложится плашмя и больше не участвует в гонке.' }
+    ]
+  },
+  '卷': {
+    definitions: [
+      { en: 'Competitive; rat race; to grind excessively', ru: 'Конкурентный; гонка; перенапрягаться' }
+    ],
+    examples: [
+      { zh: '现在的职场太卷了，大家都在加班。', py: 'xiànzài de zhíchǎng tài juǎn le, dàjiā dōu zài jiābān.', en: 'Today\'s workplace is too competitive; everyone is working overtime.', ru: 'Сейчас на работе слишком жёсткая конкуренция, все перерабатывают.' },
+      { zh: '别卷了，下班回家吧。', py: 'bié juǎn le, xiàbān huíjiā ba.', en: 'Stop grinding and go home after work.', ru: 'Хватит напрягаться, иди домой после работы.' }
+    ]
+  },
+  '种草': {
+    definitions: [
+      { en: 'To recommend a product; to get someone interested in buying', ru: 'Рекомендовать товар; заинтересовать покупкой' }
+    ],
+    examples: [
+      { zh: '她给我种草了一款口红，我忍不住下单了。', py: 'tā gěi wǒ zhǒngcǎo le yī kuǎn kǒuhóng, wǒ rěnbuzhù xiàdān le.', en: 'She recommended a lipstick to me, and I couldn\'t resist buying it.', ru: 'Она порекомендовала мне помаду, и я не удержалась — заказала.' },
+      { zh: '博主天天种草，我的钱包受不了。', py: 'bózhǔ tiāntiān zhǒngcǎo, wǒ de qiánbāo shòubuliǎo.', en: 'Bloggers recommend stuff every day; my wallet can\'t handle it.', ru: 'Блогеры каждый день рекомендуют товары, мой кошелёк не выдерживает.' }
+    ]
+  },
+  '打卡': {
+    definitions: [
+      { en: 'To check in; to clock in; to visit a popular spot', ru: 'Отметиться; зачекиниться; посетить популярное место' }
+    ],
+    examples: [
+      { zh: '这家咖啡馆是网红打卡地。', py: 'zhè jiā kāfēiguǎn shì wǎnghóng dǎkǎ dì.', en: 'This cafe is a popular check-in spot for social media.', ru: 'Это кафе — популярное место для чекинов в соцсетях.' },
+      { zh: '我坚持每天打卡学中文，已经一百天了。', py: 'wǒ jiānchí měitiān dǎkǎ xué Zhōngwén, yǐjīng yībǎi tiān le.', en: 'I\'ve been checking in daily for Chinese study, already 100 days.', ru: 'Я каждый день отмечаюсь в изучении китайского — уже сто дней.' }
+    ]
+  },
+  '凡尔赛': {
+    definitions: [
+      { en: 'Humble brag; showing off while pretending to be modest', ru: 'Скромное хвастовство; хвалиться под видом скромности' }
+    ],
+    examples: [
+      { zh: '她说"好烦啊，又收到三个offer"，太凡尔赛了。', py: 'tā shuō "hǎo fán a, yòu shōudào sān gè offer", tài fán\'ěrsài le.', en: 'She said "So annoying, I got three offers again" — such a humble brag.', ru: 'Она сказала «Как надоело, опять три оффера» — вот это хвастовство.' },
+      { zh: '别凡尔赛了，我们知道你很优秀。', py: 'bié fán\'ěrsài le, wǒmen zhīdào nǐ hěn yōuxiù.', en: 'Stop humble bragging, we know you\'re excellent.', ru: 'Хватит скромничать напоказ, мы знаем, что ты молодец.' }
+    ]
+  },
+  '社恐': {
+    definitions: [
+      { en: 'Social anxiety; socially anxious; introverted', ru: 'Социофобия; социальная тревожность' }
+    ],
+    examples: [
+      { zh: '我是社恐，最怕在很多人面前说话。', py: 'wǒ shì shèkǒng, zuì pà zài hěn duō rén miànqián shuōhuà.', en: 'I have social anxiety; I\'m most afraid of speaking in front of many people.', ru: 'У меня социофобия, больше всего боюсь выступать перед людьми.' },
+      { zh: '社恐和社牛是完全相反的两种人。', py: 'shèkǒng hé shèniú shì wánquán xiāngfǎn de liǎng zhǒng rén.', en: 'People with social anxiety and social butterflies are complete opposites.', ru: 'Социофобы и «социальные быки» — полные противоположности.' }
+    ]
+  },
+  '干饭人': {
+    definitions: [
+      { en: 'Foodie; someone who eats heartily; a hard-working eater', ru: 'Трудяга-едок; обжора; тот, кто ест с аппетитом' }
+    ],
+    examples: [
+      { zh: '干饭人干饭魂，干饭都是人上人！', py: 'gànfàn rén gànfàn hún, gànfàn dōu shì rén shàng rén!', en: 'Foodies have the spirit of eating; eaters are the cream of the crop!', ru: 'У настоящих едоков — дух обжорства, едоки — лучшие из лучших!' },
+      { zh: '中午一到，干饭人集体出动去食堂。', py: 'zhōngwǔ yī dào, gànfàn rén jítǐ chūdòng qù shítáng.', en: 'At noon, all the foodies head to the cafeteria together.', ru: 'Как только наступает обед, все «обжоры» дружно бегут в столовую.' }
+    ]
+  },
+
+  // === HSK7-9: Philosophy & Values ===
+  '缘分': {
+    definitions: [
+      { en: 'Fate; destiny; predestined affinity', ru: 'Судьба; предначертание; предопределённая связь' }
+    ],
+    examples: [
+      { zh: '能在异国他乡相遇，这就是缘分。', py: 'néng zài yìguó tāxiāng xiāngyù, zhè jiùshì yuánfèn.', en: 'Meeting in a foreign land — that\'s destiny.', ru: 'Встретиться на чужбине — вот что такое судьба.' },
+      { zh: '有缘千里来相会，无缘对面不相逢。', py: 'yǒu yuán qiān lǐ lái xiānghuì, wú yuán duìmiàn bù xiāngféng.', en: 'With fate, you meet across a thousand miles; without it, you pass face to face unnoticed.', ru: 'Если суждено — встретишься и за тысячу ли; если нет — разминёшься лицом к лицу.' }
+    ]
+  },
+  '关系': {
+    definitions: [
+      { en: 'Relationships; connections; guanxi (social networking)', ru: 'Связи; отношения; гуаньси (социальные связи)' }
+    ],
+    examples: [
+      { zh: '在中国，很多事情都靠关系。', py: 'zài Zhōngguó, hěn duō shìqing dōu kào guānxì.', en: 'In China, many things depend on connections.', ru: 'В Китае многое зависит от связей.' },
+      { zh: '维护好人际关系是一门学问。', py: 'wéihù hǎo rénjì guānxì shì yī mén xuéwèn.', en: 'Maintaining good interpersonal relationships is a skill in itself.', ru: 'Поддерживать хорошие отношения — это целая наука.' }
+    ]
+  },
+  '孝顺': {
+    definitions: [
+      { en: 'Filial piety; to be dutiful to one\'s parents', ru: 'Почтительность к родителям; сыновний долг' }
+    ],
+    examples: [
+      { zh: '孝顺父母是中国传统美德。', py: 'xiàoshùn fùmǔ shì Zhōngguó chuántǒng měidé.', en: 'Filial piety is a traditional Chinese virtue.', ru: 'Почтительность к родителям — традиционная китайская добродетель.' },
+      { zh: '他很孝顺，每个月都给父母寄钱。', py: 'tā hěn xiàoshùn, měi gè yuè dōu gěi fùmǔ jì qián.', en: 'He is very filial, sending money to his parents every month.', ru: 'Он очень почтителен к родителям, каждый месяц отправляет им деньги.' }
+    ]
+  },
+  '和谐': {
+    definitions: [
+      { en: 'Harmony; harmonious; balanced', ru: 'Гармония; гармоничный; слаженный' }
+    ],
+    examples: [
+      { zh: '和谐社会是中国的重要理念。', py: 'héxié shèhuì shì Zhōngguó de zhòngyào lǐniàn.', en: 'A harmonious society is an important concept in China.', ru: 'Гармоничное общество — важная концепция в Китае.' },
+      { zh: '邻里之间要和谐相处。', py: 'línlǐ zhījiān yào héxié xiāngchǔ.', en: 'Neighbors should live together harmoniously.', ru: 'Соседи должны жить в гармонии друг с другом.' }
+    ]
+  },
+  '命运': {
+    definitions: [
+      { en: 'Fate; destiny; fortune', ru: 'Судьба; рок; участь' }
+    ],
+    examples: [
+      { zh: '命运掌握在自己手里。', py: 'mìngyùn zhǎngwò zài zìjǐ shǒu lǐ.', en: 'Fate is in your own hands.', ru: 'Судьба в твоих собственных руках.' },
+      { zh: '他不相信命运，认为一切靠努力。', py: 'tā bù xiāngxìn mìngyùn, rènwéi yīqiè kào nǔlì.', en: 'He doesn\'t believe in fate; he thinks everything depends on effort.', ru: 'Он не верит в судьбу и считает, что всё зависит от усилий.' }
+    ]
+  },
+  '境界': {
+    definitions: [
+      { en: 'Realm; level of mastery; state of mind', ru: 'Уровень мастерства; состояние духа; сфера' }
+    ],
+    examples: [
+      { zh: '他的书法已经达到了很高的境界。', py: 'tā de shūfǎ yǐjīng dádào le hěn gāo de jìngjiè.', en: 'His calligraphy has reached a very high level of mastery.', ru: 'Его каллиграфия уже достигла очень высокого уровня мастерства.' },
+      { zh: '人生最高的境界是宁静致远。', py: 'rénshēng zuìgāo de jìngjiè shì níngjìng zhìyuǎn.', en: 'The highest state in life is achieving greatness through inner peace.', ru: 'Высшая ступень в жизни — через покой достичь далёкого.' }
+    ]
+  },
+  '悟': {
+    definitions: [
+      { en: 'To comprehend; to become enlightened; to realize', ru: 'Постичь; осознать; прозреть' }
+    ],
+    examples: [
+      { zh: '学中文要靠悟，不能只靠背。', py: 'xué Zhōngwén yào kào wù, bù néng zhǐ kào bèi.', en: 'Learning Chinese requires comprehension, not just memorization.', ru: 'Изучение китайского требует осмысления, а не только зубрёжки.' },
+      { zh: '经历过挫折之后，他悟出了很多道理。', py: 'jīnglì guò cuòzhé zhīhòu, tā wùchū le hěn duō dàolǐ.', en: 'After going through setbacks, he gained many insights.', ru: 'Пережив неудачи, он осознал много жизненных истин.' }
+    ]
+  },
+  '修养': {
+    definitions: [
+      { en: 'Cultivation; refinement; good manners; self-improvement', ru: 'Воспитание; культурность; самосовершенствование' }
+    ],
+    examples: [
+      { zh: '一个有修养的人不会在公共场合大声喧哗。', py: 'yī gè yǒu xiūyǎng de rén bú huì zài gōnggòng chǎnghé dàshēng xuānhuá.', en: 'A well-cultivated person wouldn\'t shout in public places.', ru: 'Воспитанный человек не будет шуметь в общественных местах.' },
+      { zh: '读书是提高个人修养的最好方式。', py: 'dúshū shì tígāo gèrén xiūyǎng de zuìhǎo fāngshì.', en: 'Reading is the best way to improve one\'s personal refinement.', ru: 'Чтение — лучший способ повысить свою культурность.' }
+    ]
+  },
 }
