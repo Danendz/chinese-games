@@ -19,25 +19,25 @@
         <h3 class="form-title">{{ t('mywords.addVocab') }}</h3>
         <div class="form-row">
           <div class="form-group">
-            <label>Character(s) <span class="label-zh">汉字</span></label>
+            <label>{{ t('mywords.character') }} <span class="label-zh">汉字</span></label>
             <input v-model="vocabForm.character" placeholder="e.g. 你好" class="text-chinese" />
           </div>
           <div class="form-group">
-            <label>Pinyin <span class="label-zh">拼音</span></label>
+            <label>{{ t('mywords.pinyin') }} <span class="label-zh">拼音</span></label>
             <input v-model="vocabForm.pinyin" placeholder="e.g. nǐ hǎo" class="text-pinyin" />
           </div>
           <div class="form-group">
-            <label>English <span class="label-zh">英文</span></label>
-            <input v-model="vocabForm.english" placeholder="e.g. hello" />
+            <label>{{ t('mywords.english') }}</label>
+            <input v-model="vocabForm.english" :placeholder="locale === 'ru' ? 'напр. привет' : 'e.g. hello'" />
           </div>
         </div>
         <!-- Suggestions -->
         <div v-if="vocabSuggestions.length > 0" class="suggestions">
-          <span class="sugg-label">Found in dictionary:</span>
+          <span class="sugg-label">{{ t('mywords.foundDict') }}</span>
           <button v-for="s in vocabSuggestions" :key="s.id" type="button" class="sugg-btn" @click="applyVocabSuggestion(s)">
             <span class="sugg-char text-chinese">{{ s.character }}</span>
             <span class="sugg-py text-pinyin">{{ s.pinyin }}</span>
-            <span class="sugg-en">{{ s.english }}</span>
+            <span class="sugg-en">{{ tr(s) }}</span>
           </button>
         </div>
         <div class="form-actions">
@@ -47,7 +47,7 @@
       </form>
 
       <div class="list-section" v-if="myVocabulary.length > 0">
-        <h3 class="list-title">Your Vocabulary ({{ myVocabulary.length }})</h3>
+        <h3 class="list-title">{{ t('mywords.yourVocab') }} ({{ myVocabulary.length }})</h3>
         <div class="word-list">
           <div v-for="(item, idx) in myVocabulary" :key="item.id" class="word-item">
             <span class="word-num">{{ idx + 1 }}</span>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div v-else class="empty-state">
-        <p>No custom vocabulary yet. Add words above — they'll appear in games when you select "My Words"!</p>
+        <p>{{ t('mywords.emptyVocab') }}</p>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
         <h3 class="form-title">{{ t('mywords.addSentence') }}</h3>
         <div class="form-row">
           <div class="form-group form-group-wide">
-            <label>Words (space-separated) <span class="label-zh">用空格分开每个词</span></label>
+            <label>{{ t('mywords.words') }}</label>
             <input v-model="sentForm.wordsRaw" placeholder="e.g. 我 喜欢 学 中文 。" class="text-chinese" />
           </div>
         </div>
@@ -85,11 +85,11 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Grammar Pattern <span class="optional">(optional)</span></label>
+            <label>{{ t('mywords.grammarPattern') }} <span class="optional">{{ t('mywords.optional') }}</span></label>
             <input v-model="sentForm.grammarPattern" placeholder="e.g. Subject + 喜欢 + Verb + Object" />
           </div>
           <div class="form-group">
-            <label>Grammar Note <span class="optional">(optional)</span></label>
+            <label>{{ t('mywords.grammarNote') }} <span class="optional">{{ t('mywords.optional') }}</span></label>
             <input v-model="sentForm.grammarNote" placeholder="Explain the grammar point" />
           </div>
         </div>
@@ -108,7 +108,7 @@
       </form>
 
       <div class="list-section" v-if="mySentences.length > 0">
-        <h3 class="list-title">Your Sentences ({{ mySentences.length }})</h3>
+        <h3 class="list-title">{{ t('mywords.yourSentences') }} ({{ mySentences.length }})</h3>
         <div class="sentence-list">
           <div v-for="(item, idx) in mySentences" :key="item.id" class="sentence-item">
             <span class="word-num">{{ idx + 1 }}</span>
@@ -122,7 +122,7 @@
         </div>
       </div>
       <div v-else class="empty-state">
-        <p>No custom sentences yet. Add sentences above to practice word ordering!</p>
+        <p>{{ t('mywords.emptySentences') }}</p>
       </div>
     </div>
 
@@ -132,7 +132,7 @@
         <h3 class="form-title">{{ t('mywords.addRadical') }}</h3>
         <div class="form-row">
           <div class="form-group">
-            <label>Target Character <span class="label-zh">目标汉字</span></label>
+            <label>{{ t('mywords.targetChar') }} <span class="label-zh">目标汉字</span></label>
             <input v-model="radForm.character" placeholder="e.g. 好" class="text-chinese" />
           </div>
           <div class="form-group">
