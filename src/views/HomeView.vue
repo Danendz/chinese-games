@@ -126,7 +126,7 @@ const listeningGames = computed(() => [
 ])
 
 const speakingGames = computed(() => [
-  // Coming soon — speech recognition games
+  { route: '/speaking', icon: '🎙️', title: '跟读练习', subtitle: t('card.speaking.subtitle'), description: t('card.speaking.desc'), gradient: 'linear-gradient(135deg, #e17055, #d63031)' },
 ])
 
 const readingGames = computed(() => [

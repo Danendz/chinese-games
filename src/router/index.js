@@ -69,6 +69,12 @@ const routes = [
     meta: { title: '快速反应 | Speed Challenge' }
   },
   {
+    path: '/speaking',
+    name: 'speaking',
+    component: () => import('../views/SpeakingGameView.vue'),
+    meta: { title: '跟读练习 | Read Aloud' }
+  },
+  {
     path: '/typing',
     name: 'typing',
     component: () => import('../views/TypingGameView.vue'),

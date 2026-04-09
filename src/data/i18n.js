@@ -275,6 +275,20 @@ export const messages = {
     'pinyin.yourAnswer': 'Your answer',
     'pinyin.correctAnswer': 'Correct',
 
+    // Speaking
+    'view.speaking': 'Read Aloud Practice',
+    'card.speaking.subtitle': 'Read Aloud',
+    'card.speaking.desc': 'Listen to a word, then say it out loud! The system checks your pronunciation using voice recognition.',
+    'speaking.notSupported': 'Voice recognition not available',
+    'speaking.useChrome': 'Please use Chrome or Android browser for voice recognition features.',
+    'speaking.listenFirst': 'Listen first',
+    'speaking.tapToSpeak': 'Tap to speak',
+    'speaking.listening': 'Listening...',
+    'speaking.speakNow': 'Speak now!',
+    'speaking.youSaid': 'You said',
+    'speaking.tryAgainOrSkip': 'Not quite right. Try again or skip.',
+    'speaking.skip': 'Skip',
+
     // Character Typing
     'view.typing': 'Type Chinese Characters',
     'card.typing.subtitle': 'Character Input',
@@ -558,6 +572,20 @@ export const messages = {
     'pinyin.wrong': 'Не совсем...',
     'pinyin.yourAnswer': 'Ваш ответ',
     'pinyin.correctAnswer': 'Правильно',
+
+    // Speaking
+    'view.speaking': 'Практика чтения вслух',
+    'card.speaking.subtitle': 'Чтение вслух',
+    'card.speaking.desc': 'Послушайте слово и произнесите его вслух! Система проверит ваше произношение с помощью голосового распознавания.',
+    'speaking.notSupported': 'Распознавание голоса недоступно',
+    'speaking.useChrome': 'Используйте Chrome или Android для функций распознавания голоса.',
+    'speaking.listenFirst': 'Сначала послушайте',
+    'speaking.tapToSpeak': 'Нажмите и говорите',
+    'speaking.listening': 'Слушаю...',
+    'speaking.speakNow': 'Говорите!',
+    'speaking.youSaid': 'Вы сказали',
+    'speaking.tryAgainOrSkip': 'Не совсем верно. Попробуйте снова или пропустите.',
+    'speaking.skip': 'Пропустить',
 
     // Character Typing
     'view.typing': 'Ввод китайских иероглифов',
