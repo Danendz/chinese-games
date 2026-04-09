@@ -36,9 +36,13 @@
           :disabled="feedback !== ''"
         >
           <span class="speak-icon">{{ isListening ? '⏹️' : '🎙️' }}</span>
-          <span class="speak-label">{{ isListening ? t('speaking.listening') : t('speaking.tapToSpeak') }}</span>
+          <span class="speak-label">
+            {{ isListening ? t('speaking.tapToStop') : t('speaking.tapToSpeak') }}
+          </span>
         </button>
-        <p v-if="isListening" class="listening-hint animate-pulse">{{ t('speaking.speakNow') }}</p>
+        <p v-if="isListening" class="listening-hint animate-pulse">
+          {{ interimText || t('speaking.speakNow') }}
+        </p>
       </div>
 
       <!-- Feedback: correct -->
@@ -92,10 +96,12 @@ const questions = ref([])
 const currentIndex = ref(0)
 const isListening = ref(false)
 const recognizedText = ref('')
+const interimText = ref('')
 const feedback = ref('')
 const errorMsg = ref('')
 const gameStarted = ref(false)
 let recognition = null
+let finalized = false
 
 const currentQ = computed(() => questions.value[currentIndex.value])
 const progressPercent = computed(() => (currentIndex.value / questions.value.length) * 100)
@@ -135,38 +141,39 @@ function chineseMatch(spoken, target) {
   return false
 }
 
-let gotResult = false
-let silenceTimer = null
 let maxTimer = null
-let latestTranscript = ''
 
 function clearTimers() {
-  if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null }
   if (maxTimer) { clearTimeout(maxTimer); maxTimer = null }
 }
 
-function processTranscript(transcript, isFinal) {
-  if (!transcript || !currentQ.value) return
-  const target = currentQ.value.character
-  latestTranscript = transcript
-  const matched = chineseMatch(transcript, target)
-  console.log('[Speaking] process:', transcript, 'target:', target, 'matched:', matched, 'final:', isFinal)
+// Finalize the attempt with whatever we heard. Called from onresult(final),
+// onend, manual stop, or timeout. Guarded by `finalized` so it only runs once.
+function finalize(transcript) {
+  if (finalized) return
+  finalized = true
+  clearTimers()
+  isListening.value = false
+
+  const clean = (transcript || '').trim()
+  if (!clean) {
+    recognizedText.value = ''
+    feedback.value = 'wrong'
+    errorMsg.value = t('speaking.noSpeech')
+    emit('incorrect')
+    return
+  }
+
+  const target = currentQ.value?.character
+  const matched = target && chineseMatch(clean, target)
+  recognizedText.value = clean
+  console.log('[Speaking] finalize:', clean, 'target:', target, 'matched:', matched)
 
   if (matched) {
-    // Immediate correct response — don't wait for final
-    gotResult = true
-    clearTimers()
-    try { recognition.stop() } catch (e) {}
-    isListening.value = false
-    recognizedText.value = transcript
     feedback.value = 'correct'
     emit('correct', { word: target })
-    setTimeout(() => advanceQuestion(), 1200)
-  } else if (isFinal) {
-    // Final result, no match → wrong
-    gotResult = true
-    clearTimers()
-    recognizedText.value = transcript
+    setTimeout(() => advanceQuestion(), 1500)
+  } else {
     feedback.value = 'wrong'
     emit('incorrect')
   }
@@ -186,15 +193,13 @@ function initRecognition() {
   recognition.continuous = false
 
   recognition.onresult = (event) => {
-    console.log('[Speaking] onresult fired, resultIndex:', event.resultIndex, 'length:', event.results.length)
-    // Collect best transcript from all results so far
+    // Build interim and final strings from all results
     let finalText = ''
-    let interimText = ''
-    let isFinal = false
+    let interim = ''
     for (let i = 0; i < event.results.length; i++) {
       const res = event.results[i]
       if (res.isFinal) {
-        // Check all alternatives for a match against target
+        // Pick the alternative that matches best, else the top
         const target = currentQ.value?.character
         let bestAlt = res[0].transcript
         for (let j = 0; j < res.length; j++) {
@@ -204,29 +209,28 @@ function initRecognition() {
           }
         }
         finalText += bestAlt
-        isFinal = true
       } else {
-        interimText += res[0].transcript
+        interim += res[0].transcript
       }
     }
-    const transcript = (finalText || interimText).trim()
-    if (!transcript) return
+    interimText.value = (finalText || interim).trim()
+    console.log('[Speaking] onresult interim:', interim, 'final:', finalText)
 
-    // Reset silence timer on new speech
-    if (silenceTimer) clearTimeout(silenceTimer)
-    silenceTimer = setTimeout(() => {
-      console.log('[Speaking] silence timeout — force stop')
+    // If we got a final result, finalize immediately
+    if (finalText) {
+      finalize(finalText)
       try { recognition.stop() } catch (e) {}
-    }, 1200)
-
-    processTranscript(transcript, isFinal)
+    }
   }
 
   recognition.onerror = (event) => {
     console.log('[Speaking] onerror:', event.error)
     clearTimers()
     isListening.value = false
-    gotResult = true // prevent onend from triggering no-result feedback
+
+    if (event.error === 'aborted') return
+    if (finalized) return
+    finalized = true
 
     if (event.error === 'no-speech') {
       recognizedText.value = ''
@@ -237,7 +241,7 @@ function initRecognition() {
       recognizedText.value = ''
       feedback.value = 'wrong'
       errorMsg.value = t('speaking.micDenied')
-    } else if (event.error !== 'aborted') {
+    } else {
       recognizedText.value = ''
       feedback.value = 'wrong'
       errorMsg.value = `Error: ${event.error}`
@@ -246,20 +250,20 @@ function initRecognition() {
   }
 
   recognition.onend = () => {
-    console.log('[Speaking] onend fired, gotResult=', gotResult, 'latestTranscript:', latestTranscript)
+    console.log('[Speaking] onend fired, finalized=', finalized, 'interim:', interimText.value)
     clearTimers()
     isListening.value = false
-    // If we captured interim speech but never got final, process it now
-    if (!gotResult && latestTranscript) {
-      processTranscript(latestTranscript, true)
-      return
-    }
-    // If recognition ended without any result or error, show feedback
-    if (!gotResult) {
-      recognizedText.value = ''
-      feedback.value = 'wrong'
-      errorMsg.value = t('speaking.noSpeech')
-      emit('incorrect')
+    // If we never finalized but captured interim text, finalize with it
+    if (!finalized) {
+      if (interimText.value) {
+        finalize(interimText.value)
+      } else {
+        finalized = true
+        recognizedText.value = ''
+        feedback.value = 'wrong'
+        errorMsg.value = t('speaking.noSpeech')
+        emit('incorrect')
+      }
     }
   }
 }
@@ -272,25 +276,35 @@ function toggleListening() {
   }
 
   if (isListening.value) {
+    // Manual stop — finalize immediately with whatever interim text we have
+    console.log('[Speaking] manual stop, interim:', interimText.value)
     clearTimers()
     try { recognition.stop() } catch (e) {}
     isListening.value = false
+    if (interimText.value) {
+      finalize(interimText.value)
+    }
+    // If no interim yet, onend will eventually run and show no-speech
   } else {
     recognizedText.value = ''
+    interimText.value = ''
     feedback.value = ''
     errorMsg.value = ''
-    gotResult = false
-    latestTranscript = ''
+    finalized = false
     clearTimers()
     isListening.value = true
     try {
       recognition.start()
       console.log('[Speaking] recognition.start() called, target:', currentQ.value?.character)
-      // Safety net: max 6 seconds of listening
+      // Safety net: max 8 seconds of listening, then auto-finalize
       maxTimer = setTimeout(() => {
         console.log('[Speaking] max listening time — force stop')
         try { recognition.stop() } catch (e) {}
-      }, 6000)
+        // Give onend a moment; if it doesn't fire, finalize manually
+        setTimeout(() => {
+          if (!finalized) finalize(interimText.value)
+        }, 500)
+      }, 8000)
     } catch (e) {
       console.error('[Speaking] start error:', e)
       isListening.value = false
