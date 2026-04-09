@@ -122,6 +122,43 @@ export const vocabulary = {
     { id: 'b_90', character: '去', pinyin: 'qù', english: 'to go', russian: 'идти' },
     { id: 'b_91', character: '说', pinyin: 'shuō', english: 'to speak', russian: 'говорить' },
     { id: 'b_92', character: '听', pinyin: 'tīng', english: 'to listen', russian: 'слушать' },
+    // Question words
+    { id: 'b_93', character: '什么', pinyin: 'shénme', english: 'what', russian: 'что' },
+    { id: 'b_94', character: '谁', pinyin: 'shéi', english: 'who', russian: 'кто' },
+    { id: 'b_95', character: '哪', pinyin: 'nǎ', english: 'which / where', russian: 'какой / где' },
+    { id: 'b_96', character: '几', pinyin: 'jǐ', english: 'how many (small)', russian: 'сколько (мало)' },
+    { id: 'b_97', character: '多少', pinyin: 'duōshao', english: 'how many / how much', russian: 'сколько' },
+    { id: 'b_98', character: '怎么', pinyin: 'zěnme', english: 'how', russian: 'как' },
+    // Numbers extra
+    { id: 'b_99', character: '零', pinyin: 'líng', english: 'zero', russian: 'ноль' },
+    { id: 'b_100', character: '万', pinyin: 'wàn', english: 'ten thousand', russian: 'десять тысяч' },
+    // Negatives & connectors
+    { id: 'b_101', character: '不', pinyin: 'bù', english: 'no / not', russian: 'не / нет' },
+    { id: 'b_102', character: '没', pinyin: 'méi', english: 'not / not have', russian: 'не / нет' },
+    { id: 'b_103', character: '和', pinyin: 'hé', english: 'and / with', russian: 'и / с' },
+    { id: 'b_104', character: '也', pinyin: 'yě', english: 'also / too', russian: 'тоже / также' },
+    { id: 'b_105', character: '都', pinyin: 'dōu', english: 'all / both', russian: 'все / оба' },
+    { id: 'b_106', character: '很', pinyin: 'hěn', english: 'very', russian: 'очень' },
+    // Modal verbs
+    { id: 'b_107', character: '要', pinyin: 'yào', english: 'to want / need', russian: 'хотеть / нужно' },
+    { id: 'b_108', character: '会', pinyin: 'huì', english: 'can / know how', russian: 'уметь / мочь' },
+    { id: 'b_109', character: '能', pinyin: 'néng', english: 'can / be able', russian: 'мочь' },
+    { id: 'b_110', character: '在', pinyin: 'zài', english: 'at / in / exist', russian: 'в / на / находиться' },
+    // Directions
+    { id: 'b_111', character: '东', pinyin: 'dōng', english: 'east', russian: 'восток' },
+    { id: 'b_112', character: '南', pinyin: 'nán', english: 'south', russian: 'юг' },
+    { id: 'b_113', character: '西', pinyin: 'xī', english: 'west', russian: 'запад' },
+    { id: 'b_114', character: '北', pinyin: 'běi', english: 'north', russian: 'север' },
+    // Time basics
+    { id: 'b_115', character: '年', pinyin: 'nián', english: 'year', russian: 'год' },
+    { id: 'b_116', character: '月', pinyin: 'yuè', english: 'month / moon', russian: 'месяц / луна' },
+    { id: 'b_117', character: '日', pinyin: 'rì', english: 'day / sun', russian: 'день / солнце' },
+    { id: 'b_118', character: '岁', pinyin: 'suì', english: 'years old', russian: 'лет (возраст)' },
+    // Basic interaction
+    { id: 'b_119', character: '名字', pinyin: 'míngzi', english: 'name', russian: 'имя' },
+    { id: 'b_120', character: '问', pinyin: 'wèn', english: 'to ask', russian: 'спрашивать' },
+    { id: 'b_121', character: '一起', pinyin: 'yìqǐ', english: 'together', russian: 'вместе' },
+    { id: 'b_122', character: '真', pinyin: 'zhēn', english: 'really / true', russian: 'правда / по-настоящему' },
   ],
 
   'HSK1-3': [
@@ -321,6 +358,50 @@ export const vocabulary = {
     { id: 'h13_134', character: '难过', pinyin: 'nánguò', english: 'sad / upset', russian: 'грустный' },
     { id: 'h13_135', character: '开心', pinyin: 'kāixīn', english: 'happy / joyful', russian: 'радостный' },
     { id: 'h13_136', character: '紧张', pinyin: 'jǐnzhāng', english: 'nervous / tense', russian: 'нервничать' },
+    // Common verbs
+    { id: 'h13_137', character: '找', pinyin: 'zhǎo', english: 'to look for / find', russian: 'искать / найти' },
+    { id: 'h13_138', character: '用', pinyin: 'yòng', english: 'to use', russian: 'использовать' },
+    { id: 'h13_139', character: '带', pinyin: 'dài', english: 'to bring / take', russian: 'брать с собой' },
+    { id: 'h13_140', character: '拿', pinyin: 'ná', english: 'to take / hold', russian: 'брать / держать' },
+    { id: 'h13_141', character: '放', pinyin: 'fàng', english: 'to put / place', russian: 'класть' },
+    { id: 'h13_142', character: '换', pinyin: 'huàn', english: 'to change / exchange', russian: 'менять' },
+    { id: 'h13_143', character: '借', pinyin: 'jiè', english: 'to borrow / lend', russian: 'занимать / одалживать' },
+    { id: 'h13_144', character: '寄', pinyin: 'jì', english: 'to mail / send', russian: 'посылать почтой' },
+    { id: 'h13_145', character: '知道', pinyin: 'zhīdào', english: 'to know (a fact)', russian: 'знать (факт)' },
+    { id: 'h13_146', character: '认识', pinyin: 'rènshi', english: 'to know (people)', russian: 'быть знакомым' },
+    { id: 'h13_147', character: '介绍', pinyin: 'jièshào', english: 'to introduce', russian: 'представлять' },
+    { id: 'h13_148', character: '参加', pinyin: 'cānjiā', english: 'to participate / join', russian: 'участвовать' },
+    { id: 'h13_149', character: '希望', pinyin: 'xīwàng', english: 'to hope / wish', russian: 'надеяться' },
+    // Transport & places
+    { id: 'h13_150', character: '火车', pinyin: 'huǒchē', english: 'train', russian: 'поезд' },
+    { id: 'h13_151', character: '自行车', pinyin: 'zìxíngchē', english: 'bicycle', russian: 'велосипед' },
+    { id: 'h13_152', character: '船', pinyin: 'chuán', english: 'boat / ship', russian: 'лодка / корабль' },
+    { id: 'h13_153', character: '图书馆', pinyin: 'túshūguǎn', english: 'library', russian: 'библиотека' },
+    { id: 'h13_154', character: '公司', pinyin: 'gōngsī', english: 'company', russian: 'компания' },
+    { id: 'h13_155', character: '餐厅', pinyin: 'cāntīng', english: 'restaurant / dining hall', russian: 'ресторан / столовая' },
+    // Common nouns
+    { id: 'h13_156', character: '问题', pinyin: 'wèntí', english: 'question / problem', russian: 'вопрос / проблема' },
+    { id: 'h13_157', character: '东西', pinyin: 'dōngxi', english: 'thing / stuff', russian: 'вещь' },
+    { id: 'h13_158', character: '故事', pinyin: 'gùshi', english: 'story', russian: 'рассказ / история' },
+    { id: 'h13_160', character: '周末', pinyin: 'zhōumò', english: 'weekend', russian: 'выходные' },
+    { id: 'h13_161', character: '分钟', pinyin: 'fēnzhōng', english: 'minute', russian: 'минута' },
+    // Physical descriptors
+    { id: 'h13_162', character: '长', pinyin: 'cháng', english: 'long', russian: 'длинный' },
+    { id: 'h13_163', character: '短', pinyin: 'duǎn', english: 'short (length)', russian: 'короткий' },
+    { id: 'h13_164', character: '胖', pinyin: 'pàng', english: 'fat / chubby', russian: 'толстый' },
+    { id: 'h13_165', character: '瘦', pinyin: 'shòu', english: 'thin (person)', russian: 'худой' },
+    // Personality
+    { id: 'h13_166', character: '聪明', pinyin: 'cōngmíng', english: 'smart / clever', russian: 'умный' },
+    { id: 'h13_167', character: '努力', pinyin: 'nǔlì', english: 'hardworking / to strive', russian: 'старательный' },
+    { id: 'h13_168', character: '有趣', pinyin: 'yǒuqù', english: 'interesting / fun', russian: 'интересный' },
+    // More colors
+    { id: 'h13_169', character: '灰色', pinyin: 'huīsè', english: 'gray', russian: 'серый' },
+    { id: 'h13_170', character: '粉色', pinyin: 'fěnsè', english: 'pink', russian: 'розовый' },
+    { id: 'h13_171', character: '橙色', pinyin: 'chéngsè', english: 'orange (color)', russian: 'оранжевый' },
+    { id: 'h13_172', character: '紫色', pinyin: 'zǐsè', english: 'purple', russian: 'фиолетовый' },
+    // Adverbs
+    { id: 'h13_173', character: '已经', pinyin: 'yǐjīng', english: 'already', russian: 'уже' },
+    { id: 'h13_174', character: '比如', pinyin: 'bǐrú', english: 'for example', russian: 'например' },
   ],
 
   'HSK4-6': [
@@ -458,6 +539,47 @@ export const vocabulary = {
     { id: 'h46_132', character: '账号', pinyin: 'zhànghào', english: 'account (online)', russian: 'аккаунт' },
     { id: 'h46_133', character: '电子邮件', pinyin: 'diànzǐ yóujiàn', english: 'email', russian: 'электронная почта' },
     { id: 'h46_134', character: '打印', pinyin: 'dǎyìn', english: 'to print', russian: 'печатать' },
+    // Abstract concepts
+    { id: 'h46_135', character: '意见', pinyin: 'yìjiàn', english: 'opinion', russian: 'мнение' },
+    { id: 'h46_136', character: '观点', pinyin: 'guāndiǎn', english: 'viewpoint', russian: 'точка зрения' },
+    { id: 'h46_137', character: '想法', pinyin: 'xiǎngfǎ', english: 'idea / thought', russian: 'идея / мысль' },
+    { id: 'h46_138', character: '趋势', pinyin: 'qūshì', english: 'trend', russian: 'тенденция' },
+    { id: 'h46_139', character: '矛盾', pinyin: 'máodùn', english: 'contradiction / conflict', russian: 'противоречие' },
+    // Business
+    { id: 'h46_140', character: '市场', pinyin: 'shìchǎng', english: 'market', russian: 'рынок' },
+    { id: 'h46_141', character: '生意', pinyin: 'shēngyi', english: 'business / trade', russian: 'бизнес / торговля' },
+    { id: 'h46_142', character: '利润', pinyin: 'lìrùn', english: 'profit', russian: 'прибыль' },
+    { id: 'h46_143', character: '成本', pinyin: 'chéngběn', english: 'cost', russian: 'себестоимость' },
+    { id: 'h46_144', character: '团队', pinyin: 'tuánduì', english: 'team', russian: 'команда' },
+    { id: 'h46_145', character: '组织', pinyin: 'zǔzhī', english: 'organization / to organize', russian: 'организация' },
+    // Work verbs
+    { id: 'h46_146', character: '处理', pinyin: 'chǔlǐ', english: 'to handle / deal with', russian: 'обрабатывать / решать' },
+    { id: 'h46_147', character: '安排', pinyin: 'ānpái', english: 'to arrange', russian: 'организовывать' },
+    { id: 'h46_148', character: '建议', pinyin: 'jiànyì', english: 'to suggest / suggestion', russian: 'предлагать / предложение' },
+    { id: 'h46_149', character: '思考', pinyin: 'sīkǎo', english: 'to think deeply', russian: 'размышлять' },
+    { id: 'h46_150', character: '强调', pinyin: 'qiángdiào', english: 'to emphasize', russian: 'подчёркивать' },
+    { id: 'h46_151', character: '判断', pinyin: 'pànduàn', english: 'to judge / determine', russian: 'судить / определять' },
+    { id: 'h46_152', character: '分析', pinyin: 'fēnxī', english: 'to analyze', russian: 'анализировать' },
+    { id: 'h46_153', character: '总结', pinyin: 'zǒngjié', english: 'to summarize', russian: 'подытоживать' },
+    // Personality
+    { id: 'h46_154', character: '严格', pinyin: 'yángé', english: 'strict', russian: 'строгий' },
+    { id: 'h46_155', character: '严肃', pinyin: 'yánsù', english: 'serious / solemn', russian: 'серьёзный' },
+    { id: 'h46_156', character: '谦虚', pinyin: 'qiānxū', english: 'humble / modest', russian: 'скромный' },
+    { id: 'h46_157', character: '乐观', pinyin: 'lèguān', english: 'optimistic', russian: 'оптимистичный' },
+    { id: 'h46_158', character: '悲观', pinyin: 'bēiguān', english: 'pessimistic', russian: 'пессимистичный' },
+    // Emotions
+    { id: 'h46_159', character: '兴奋', pinyin: 'xīngfèn', english: 'excited', russian: 'возбуждённый / взволнованный' },
+    { id: 'h46_160', character: '愉快', pinyin: 'yúkuài', english: 'cheerful / pleasant', russian: 'радостный / приятный' },
+    // Science
+    { id: 'h46_162', character: '原理', pinyin: 'yuánlǐ', english: 'principle', russian: 'принцип' },
+    { id: 'h46_163', character: '技术', pinyin: 'jìshù', english: 'technique / technology', russian: 'техника / технология' },
+    // Quality
+    { id: 'h46_164', character: '优秀', pinyin: 'yōuxiù', english: 'excellent / outstanding', russian: 'превосходный' },
+    { id: 'h46_165', character: '出色', pinyin: 'chūsè', english: 'outstanding / remarkable', russian: 'выдающийся' },
+    { id: 'h46_166', character: '完美', pinyin: 'wánměi', english: 'perfect', russian: 'совершенный' },
+    { id: 'h46_167', character: '具体', pinyin: 'jùtǐ', english: 'concrete / specific', russian: 'конкретный' },
+    { id: 'h46_168', character: '详细', pinyin: 'xiángxì', english: 'detailed', russian: 'подробный' },
+    { id: 'h46_169', character: '模糊', pinyin: 'móhu', english: 'vague / blurry', russian: 'расплывчатый' },
   ],
 
   // HSK 7-9: 更实用的高级词汇 — 社交、职场、网络、生活中真正会用到的词
@@ -581,5 +703,43 @@ export const vocabulary = {
     { id: 'h79_134', character: '境界', pinyin: 'jìngjiè', english: 'realm / level of mastery', russian: 'уровень мастерства' },
     { id: 'h79_135', character: '悟', pinyin: 'wù', english: 'to comprehend / enlighten', russian: 'постичь / осознать' },
     { id: 'h79_136', character: '修养', pinyin: 'xiūyǎng', english: 'cultivation / refinement', russian: 'воспитание / культура' },
+    // Formal discourse verbs
+    { id: 'h79_137', character: '阐述', pinyin: 'chǎnshù', english: 'to elaborate / expound', russian: 'излагать' },
+    { id: 'h79_138', character: '探讨', pinyin: 'tàntǎo', english: 'to discuss / explore', russian: 'обсуждать / исследовать' },
+    { id: 'h79_139', character: '剖析', pinyin: 'pōuxī', english: 'to dissect / analyze deeply', russian: 'глубоко анализировать' },
+    { id: 'h79_140', character: '论证', pinyin: 'lùnzhèng', english: 'to demonstrate / argue', russian: 'доказывать / аргументировать' },
+    { id: 'h79_141', character: '概括', pinyin: 'gàikuò', english: 'to summarize / generalize', russian: 'обобщать' },
+    // Refined qualities
+    { id: 'h79_142', character: '情怀', pinyin: 'qínghuái', english: 'sentiment / feelings', russian: 'чувства / настроение' },
+    { id: 'h79_143', character: '气质', pinyin: 'qìzhì', english: 'temperament / air', russian: 'темперамент / манера' },
+    { id: 'h79_144', character: '涵养', pinyin: 'hányǎng', english: 'self-restraint / cultivation', russian: 'самообладание' },
+    { id: 'h79_145', character: '格调', pinyin: 'gédiào', english: 'style / taste', russian: 'стиль / вкус' },
+    { id: 'h79_146', character: '智慧', pinyin: 'zhìhuì', english: 'wisdom', russian: 'мудрость' },
+    { id: 'h79_147', character: '阅历', pinyin: 'yuèlì', english: 'life experience', russian: 'жизненный опыт' },
+    // Literature
+    { id: 'h79_148', character: '诗', pinyin: 'shī', english: 'poem / poetry', russian: 'стих / поэзия' },
+    { id: 'h79_149', character: '散文', pinyin: 'sǎnwén', english: 'prose / essay', russian: 'проза / эссе' },
+    { id: 'h79_150', character: '小说', pinyin: 'xiǎoshuō', english: 'novel / fiction', russian: 'роман / повесть' },
+    { id: 'h79_151', character: '戏剧', pinyin: 'xìjù', english: 'drama / play', russian: 'драма / пьеса' },
+    // Idioms
+    { id: 'h79_152', character: '锦上添花', pinyin: 'jǐn shàng tiān huā', english: 'icing on the cake', russian: 'добавлять украшение' },
+    { id: 'h79_153', character: '雪中送炭', pinyin: 'xuě zhōng sòng tàn', english: 'timely help in need', russian: 'помощь в трудный час' },
+    { id: 'h79_154', character: '画龙点睛', pinyin: 'huà lóng diǎn jīng', english: 'finishing touch', russian: 'завершающий штрих' },
+    { id: 'h79_155', character: '举一反三', pinyin: 'jǔ yī fǎn sān', english: 'draw inferences about others from one', russian: 'делать выводы по аналогии' },
+    { id: 'h79_156', character: '温故知新', pinyin: 'wēn gù zhī xīn', english: 'learn new by reviewing old', russian: 'повторяя старое, узнавать новое' },
+    // Business
+    { id: 'h79_157', character: '盈利', pinyin: 'yínglì', english: 'to make a profit', russian: 'получать прибыль' },
+    { id: 'h79_158', character: '亏损', pinyin: 'kuīsǔn', english: 'to lose money / deficit', russian: 'убыток' },
+    { id: 'h79_159', character: '融资', pinyin: 'róngzī', english: 'to raise capital / financing', russian: 'привлекать капитал' },
+    { id: 'h79_160', character: '上市', pinyin: 'shàngshì', english: 'to go public (IPO)', russian: 'выйти на биржу' },
+    // Policy & system
+    { id: 'h79_161', character: '政策', pinyin: 'zhèngcè', english: 'policy', russian: 'политика (мера)' },
+    { id: 'h79_162', character: '法规', pinyin: 'fǎguī', english: 'laws and regulations', russian: 'законы и правила' },
+    { id: 'h79_163', character: '体制', pinyin: 'tǐzhì', english: 'system / structure', russian: 'система / устройство' },
+    // Modern slang
+    { id: 'h79_164', character: '绝绝子', pinyin: 'jué jué zǐ', english: 'absolutely amazing (slang)', russian: 'супер (сленг)' },
+    { id: 'h79_165', character: '破防', pinyin: 'pòfáng', english: 'deeply moved / emotional guard broken', russian: 'глубоко тронут' },
+    { id: 'h79_166', character: '爷青回', pinyin: 'yé qīng huí', english: 'my youth is back (nostalgia slang)', russian: 'моя молодость вернулась' },
+    { id: 'h79_167', character: '双赢', pinyin: 'shuāngyíng', english: 'win-win', russian: 'обоюдная выгода' },
   ]
 }
