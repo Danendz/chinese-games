@@ -136,6 +136,41 @@ function chineseMatch(spoken, target) {
 }
 
 let gotResult = false
+let silenceTimer = null
+let maxTimer = null
+let latestTranscript = ''
+
+function clearTimers() {
+  if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null }
+  if (maxTimer) { clearTimeout(maxTimer); maxTimer = null }
+}
+
+function processTranscript(transcript, isFinal) {
+  if (!transcript || !currentQ.value) return
+  const target = currentQ.value.character
+  latestTranscript = transcript
+  const matched = chineseMatch(transcript, target)
+  console.log('[Speaking] process:', transcript, 'target:', target, 'matched:', matched, 'final:', isFinal)
+
+  if (matched) {
+    // Immediate correct response — don't wait for final
+    gotResult = true
+    clearTimers()
+    try { recognition.stop() } catch (e) {}
+    isListening.value = false
+    recognizedText.value = transcript
+    feedback.value = 'correct'
+    emit('correct', { word: target })
+    setTimeout(() => advanceQuestion(), 1200)
+  } else if (isFinal) {
+    // Final result, no match → wrong
+    gotResult = true
+    clearTimers()
+    recognizedText.value = transcript
+    feedback.value = 'wrong'
+    emit('incorrect')
+  }
+}
 
 function initRecognition() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -146,48 +181,50 @@ function initRecognition() {
   supported.value = true
   recognition = new SpeechRecognition()
   recognition.lang = 'zh-CN'
-  recognition.interimResults = false
+  recognition.interimResults = true
   recognition.maxAlternatives = 5
   recognition.continuous = false
 
   recognition.onresult = (event) => {
-    gotResult = true
-    console.log('[Speaking] onresult fired', event.results)
-    const results = event.results[0]
-    const target = currentQ.value.character
-
-    // Collect all alternatives
-    const alternatives = []
-    for (let i = 0; i < results.length; i++) {
-      alternatives.push(results[i].transcript.trim())
-    }
-    console.log('[Speaking] alternatives:', alternatives, 'target:', target)
-
-    // Check all alternatives for a match
-    let matched = false
-    let bestMatch = alternatives[0] || ''
-    for (const alt of alternatives) {
-      if (chineseMatch(alt, target)) {
-        matched = true
-        bestMatch = alt
-        break
+    console.log('[Speaking] onresult fired, resultIndex:', event.resultIndex, 'length:', event.results.length)
+    // Collect best transcript from all results so far
+    let finalText = ''
+    let interimText = ''
+    let isFinal = false
+    for (let i = 0; i < event.results.length; i++) {
+      const res = event.results[i]
+      if (res.isFinal) {
+        // Check all alternatives for a match against target
+        const target = currentQ.value?.character
+        let bestAlt = res[0].transcript
+        for (let j = 0; j < res.length; j++) {
+          if (target && chineseMatch(res[j].transcript, target)) {
+            bestAlt = res[j].transcript
+            break
+          }
+        }
+        finalText += bestAlt
+        isFinal = true
+      } else {
+        interimText += res[0].transcript
       }
     }
+    const transcript = (finalText || interimText).trim()
+    if (!transcript) return
 
-    recognizedText.value = bestMatch || '(nothing heard)'
+    // Reset silence timer on new speech
+    if (silenceTimer) clearTimeout(silenceTimer)
+    silenceTimer = setTimeout(() => {
+      console.log('[Speaking] silence timeout — force stop')
+      try { recognition.stop() } catch (e) {}
+    }, 1200)
 
-    if (matched) {
-      feedback.value = 'correct'
-      emit('correct', { word: target })
-      setTimeout(() => advanceQuestion(), 1500)
-    } else {
-      feedback.value = 'wrong'
-      emit('incorrect')
-    }
+    processTranscript(transcript, isFinal)
   }
 
   recognition.onerror = (event) => {
     console.log('[Speaking] onerror:', event.error)
+    clearTimers()
     isListening.value = false
     gotResult = true // prevent onend from triggering no-result feedback
 
@@ -209,8 +246,14 @@ function initRecognition() {
   }
 
   recognition.onend = () => {
-    console.log('[Speaking] onend fired, gotResult=', gotResult)
+    console.log('[Speaking] onend fired, gotResult=', gotResult, 'latestTranscript:', latestTranscript)
+    clearTimers()
     isListening.value = false
+    // If we captured interim speech but never got final, process it now
+    if (!gotResult && latestTranscript) {
+      processTranscript(latestTranscript, true)
+      return
+    }
     // If recognition ended without any result or error, show feedback
     if (!gotResult) {
       recognizedText.value = ''
@@ -229,6 +272,7 @@ function toggleListening() {
   }
 
   if (isListening.value) {
+    clearTimers()
     try { recognition.stop() } catch (e) {}
     isListening.value = false
   } else {
@@ -236,10 +280,17 @@ function toggleListening() {
     feedback.value = ''
     errorMsg.value = ''
     gotResult = false
+    latestTranscript = ''
+    clearTimers()
     isListening.value = true
     try {
       recognition.start()
       console.log('[Speaking] recognition.start() called, target:', currentQ.value?.character)
+      // Safety net: max 6 seconds of listening
+      maxTimer = setTimeout(() => {
+        console.log('[Speaking] max listening time — force stop')
+        try { recognition.stop() } catch (e) {}
+      }, 6000)
     } catch (e) {
       console.error('[Speaking] start error:', e)
       isListening.value = false
@@ -275,6 +326,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  clearTimers()
   if (recognition) recognition.abort()
   window.speechSynthesis.cancel()
 })
