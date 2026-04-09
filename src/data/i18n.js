@@ -261,6 +261,13 @@ export const messages = {
     'pinyin.wrong': 'Not quite...',
     'pinyin.yourAnswer': 'Your answer',
     'pinyin.correctAnswer': 'Correct',
+
+    // Character Typing
+    'view.typing': 'Type Chinese Characters',
+    'card.typing.subtitle': 'Character Input',
+    'card.typing.desc': 'See the translation and pinyin, then type the correct Chinese characters. Test your writing skills!',
+    'typing.prompt': 'Type the Chinese character(s):',
+    'typing.placeholder': 'Type Chinese here...',
   },
 
   ru: {
@@ -525,5 +532,12 @@ export const messages = {
     'pinyin.wrong': 'Не совсем...',
     'pinyin.yourAnswer': 'Ваш ответ',
     'pinyin.correctAnswer': 'Правильно',
+
+    // Character Typing
+    'view.typing': 'Ввод китайских иероглифов',
+    'card.typing.subtitle': 'Ввод иероглифов',
+    'card.typing.desc': 'Увидьте перевод и пиньинь, затем напишите правильные иероглифы. Проверьте навыки письма!',
+    'typing.prompt': 'Напишите китайский иероглиф(ы):',
+    'typing.placeholder': 'Введите иероглифы...',
   }
 }

@@ -172,6 +172,7 @@ onMounted(() => {
   flex: 1; padding: 12px 16px; border: 2px solid var(--color-border);
   border-radius: var(--radius-md); font-size: 1.2rem; text-align: center;
   transition: all var(--transition-fast); background: var(--color-surface);
+  color: var(--color-text);
 }
 .pinyin-input:focus { outline: none; border-color: var(--color-primary); }
 .pinyin-input.correct { border-color: var(--color-success); background: rgba(0, 184, 148, 0.05); }
@@ -186,17 +187,18 @@ onMounted(() => {
 .check-btn:disabled { opacity: 0.5; }
 
 .tone-helper {
-  display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
   margin-bottom: 20px; align-items: center;
 }
-.tone-label { font-size: 0.7rem; color: var(--color-text-light); margin-right: 4px; }
+.tone-label { font-size: 0.75rem; color: var(--color-text-light); margin-right: 6px; width: 100%; text-align: center; margin-bottom: 2px; }
 .tone-char-btn {
-  width: 28px; height: 28px; border-radius: var(--radius-sm);
-  font-size: 0.85rem; background: var(--color-bg-secondary); color: var(--color-text);
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  font-size: 1.05rem; background: var(--color-bg-secondary); color: var(--color-text);
   display: flex; align-items: center; justify-content: center;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast); font-family: var(--font-pinyin);
 }
 .tone-char-btn:hover { background: var(--color-primary); color: white; }
+.tone-char-btn:active { transform: scale(0.9); }
 
 .feedback {
   padding: 16px; border-radius: var(--radius-md); margin-top: 12px;
@@ -220,6 +222,6 @@ onMounted(() => {
 @media (max-width: 480px) {
   .q-char { font-size: 2.5rem; }
   .pinyin-input { font-size: 1rem; }
-  .tone-char-btn { width: 24px; height: 24px; font-size: 0.75rem; }
+  .tone-char-btn { width: 32px; height: 32px; font-size: 0.95rem; }
 }
 </style>

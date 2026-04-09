@@ -69,6 +69,12 @@ const routes = [
     meta: { title: '快速反应 | Speed Challenge' }
   },
   {
+    path: '/typing',
+    name: 'typing',
+    component: () => import('../views/TypingGameView.vue'),
+    meta: { title: '汉字输入 | Character Input' }
+  },
+  {
     path: '/pinyin',
     name: 'pinyin',
     component: () => import('../views/PinyinGameView.vue'),
