@@ -6,6 +6,19 @@ export const messages = {
     // Home
     'home.title': 'Learn Chinese Through Games',
     'home.subtitle': 'Master Chinese characters, radicals, and sentence structures with fun interactive games.',
+    'home.sectionListening': 'Listening',
+    'home.sectionListeningSub': 'Train your ear',
+    'home.sectionSpeaking': 'Speaking',
+    'home.sectionSpeakingSub': 'Practice pronunciation',
+    'home.sectionReading': 'Reading',
+    'home.sectionReadingSub': 'Recognize characters',
+    'home.sectionWriting': 'Writing',
+    'home.sectionWritingSub': 'Practice spelling & input',
+    'home.sectionComprehensive': 'Comprehensive',
+    'home.sectionComprehensiveSub': 'Combined skills',
+    'home.tools': 'Tools',
+    'home.toolsSub': 'Track & manage',
+    'home.comingSoon': 'Coming soon...',
 
     // Game cards
     'card.memory.subtitle': 'Character Matching',
@@ -277,6 +290,19 @@ export const messages = {
     // Home
     'home.title': 'Изучайте китайский через игры',
     'home.subtitle': 'Овладейте китайскими иероглифами, радикалами и структурами предложений с помощью интерактивных игр.',
+    'home.sectionListening': 'Аудирование',
+    'home.sectionListeningSub': 'Тренируйте слух',
+    'home.sectionSpeaking': 'Говорение',
+    'home.sectionSpeakingSub': 'Практика произношения',
+    'home.sectionReading': 'Чтение',
+    'home.sectionReadingSub': 'Распознавание иероглифов',
+    'home.sectionWriting': 'Письмо',
+    'home.sectionWritingSub': 'Пиньинь и ввод',
+    'home.sectionComprehensive': 'Комплексные',
+    'home.sectionComprehensiveSub': 'Смешанные навыки',
+    'home.tools': 'Инструменты',
+    'home.toolsSub': 'Статистика и управление',
+    'home.comingSoon': 'Скоро...',
 
     // Game cards
     'card.memory.subtitle': 'Подбор иероглифов',

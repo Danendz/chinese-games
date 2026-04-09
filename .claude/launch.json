@@ -6,6 +6,12 @@
       "runtimeExecutable": "C:\\Program Files\\nodejs\\node.exe",
       "runtimeArgs": ["node_modules/vite/bin/vite.js", "--host"],
       "port": 5173
+    },
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "runtimeArgs": ["-c", "cd /c/Users/15506/Desktop/portfolio && node node_modules/vite/bin/vite.js --host --port 5174"],
+      "port": 5174
     }
   ]
 }
