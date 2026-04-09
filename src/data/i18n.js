@@ -300,6 +300,17 @@ export const messages = {
     'card.typing.desc': 'See the translation and pinyin, then type the correct Chinese characters. Test your writing skills!',
     'typing.prompt': 'Type the Chinese character(s):',
     'typing.placeholder': 'Type Chinese here...',
+
+    // Handwriting
+    'view.hanzi': 'Handwrite Chinese Characters',
+    'card.hanzi.subtitle': 'Character Writing',
+    'card.hanzi.desc': 'Trace Chinese characters stroke by stroke. Learn correct stroke order and build muscle memory!',
+    'hanzi.character': 'Character',
+    'hanzi.hint': 'Hint',
+    'hanzi.showMe': 'Show me',
+    'hanzi.restart': 'Restart',
+    'hanzi.skip': 'Skip',
+    'hanzi.wellWritten': 'Well written!',
   },
 
   ru: {
@@ -603,5 +614,16 @@ export const messages = {
     'card.typing.desc': 'Увидьте перевод и пиньинь, затем напишите правильные иероглифы. Проверьте навыки письма!',
     'typing.prompt': 'Напишите китайский иероглиф(ы):',
     'typing.placeholder': 'Введите иероглифы...',
+
+    // Handwriting
+    'view.hanzi': 'Рукописный ввод иероглифов',
+    'card.hanzi.subtitle': 'Письмо иероглифов',
+    'card.hanzi.desc': 'Обводите иероглифы черта за чертой. Учите правильный порядок черт и развивайте мышечную память!',
+    'hanzi.character': 'Иероглиф',
+    'hanzi.hint': 'Подсказка',
+    'hanzi.showMe': 'Показать',
+    'hanzi.restart': 'Заново',
+    'hanzi.skip': 'Пропустить',
+    'hanzi.wellWritten': 'Отлично написано!',
   }
 }

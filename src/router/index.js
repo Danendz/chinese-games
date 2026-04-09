@@ -87,6 +87,12 @@ const routes = [
     meta: { title: '拼音拼写 | Pinyin Spelling' }
   },
   {
+    path: '/hanzi',
+    name: 'hanzi',
+    component: () => import('../views/HanziGameView.vue'),
+    meta: { title: '汉字手写 | Character Writing' }
+  },
+  {
     path: '/wordlist',
     name: 'wordlist',
     component: () => import('../views/WordListView.vue'),

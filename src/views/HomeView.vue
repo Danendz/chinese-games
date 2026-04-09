@@ -139,6 +139,7 @@ const readingGames = computed(() => [
 const writingGames = computed(() => [
   { route: '/pinyin', icon: '拼', title: '拼音拼写', subtitle: t('card.pinyin.subtitle'), description: t('card.pinyin.desc'), gradient: 'linear-gradient(135deg, #00b894, #fdcb6e)' },
   { route: '/typing', icon: '写', title: '汉字输入', subtitle: t('card.typing.subtitle'), description: t('card.typing.desc'), gradient: 'linear-gradient(135deg, #2d3436, #636e72)' },
+  { route: '/hanzi', icon: '✍', title: '汉字手写', subtitle: t('card.hanzi.subtitle'), description: t('card.hanzi.desc'), gradient: 'linear-gradient(135deg, #e17055, #fdcb6e)' },
 ])
 
 const comprehensiveGames = computed(() => [
