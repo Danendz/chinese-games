@@ -286,7 +286,10 @@ export const messages = {
     'speaking.listening': 'Listening...',
     'speaking.speakNow': 'Speak now!',
     'speaking.youSaid': 'You said',
+    'speaking.correctIs': 'Correct',
     'speaking.tryAgainOrSkip': 'Not quite right. Try again or skip.',
+    'speaking.noSpeech': 'No speech detected. Speak louder and try again.',
+    'speaking.micDenied': 'Microphone access denied. Please allow it in browser settings.',
     'speaking.skip': 'Skip',
 
     // Character Typing
@@ -584,7 +587,10 @@ export const messages = {
     'speaking.listening': 'Слушаю...',
     'speaking.speakNow': 'Говорите!',
     'speaking.youSaid': 'Вы сказали',
+    'speaking.correctIs': 'Правильно',
     'speaking.tryAgainOrSkip': 'Не совсем верно. Попробуйте снова или пропустите.',
+    'speaking.noSpeech': 'Речь не обнаружена. Говорите громче и попробуйте снова.',
+    'speaking.micDenied': 'Доступ к микрофону запрещён. Разрешите в настройках браузера.',
     'speaking.skip': 'Пропустить',
 
     // Character Typing

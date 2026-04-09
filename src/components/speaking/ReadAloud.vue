@@ -41,18 +41,32 @@
         <p v-if="isListening" class="listening-hint animate-pulse">{{ t('speaking.speakNow') }}</p>
       </div>
 
-      <!-- Result display -->
-      <div v-if="recognizedText" class="recognized">
-        <span class="rec-label">{{ t('speaking.youSaid') }}:</span>
-        <span class="rec-text text-chinese">{{ recognizedText }}</span>
+      <!-- Feedback: correct -->
+      <div v-if="feedback === 'correct'" class="feedback correct-fb animate-pop-in">
+        <div class="fb-header">
+          <span class="fb-icon">✅</span>
+          <span class="fb-title">{{ t('game.correct') }}</span>
+        </div>
+        <div class="fb-row">
+          <span class="fb-label">{{ t('speaking.youSaid') }}:</span>
+          <span class="fb-value text-chinese correct-text">{{ recognizedText }}</span>
+        </div>
       </div>
 
-      <!-- Feedback -->
-      <div v-if="feedback === 'correct'" class="feedback correct-fb animate-pop-in">
-        <span class="fb-icon">✅</span> {{ t('game.correct') }}
-      </div>
+      <!-- Feedback: wrong -->
       <div v-if="feedback === 'wrong'" class="feedback wrong-fb animate-pop-in">
-        <span class="fb-icon">❌</span> {{ t('speaking.tryAgainOrSkip') }}
+        <div class="fb-header">
+          <span class="fb-icon">❌</span>
+          <span class="fb-title">{{ errorMsg || t('speaking.tryAgainOrSkip') }}</span>
+        </div>
+        <div v-if="recognizedText" class="fb-row">
+          <span class="fb-label">{{ t('speaking.youSaid') }}:</span>
+          <span class="fb-value text-chinese wrong-text">{{ recognizedText }}</span>
+        </div>
+        <div class="fb-row">
+          <span class="fb-label">{{ t('speaking.correctIs') }}:</span>
+          <span class="fb-value text-chinese correct-text">{{ currentQ.character }}</span>
+        </div>
         <button class="skip-btn" @click="skipToNext">{{ t('speaking.skip') }} →</button>
       </div>
     </template>
@@ -79,6 +93,7 @@ const currentIndex = ref(0)
 const isListening = ref(false)
 const recognizedText = ref('')
 const feedback = ref('')
+const errorMsg = ref('')
 const gameStarted = ref(false)
 let recognition = null
 
@@ -103,6 +118,25 @@ function playWord() {
   window.speechSynthesis.speak(utterance)
 }
 
+// Normalize Chinese text for comparison (remove punctuation & spaces)
+function normalizeChinese(s) {
+  if (!s) return ''
+  return s.replace(/[\s，。？！、.?!,]/g, '').trim()
+}
+
+// Check if two Chinese strings match (loose comparison)
+function chineseMatch(spoken, target) {
+  const a = normalizeChinese(spoken)
+  const b = normalizeChinese(target)
+  if (!a || !b) return false
+  if (a === b) return true
+  // Also accept if spoken contains target or vice versa (for longer utterances)
+  if (a.includes(b) || b.includes(a)) return true
+  return false
+}
+
+let gotResult = false
+
 function initRecognition() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
   if (!SpeechRecognition) {
@@ -113,26 +147,34 @@ function initRecognition() {
   recognition = new SpeechRecognition()
   recognition.lang = 'zh-CN'
   recognition.interimResults = false
-  recognition.maxAlternatives = 3
+  recognition.maxAlternatives = 5
   recognition.continuous = false
 
   recognition.onresult = (event) => {
-    isListening.value = false
+    gotResult = true
+    console.log('[Speaking] onresult fired', event.results)
     const results = event.results[0]
-    // Check all alternatives
-    let matched = false
     const target = currentQ.value.character
+
+    // Collect all alternatives
+    const alternatives = []
     for (let i = 0; i < results.length; i++) {
-      const transcript = results[i].transcript.trim()
-      if (transcript.includes(target) || target.includes(transcript)) {
+      alternatives.push(results[i].transcript.trim())
+    }
+    console.log('[Speaking] alternatives:', alternatives, 'target:', target)
+
+    // Check all alternatives for a match
+    let matched = false
+    let bestMatch = alternatives[0] || ''
+    for (const alt of alternatives) {
+      if (chineseMatch(alt, target)) {
         matched = true
-        recognizedText.value = transcript
+        bestMatch = alt
         break
       }
     }
-    if (!matched) {
-      recognizedText.value = results[0].transcript.trim()
-    }
+
+    recognizedText.value = bestMatch || '(nothing heard)'
 
     if (matched) {
       feedback.value = 'correct'
@@ -145,16 +187,37 @@ function initRecognition() {
   }
 
   recognition.onerror = (event) => {
+    console.log('[Speaking] onerror:', event.error)
     isListening.value = false
-    if (event.error !== 'no-speech' && event.error !== 'aborted') {
-      recognizedText.value = '...'
+    gotResult = true // prevent onend from triggering no-result feedback
+
+    if (event.error === 'no-speech') {
+      recognizedText.value = ''
       feedback.value = 'wrong'
+      errorMsg.value = t('speaking.noSpeech')
+      emit('incorrect')
+    } else if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+      recognizedText.value = ''
+      feedback.value = 'wrong'
+      errorMsg.value = t('speaking.micDenied')
+    } else if (event.error !== 'aborted') {
+      recognizedText.value = ''
+      feedback.value = 'wrong'
+      errorMsg.value = `Error: ${event.error}`
       emit('incorrect')
     }
   }
 
   recognition.onend = () => {
+    console.log('[Speaking] onend fired, gotResult=', gotResult)
     isListening.value = false
+    // If recognition ended without any result or error, show feedback
+    if (!gotResult) {
+      recognizedText.value = ''
+      feedback.value = 'wrong'
+      errorMsg.value = t('speaking.noSpeech')
+      emit('incorrect')
+    }
   }
 }
 
@@ -166,13 +229,22 @@ function toggleListening() {
   }
 
   if (isListening.value) {
-    recognition.stop()
+    try { recognition.stop() } catch (e) {}
     isListening.value = false
   } else {
     recognizedText.value = ''
     feedback.value = ''
+    errorMsg.value = ''
+    gotResult = false
     isListening.value = true
-    recognition.start()
+    try {
+      recognition.start()
+      console.log('[Speaking] recognition.start() called, target:', currentQ.value?.character)
+    } catch (e) {
+      console.error('[Speaking] start error:', e)
+      isListening.value = false
+      errorMsg.value = 'Could not start recognition: ' + e.message
+    }
   }
 }
 
@@ -181,6 +253,7 @@ function advanceQuestion() {
     currentIndex.value++
     recognizedText.value = ''
     feedback.value = ''
+    errorMsg.value = ''
   } else {
     emit('gameComplete')
   }
@@ -189,6 +262,7 @@ function advanceQuestion() {
 function skipToNext() {
   feedback.value = ''
   recognizedText.value = ''
+  errorMsg.value = ''
   advanceQuestion()
 }
 
@@ -264,24 +338,36 @@ onUnmounted(() => {
 
 .listening-hint { font-size: 0.85rem; color: var(--color-primary); margin-top: 8px; }
 
-/* Recognized text */
-.recognized {
-  padding: 12px; background: var(--color-bg-secondary); border-radius: var(--radius-md);
-  margin-bottom: 16px;
-}
-.rec-label { font-size: 0.8rem; color: var(--color-text-light); }
-.rec-text { font-size: 1.3rem; font-weight: 700; display: block; margin-top: 4px; }
-
 /* Feedback */
-.feedback { padding: 16px; border-radius: var(--radius-md); }
-.correct-fb { background: linear-gradient(135deg, #f0fff4, #e6fffa); border: 1px solid var(--color-success-light); }
-.wrong-fb { background: linear-gradient(135deg, #fff5f5, #ffe0e0); border: 1px solid var(--color-error-light); display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.fb-icon { font-size: 1.3rem; }
-.skip-btn {
-  padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
-  background: var(--color-bg-secondary); color: var(--color-text-secondary); transition: all var(--transition-fast);
+.feedback { padding: 18px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 10px; }
+.correct-fb {
+  background: linear-gradient(135deg, rgba(0, 184, 148, 0.12), rgba(0, 206, 201, 0.08));
+  border: 2px solid var(--color-success);
 }
-.skip-btn:hover { background: var(--color-border); }
+.wrong-fb {
+  background: linear-gradient(135deg, rgba(214, 48, 49, 0.08), rgba(225, 112, 85, 0.08));
+  border: 2px solid var(--color-error);
+}
+.fb-header {
+  display: flex; align-items: center; gap: 10px; justify-content: center;
+  padding-bottom: 8px; border-bottom: 1px solid var(--color-border);
+}
+.fb-icon { font-size: 1.6rem; }
+.fb-title { font-size: 1.05rem; font-weight: 700; color: var(--color-text); }
+.fb-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 4px 0;
+}
+.fb-label { font-size: 0.85rem; color: var(--color-text-secondary); font-weight: 500; }
+.fb-value { font-size: 1.4rem; font-weight: 700; }
+.correct-text { color: var(--color-success); }
+.wrong-text { color: var(--color-error); text-decoration: line-through; opacity: 0.7; }
+.skip-btn {
+  align-self: center; margin-top: 4px;
+  padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+  background: var(--color-primary); color: white; transition: all var(--transition-fast);
+}
+.skip-btn:hover { background: var(--color-primary-dark); }
 
 @keyframes animate-pulse {
   0%, 100% { opacity: 1; }
