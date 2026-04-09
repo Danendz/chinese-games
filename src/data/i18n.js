@@ -291,6 +291,7 @@ export const messages = {
     'speaking.tryAgainOrSkip': 'Not quite right. Try again or skip.',
     'speaking.noSpeech': 'No speech detected. Speak louder and try again.',
     'speaking.micDenied': 'Microphone access denied. Please allow it in browser settings.',
+    'speaking.retry': 'Retry',
     'speaking.skip': 'Skip',
 
     // Character Typing
@@ -594,6 +595,7 @@ export const messages = {
     'speaking.noSpeech': 'Речь не обнаружена. Говорите громче и попробуйте снова.',
     'speaking.micDenied': 'Доступ к микрофону запрещён. Разрешите в настройках браузера.',
     'speaking.skip': 'Пропустить',
+    'speaking.retry': 'Повторить',
 
     // Character Typing
     'view.typing': 'Ввод китайских иероглифов',

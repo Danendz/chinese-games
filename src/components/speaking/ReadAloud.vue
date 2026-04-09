@@ -71,7 +71,10 @@
           <span class="fb-label">{{ t('speaking.correctIs') }}:</span>
           <span class="fb-value text-chinese correct-text">{{ currentQ.character }}</span>
         </div>
-        <button class="skip-btn" @click="skipToNext">{{ t('speaking.skip') }} →</button>
+        <div class="fb-actions">
+          <button class="retry-btn" @click="retryQuestion">🔄 {{ t('speaking.retry') }}</button>
+          <button class="skip-btn" @click="skipToNext">{{ t('speaking.skip') }} →</button>
+        </div>
       </div>
     </template>
   </div>
@@ -327,8 +330,18 @@ function advanceQuestion() {
 function skipToNext() {
   feedback.value = ''
   recognizedText.value = ''
+  interimText.value = ''
   errorMsg.value = ''
   advanceQuestion()
+}
+
+function retryQuestion() {
+  // Clear feedback on the current question so user can try again
+  feedback.value = ''
+  recognizedText.value = ''
+  interimText.value = ''
+  errorMsg.value = ''
+  finalized = false
 }
 
 onMounted(() => {
@@ -428,10 +441,20 @@ onUnmounted(() => {
 .fb-value { font-size: 1.4rem; font-weight: 700; }
 .correct-text { color: var(--color-success); }
 .wrong-text { color: var(--color-error); text-decoration: line-through; opacity: 0.7; }
+.fb-actions {
+  display: flex; gap: 10px; justify-content: center; margin-top: 6px;
+}
+.retry-btn, .skip-btn {
+  padding: 8px 18px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+  transition: all var(--transition-fast);
+}
+.retry-btn {
+  background: var(--color-bg-secondary); color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+.retry-btn:hover { background: var(--color-border); }
 .skip-btn {
-  align-self: center; margin-top: 4px;
-  padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
-  background: var(--color-primary); color: white; transition: all var(--transition-fast);
+  background: var(--color-primary); color: white;
 }
 .skip-btn:hover { background: var(--color-primary-dark); }
 
