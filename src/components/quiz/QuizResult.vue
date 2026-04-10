@@ -3,7 +3,7 @@
     <div class="food-badge">{{ food.name }}</div>
     <div class="food-sub">{{ food.trait }}</div>
 
-    <QuizFoodArt :css-class="food.cssClass" :food-id="food.id" />
+    <QuizFoodArt :image="food.image" :alt="food.name" />
 
     <div class="desc">{{ food.desc }}</div>
     <div class="wuhan-slang">{{ food.slang }}</div>
