@@ -29,11 +29,11 @@ defineEmits(['select'])
 <style scoped>
 .question-card {
   background: #fff9ef;
-  border-radius: 32px;
-  padding: 28px 20px 20px;
-  box-shadow: 0 10px 0 #8b5e2e, 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  padding: 24px 16px 16px;
+  box-shadow: 0 6px 0 #8b5e2e, 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 2px solid #c9a87c;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   position: relative;
 }
 
@@ -52,25 +52,25 @@ defineEmits(['select'])
 }
 
 .q-text {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   color: #3d2b14;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   line-height: 1.4;
 }
 
 .options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .option {
   background: #f4e8d8;
   border: 2px solid #b6926e;
   border-radius: 60px;
-  padding: 16px 20px;
-  font-size: 16px;
+  padding: 12px 16px;
+  font-size: 15px;
   color: #3d2b14;
   font-weight: 500;
   text-align: left;

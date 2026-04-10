@@ -20,13 +20,13 @@
         />
 
         <div class="nav-buttons">
-          <button class="btn" :disabled="isFirst" @click="prev">{{ t('quiz.prev') }}</button>
+          <button class="btn" :disabled="isFirst" @click="prev">← 上一题</button>
           <button
             class="btn primary"
             :disabled="currentAnswer === null"
             @click="handleNext"
           >
-            {{ isLast ? t('quiz.seeResult') : t('quiz.next') }}
+            {{ isLast ? '看结果 🎉' : '下一题 →' }}
           </button>
         </div>
       </template>
@@ -45,9 +45,7 @@ import QuizProgress from '../components/quiz/QuizProgress.vue'
 import QuizQuestion from '../components/quiz/QuizQuestion.vue'
 import QuizResult from '../components/quiz/QuizResult.vue'
 import { useQuiz } from '../composables/useQuiz'
-import { useI18n } from '../composables/useI18n'
 
-const { t } = useI18n()
 const {
   phase, currentIndex, currentQuestion, currentAnswer,
   progress, isFirst, isLast, result,
@@ -75,8 +73,8 @@ watch(phase, (val) => {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 16px 12px;
+  align-items: flex-start;
+  padding: 12px 8px;
   background: linear-gradient(145deg, #2a1e0f 0%, #3d2b14 100%);
 }
 
@@ -84,10 +82,10 @@ watch(phase, (val) => {
   max-width: 500px;
   width: 100%;
   background: #fef7e9;
-  border-radius: 48px 48px 32px 32px;
+  border-radius: 32px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px #c9a87c inset;
   overflow: hidden;
-  padding: 24px 16px 32px;
+  padding: 20px 14px 24px;
   position: relative;
 }
 
@@ -112,11 +110,11 @@ watch(phase, (val) => {
 }
 
 .quiz-title {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 800;
   color: #4a2c0f;
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   letter-spacing: 2px;
   text-shadow: 3px 3px 0 #e8c48a;
   position: relative;
@@ -126,11 +124,11 @@ watch(phase, (val) => {
 .quiz-subtitle {
   text-align: center;
   color: #7a5a3a;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   border-bottom: 2px dashed #c9a87c;
-  padding-bottom: 16px;
+  padding-bottom: 10px;
   position: relative;
   z-index: 2;
 }
@@ -154,10 +152,10 @@ watch(phase, (val) => {
 
 .btn {
   flex: 1;
-  padding: 16px;
+  padding: 14px;
   border-radius: 60px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   border: 2px solid #e8c48a;
   background: #c9a87c;
   color: #3d2b14;

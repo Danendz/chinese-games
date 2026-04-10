@@ -9,16 +9,13 @@
     <div class="wuhan-slang">{{ food.slang }}</div>
 
     <button class="btn primary restart-btn" @click="$emit('restart')">
-      {{ t('quiz.restart') }}
+      🔁 再测一回
     </button>
   </div>
 </template>
 
 <script setup>
 import QuizFoodArt from './QuizFoodArt.vue'
-import { useI18n } from '../../composables/useI18n'
-
-const { t } = useI18n()
 
 defineProps({
   food: { type: Object, required: true }
