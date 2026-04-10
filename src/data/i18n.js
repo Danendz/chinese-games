@@ -45,6 +45,18 @@ export const messages = {
     'card.stats.desc': 'View your learning streak, daily stats, words practiced, and share your progress with friends!',
     'card.mywords.subtitle': 'My Words',
     'card.mywords.desc': 'Add your own vocabulary, sentences and radical puzzles. Review them in any game with custom content!',
+    'card.quiz.subtitle': 'Wuhan Food Personality Quiz',
+    'card.quiz.desc': 'Answer 20 personality questions to discover which Wuhan breakfast food matches your personality!',
+
+    // Home — Fun section
+    'home.sectionFun': 'Just for Fun',
+    'home.sectionFunSub': 'Quizzes & activities',
+
+    // Quiz UI
+    'quiz.prev': '\u2190 Previous',
+    'quiz.next': 'Next \u2192',
+    'quiz.seeResult': 'See Result \uD83C\uDF89',
+    'quiz.restart': '\uD83D\uDD01 Try Again',
 
     // Tags
     'tag.vocabulary': 'Vocabulary',
@@ -359,6 +371,18 @@ export const messages = {
     'card.stats.desc': 'Просматривайте серию дней, статистику обучения, изученные слова и делитесь прогрессом с друзьями!',
     'card.mywords.subtitle': 'Мои слова',
     'card.mywords.desc': 'Добавляйте свои слова, предложения и пазлы из радикалов. Повторяйте их в любой игре!',
+    'card.quiz.subtitle': 'Тест: какое блюдо Ухани ты?',
+    'card.quiz.desc': 'Ответьте на 20 вопросов и узнайте, какое уханьское блюдо на завтрак отражает вашу личность!',
+
+    // Home — Fun section
+    'home.sectionFun': 'Развлечения',
+    'home.sectionFunSub': 'Тесты и активности',
+
+    // Quiz UI
+    'quiz.prev': '\u2190 Назад',
+    'quiz.next': 'Далее \u2192',
+    'quiz.seeResult': 'Результат \uD83C\uDF89',
+    'quiz.restart': '\uD83D\uDD01 Заново',
 
     // Tags
     'tag.vocabulary': 'Словарь',

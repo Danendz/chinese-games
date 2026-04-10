@@ -149,12 +149,17 @@ const comprehensiveGames = computed(() => [
   { route: '/sorting', icon: '类', title: '分类游戏', subtitle: t('card.sorting.subtitle'), description: t('card.sorting.desc'), gradient: 'linear-gradient(135deg, #00cec9, #0984e3)' },
 ])
 
+const funGames = computed(() => [
+  { route: '/quiz', icon: '🥢', title: '武汉美食人格测试', subtitle: t('card.quiz.subtitle'), description: t('card.quiz.desc'), gradient: 'linear-gradient(135deg, #a8351f, #c9a87c)' },
+])
+
 const sections = computed(() => [
   { key: 'listening', icon: '👂', title: t('home.sectionListening'), subtitle: t('home.sectionListeningSub'), games: listeningGames.value },
   { key: 'speaking', icon: '🗣️', title: t('home.sectionSpeaking'), subtitle: t('home.sectionSpeakingSub'), games: speakingGames.value },
   { key: 'reading', icon: '📖', title: t('home.sectionReading'), subtitle: t('home.sectionReadingSub'), games: readingGames.value },
   { key: 'writing', icon: '✍️', title: t('home.sectionWriting'), subtitle: t('home.sectionWritingSub'), games: writingGames.value },
   { key: 'comprehensive', icon: '🧩', title: t('home.sectionComprehensive'), subtitle: t('home.sectionComprehensiveSub'), games: comprehensiveGames.value },
+  { key: 'fun', icon: '🎉', title: t('home.sectionFun'), subtitle: t('home.sectionFunSub'), games: funGames.value },
 ])
 
 const tools = computed(() => [

@@ -109,11 +109,17 @@ const routes = [
     name: 'myWords',
     component: () => import('../views/MyWordsView.vue'),
     meta: { title: '我的词库 | My Words' }
+  },
+  {
+    path: '/quiz',
+    name: 'quiz',
+    component: () => import('../views/QuizGameView.vue'),
+    meta: { title: '武汉美食人格测试 | Wuhan Food Quiz' }
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory('/chinese-games/'),
+  history: createWebHistory('/'),
   routes
 })
 
