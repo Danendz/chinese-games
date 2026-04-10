@@ -114,7 +114,7 @@ const routes = [
     path: '/quiz',
     name: 'quiz',
     component: () => import('../views/QuizGameView.vue'),
-    meta: { title: '武汉美食人格测试 | Wuhan Food Quiz' }
+    meta: { title: '武汉美食人格测试 | Wuhan Food Quiz', fullscreen: true }
   }
 ]
 

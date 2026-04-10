@@ -1,14 +1,24 @@
 <template>
   <div class="app">
-    <AppHeader />
-    <main class="main-content">
+    <template v-if="isFullscreenRoute">
       <router-view :key="$route.path" />
-    </main>
+    </template>
+    <template v-else>
+      <AppHeader />
+      <main class="main-content">
+        <router-view :key="$route.path" />
+      </main>
+    </template>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import AppHeader from './components/layout/AppHeader.vue'
+
+const route = useRoute()
+const isFullscreenRoute = computed(() => route.meta.fullscreen === true)
 </script>
 
 <style>

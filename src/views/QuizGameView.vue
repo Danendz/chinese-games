@@ -75,8 +75,9 @@ watch(phase, (val) => {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 16px 12px;
+  background: linear-gradient(145deg, #2a1e0f 0%, #3d2b14 100%);
 }
 
 .quiz-app {

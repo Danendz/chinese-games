@@ -85,17 +85,17 @@ defineProps({
 <style scoped>
 .food-illustration {
   width: 100%;
-  min-height: 140px;
-  margin: 10px 0 16px;
+  margin: 6px 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .css-food {
-  width: 100%;
+  transform: scale(0.65);
+  transform-origin: center center;
   max-width: 280px;
-  margin: 0 auto;
+  margin: -20px auto;
   position: relative;
 }
 
