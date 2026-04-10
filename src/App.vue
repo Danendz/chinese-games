@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div v-if="ready" class="app">
     <template v-if="isFullscreenRoute">
       <router-view :key="$route.path" />
     </template>
@@ -13,12 +13,16 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import AppHeader from './components/layout/AppHeader.vue'
 
 const route = useRoute()
+const router = useRouter()
+const ready = ref(false)
 const isFullscreenRoute = computed(() => route.meta.fullscreen === true)
+
+router.isReady().then(() => { ready.value = true })
 </script>
 
 <style>
