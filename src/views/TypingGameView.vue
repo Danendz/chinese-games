@@ -49,7 +49,7 @@ function resetGame() { timer.reset(); score.reset(); gameState.reset(); gameKey.
 </script>
 
 <style scoped>
-.game-view { max-width: 800px; margin: 0 auto; }
+.game-view { max-width: 800px; margin: 0 auto; overflow: hidden; }
 .game-header { text-align: center; margin-bottom: 20px; }
 .game-title { font-size: 1.8rem; font-weight: 700; }
 .game-subtitle { color: var(--color-text-secondary); font-size: 0.95rem; }

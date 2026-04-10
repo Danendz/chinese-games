@@ -118,7 +118,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.typing-game { max-width: 500px; margin: 0 auto; text-align: center; }
+.typing-game { max-width: 500px; margin: 0 auto; text-align: center; box-sizing: border-box; }
 
 .progress-bar { position: relative; height: 6px; background: var(--color-bg-secondary); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--color-primary); border-radius: 3px; transition: width var(--transition-medium); }
@@ -133,12 +133,12 @@ onMounted(() => {
 .q-pinyin { font-size: 1.1rem; color: var(--color-primary); font-weight: 500; margin-bottom: 12px; }
 .q-prompt { font-size: 0.85rem; color: var(--color-text-light); }
 
-.input-area { display: flex; gap: 8px; margin-bottom: 16px; }
+.input-area { display: flex; gap: 8px; margin-bottom: 16px; max-width: 100%; }
 .typing-input {
-  flex: 1; padding: 14px 16px; border: 2px solid var(--color-border);
+  flex: 1; min-width: 0; padding: 14px 16px; border: 2px solid var(--color-border);
   border-radius: var(--radius-md); font-size: 1.5rem; text-align: center;
   transition: all var(--transition-fast); background: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-text); box-sizing: border-box;
 }
 .typing-input:focus { outline: none; border-color: var(--color-primary); }
 .typing-input.correct { border-color: var(--color-success); background: rgba(0, 184, 148, 0.05); }
@@ -167,5 +167,13 @@ onMounted(() => {
   40% { transform: translateX(5px); }
   60% { transform: translateX(-3px); }
   80% { transform: translateX(3px); }
+}
+
+@media (max-width: 480px) {
+  .question-area { padding: 16px; }
+  .q-translation { font-size: 1.15rem; }
+  .q-pinyin { font-size: 1rem; }
+  .typing-input { font-size: 1.2rem; padding: 12px 10px; }
+  .check-btn { padding: 12px 16px; font-size: 0.85rem; white-space: nowrap; }
 }
 </style>
